@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :languageskills
   resources :profiles
   resources :notifications
   devise_for :users
