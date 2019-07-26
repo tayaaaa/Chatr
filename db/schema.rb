@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_053740) do
+ActiveRecord::Schema.define(version: 2019_07_26_053956) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,6 +97,15 @@ ActiveRecord::Schema.define(version: 2019_07_26_053740) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "replies", force: :cascade do |t|
+    t.bigint "review_id"
+    t.text "content"
+    t.datetime "date_published"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["review_id"], name: "index_replies_on_review_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.bigint "userbooking_id"
     t.integer "stars"
@@ -149,6 +158,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_053740) do
   add_foreign_key "messages", "users", column: "author_id"
   add_foreign_key "notifications", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "replies", "reviews"
   add_foreign_key "reviews", "userbookings"
   add_foreign_key "userbookings", "lessons"
   add_foreign_key "userbookings", "users", column: "student_id"
