@@ -34,10 +34,11 @@ puts "Assigning Role to User 2"
 user2.role = Role.where(privilege: 'teacher')
 puts "Creating and Assigning profile for User 2"
 user2.profile = Profile.create! :firstname => 'Joe', :lastname => 'Teacher', :bio => 'I can do teacher actions'
+user2.save!
 puts "Creating and Assigning language skill for User 2"
-user3.languageskill = Languageskill.create! :language_name => 'Spanish', :proficiency => 5, :teaches => true
+user2.profile.languageskill = Languageskill.create! :language_name => 'Spanish', :proficiency => 5, :teaches => true
 puts "Creating and Assigning Lesson for User 2"
-user3.lesson = Lesson.create! :price => 10, :duration => 60, :description => "This is a 60 minute lesson for Spanish", :maxbooking => 6
+user2.lesson = Lesson.create! :price => 10, :duration => 60, :description => "This is a 60 minute lesson for Spanish", :maxbooking => 6
 user2.save!
 puts "Finished seeded User 2"
 
@@ -48,8 +49,9 @@ puts "Assigning Role to User 3"
 user3.role = Role.where(privilege: 'student')
 puts "Creating and Assigning profile for User 3"
 user3.profile = Profile.create! :firstname => 'Sally', :lastname => 'Student', :bio => 'I can do student actions'
+user3.save!
 puts "Creating and Assigning language skill for User 3"
-user3.languageskill = Languageskill.create! :language_name => 'Mandarin', :proficiency => 6, :teaches => false
+user3.profile.languageskill = Languageskill.create! :language_name => 'Mandarin', :proficiency => 6, :teaches => false
 user3.save!
 puts "Finished seeded User 3"
 
