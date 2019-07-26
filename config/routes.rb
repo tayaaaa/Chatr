@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :conversations
   resources :languageskills
   resources :profiles
   resources :notifications
