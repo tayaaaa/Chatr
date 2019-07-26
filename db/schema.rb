@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_24_062256) do
+ActiveRecord::Schema.define(version: 2019_07_26_011735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 2019_07_24_062256) do
     t.integer "proficiency"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "language_name"
     t.index ["profile_id"], name: "index_languageskills_on_profile_id"
   end
 
