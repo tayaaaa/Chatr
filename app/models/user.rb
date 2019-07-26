@@ -3,7 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   has_many :conversations
 	belongs_to :role, optional: true
-	has_many :notifications
+  has_many :notifications
+  has_many :userbookings
 	has_one :profile
   has_many :messages
   has_many :lessons
