@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_011735) do
+ActiveRecord::Schema.define(version: 2019_07_26_015406) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "conversations", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_conversations_on_user_id"
+  end
 
   create_table "languageskills", force: :cascade do |t|
     t.bigint "profile_id"
@@ -34,6 +41,17 @@ ActiveRecord::Schema.define(version: 2019_07_26_011735) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_lessons_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.bigint "conversation_id"
+    t.text "content"
+    t.datetime "date_sent"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["conversation_id"], name: "index_messages_on_conversation_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "notifications", force: :cascade do |t|
@@ -70,12 +88,18 @@ ActiveRecord::Schema.define(version: 2019_07_26_011735) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "role_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "conversations", "users"
   add_foreign_key "languageskills", "profiles"
   add_foreign_key "lessons", "users"
+  add_foreign_key "messages", "conversations"
+  add_foreign_key "messages", "users"
   add_foreign_key "notifications", "users"
   add_foreign_key "profiles", "users"
+  add_foreign_key "users", "roles"
 end
