@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :userbookings
   resources :messages
   resources :conversations
   resources :lessons
