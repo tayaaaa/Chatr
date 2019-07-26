@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_033758) do
+ActiveRecord::Schema.define(version: 2019_07_26_050228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -117,9 +117,9 @@ ActiveRecord::Schema.define(version: 2019_07_26_033758) do
     t.index ["role_id"], name: "index_users_on_role_id"
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "conversations", "users", column: "user1_id"
   add_foreign_key "conversations", "users", column: "user2_id"
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "languageskills", "profiles"
   add_foreign_key "lessons", "users"
   add_foreign_key "messages", "conversations"
