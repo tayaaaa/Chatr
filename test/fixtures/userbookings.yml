@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student: one
+  lesson: one
+  note: MyText
+  date_booked: 2019-07-26 15:32:06
+  completedstu: false
+  completedteach: false
+
+two:
+  student: two
+  lesson: two
+  note: MyText
+  date_booked: 2019-07-26 15:32:06
+  completedstu: false
+  completedteach: false
