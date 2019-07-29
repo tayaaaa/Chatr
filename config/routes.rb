@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :replies
+  resources :reviews
+  resources :userbookings
+  resources :conversations
+  resources :messages
   resources :lessons
   resources :languageskills
   resources :profiles
