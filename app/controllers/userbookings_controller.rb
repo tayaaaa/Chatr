@@ -1,5 +1,6 @@
 class UserbookingsController < ApplicationController
   before_action :set_userbooking, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /userbookings
   # GET /userbookings.json
@@ -35,6 +36,7 @@ class UserbookingsController < ApplicationController
         format.json { render json: @userbooking.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   # PATCH/PUT /userbookings/1
@@ -63,12 +65,16 @@ class UserbookingsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
+    def set_user
+      @user = current_user
+    end
+
     def set_userbooking
       @userbooking = Userbooking.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def userbooking_params
-      params.require(:userbooking).permit(:student_id, :lesson_id, :note, :date_booked, :completedstu, :completedteach)
+      params.require(:userbooking).permit(:user_id, :lesson_id, :note, :date_booked, :completedstu, :completedteach)
     end
 end

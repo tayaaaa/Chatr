@@ -49,6 +49,7 @@ class LessonsController < ApplicationController
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
       end
     end
+    raise
   end
 
   # DELETE /lessons/1
@@ -69,6 +70,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:user_id, :price, :duration, :description, :maxbooking)
+      params.require(:lesson).permit(:user_id, :languageskill_id, :price, :duration, :description, :maxbooking)
     end
 end

@@ -12,8 +12,12 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :references %>
-    <%= form.text_field :references %>
+    <%= form.label :conversation %>
+    <%= form.text_field :conversation_id %>
+  </div>
+
+  <div class="field">
+    <%= form.hidden_field :author, value: "#{current_user.id}" %>
   </div>
 
   <div class="field">
@@ -24,11 +28,6 @@
   <div class="field">
     <%= form.label :date_sent %>
     <%= form.datetime_select :date_sent %>
-  </div>
-
-  <div class="field">
-    <%= form.label :references %>
-    <%= form.text_field :references %>
   </div>
 
   <div class="actions">
