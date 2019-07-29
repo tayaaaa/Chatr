@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_26_053956) do
+ActiveRecord::Schema.define(version: 2019_07_29_042812) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,8 @@ ActiveRecord::Schema.define(version: 2019_07_26_053956) do
     t.integer "maxbooking"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "languageskill_id"
+    t.index ["languageskill_id"], name: "index_lessons_on_languageskill_id"
     t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
@@ -123,7 +125,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_053956) do
   end
 
   create_table "userbookings", force: :cascade do |t|
-    t.bigint "student_id"
     t.bigint "lesson_id"
     t.text "note"
     t.datetime "date_booked"
@@ -131,8 +132,9 @@ ActiveRecord::Schema.define(version: 2019_07_26_053956) do
     t.boolean "completedteach", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["lesson_id"], name: "index_userbookings_on_lesson_id"
-    t.index ["student_id"], name: "index_userbookings_on_student_id"
+    t.index ["user_id"], name: "index_userbookings_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -153,6 +155,7 @@ ActiveRecord::Schema.define(version: 2019_07_26_053956) do
   add_foreign_key "conversations", "users", column: "user1_id"
   add_foreign_key "conversations", "users", column: "user2_id"
   add_foreign_key "languageskills", "profiles"
+  add_foreign_key "lessons", "languageskills"
   add_foreign_key "lessons", "users"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users", column: "author_id"
@@ -161,6 +164,6 @@ ActiveRecord::Schema.define(version: 2019_07_26_053956) do
   add_foreign_key "replies", "reviews"
   add_foreign_key "reviews", "userbookings"
   add_foreign_key "userbookings", "lessons"
-  add_foreign_key "userbookings", "users", column: "student_id"
+  add_foreign_key "userbookings", "users"
   add_foreign_key "users", "roles"
 end
