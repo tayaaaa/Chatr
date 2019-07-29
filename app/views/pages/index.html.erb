@@ -1,6 +1,9 @@
 <head>
   <title>Home | Chatr</title>
   <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -28,14 +31,8 @@
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-      
-      <% @teachers_card_array.each do |teachers_card_info| %>
-        <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
-          <p> <%= teachers_card_info[:bio]%> </p>
-          <% teachers_card_info[:teach_languages].each do |language| %>
-            <p> <%= language %> </p>
-         <%end%>
-       <%end%>
+       
+      <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>    
     </div>
   </div>
 

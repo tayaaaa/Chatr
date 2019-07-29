@@ -1,0 +1,23 @@
+
+<div class="cardslider">
+<% @teachers_card_array.each do |teachers_card_info| %>
+    <div class="card">
+    <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
+    <% if teachers_card_info[:stars]%>
+        <% teachers_card_info[:stars].to_i.times do  %>
+        <span class="glyphicon glyphicon-star"></span>
+        <% end %>
+    <% end %>
+    <% if teachers_card_info[:stars].to_i != 5 %>
+        <% (5 - teachers_card_info[:stars].to_i).times do %>
+        <span class="glyphicon glyphicon-star-empty"></span>
+        <% end %>
+    <% end %>
+
+    <% teachers_card_info[:teach_languages].each do |language| %>
+        <p> <%= language %> </p>
+    <% end %>
+    <p> <%= teachers_card_info[:bio]%> </p>
+    </div>
+<% end %>
+</div>

@@ -3,7 +3,18 @@ class PagesController < ApplicationController
     before_action :set_lessons
     
     def index
-    @teachers_card_array = []
+        # @lesson_card_array = []
+        # @lessons.each do |lesson|
+        #     lesson_card_info = {
+        #         language: lesson.languageskill.language_name, 
+        #         duration: lesson.duration, 
+        #         maxbooking: lesson.maxbooking, 
+        #         description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
+        #         price:lesson.price}
+        #     @lesson_card_array << lesson_card_info
+        # end
+
+        @teachers_card_array = []
 
         @teachers.each do |teacher|
             languages_arr = teacher.profile.languageskills
@@ -14,29 +25,21 @@ class PagesController < ApplicationController
                 end
             end
 
-            teacher_card_info = {
+            @teacher_card_info = {
                 :profile_id => teacher.profile.id,
                 :name => teacher.profile.firstname,
                 :bio => teacher.profile.bio,
-                :teach_languages => languages
+                :teach_languages => languages,
+                :stars => get_teacher_stars(teacher)
             }
-            @teachers_card_array << teacher_card_info
+            @teachers_card_array << @teacher_card_info
         end
     end
     
 
-    def index
-        @lesson_card_array = []
-        @lessons.each do |lesson|
-            lesson_card_info = {
-                language: lesson.languageskill.language_name, 
-                duration: lesson.duration, 
-                maxbooking: lesson.maxbooking, 
-                description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
-                price:lesson.price}
-            @lesson_card_array << lesson_card_info
-        end
-    end
+    # def index
+      
+    # end
 
     private
     def set_lessons
@@ -60,7 +63,11 @@ class PagesController < ApplicationController
                 end
             end
         end
-        average_stars = (total_stars / (userbookings_with_review * 5.0)) * 5
+        if(userbookings_with_review != 0)
+            average_stars = (total_stars / (userbookings_with_review * 5.0)) * 5
+        else
+            "no reviews"
+        end
     end
 
 end
