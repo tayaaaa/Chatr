@@ -1,3 +1,218 @@
-// Place all the styles related to the Pages controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  background-color: #fff;
+  color: #1d2129;
+  display: flex;
+  direction: ltr;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  font-size: 14px;
+  line-height: 1.2em;
+  overflow-y: scroll;
+  width: 100%;
+}
+
+.outer-wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#header.outer-wrapper {
+  background-color: #4267B2;
+  box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+}
+
+#body.outer-wrapper {
+  height: 100%;
+  margin-top: 70px;
+}
+
+#body .inner-wrapper {
+  background-color: rgb(243, 243, 243);
+  min-height: 500px;
+  padding: 0px 10px;
+  margin-bottom: 110px;
+}
+
+#footer.outer-wrapper {
+  background-color: rgb(58, 58, 58);
+  position: fixed;
+  bottom: 0;
+}
+
+.inner-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-width: 1200px;
+  width: 1200px;
+}
+
+.header-footer-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  width: 100%;
+}
+
+header {
+  height: 60px;
+  max-height: 60px;
+}
+
+footer {
+  height: 100px;
+  max-height: 100px;
+}
+
+footer.footer {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 60px;
+  justify-content: space-between;
+  max-height: 60px;
+  width: 100%;
+}
+
+div.site-icon-logo,
+div.site-icon-logo-footer {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 20%;
+}
+
+#site-icon {
+  background-image: image-url('chatr_icon-white-1080x1080.png');
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: contain;
+  height: 40px;
+  width: 40px;
+}
+
+#site-icon-logo {
+  background-image: image-url('chatr_logo-white-3627x1080.png');
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: contain;
+  height: 40px;
+  width: 140px;
+}
+
+#site-icon-logo-footer {
+  background-image: image-url('chatr_logo-transparent-3627x1080.png');
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: bottom;
+  background-size: contain;
+  height: 40px;
+  width: 140px;
+}
+
+nav.header-nav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  width: 70%;
+}
+
+nav.footer-nav {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 60%;
+}
+
+.footer-credits-container {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 40px;
+  justify-content: flex-end;
+  max-height: 40px;
+  width: 20%;
+}
+
+.footer-credits {
+  color: #eaeaea;
+}
+
+nav.header-nav {
+  height: 40px;
+  max-height: 40px;
+}
+nav.footer-nav {
+  height: 40px;
+  max-height: 40px;
+}
+
+.header-nav-btn {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: rgba(255, 255, 255, 0);
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+  font-size: 1.2em;
+  font-weight: 400;
+  margin-left: 20px;
+  padding: 4px 10px;
+  text-transform: capitalize;
+}
+
+.header-nav-btn.login-btn {
+  background-color: rgba(255, 255, 255, 0);
+  border-color: #fff;
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.header-nav-btn:active,
+.header-nav-btn:focus,
+.header-nav-btn:hover,
+.header-nav-btn.login-btn:active,
+.header-nav-btn.login-btn:focus,
+.header-nav-btn.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: #fff;
+}
+
+.footer-nav-btn {
+  color: #eaeaea;
+  font-size: 1em;
+  font-weight: 300;
+  margin-left: 20px;
+  text-transform: capitalize;
+}
+
+.footer-nav-btn:active,
+.footer-nav-btn:focus,
+.footer-nav-btn:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
