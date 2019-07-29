@@ -1,12 +1,64 @@
-<h1>Chatr Home Page</h1>
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+</head>
 
+<body>
+  <div id="header" class="outer-wrapper">
+    <div class="inner-wrapper">
+      <header class="header-footer-container">
+        <div id="" class="site-icon-logo">
+          <a href="/">
+            <%# <div id="site-icon"></div> %>
+            <div id="site-icon-logo"></div>
+          </a>
+        </div>
+        <nav id="header-nav" class="header-nav">
+          <a id="header-nav-btn-current" class="header-nav-btn" href="/"> home </a>
+          <a id="" class="header-nav-btn" href="/"> browse </a>
+          <a id="" class="header-nav-btn" href="/"> how it works </a>
+          <a id="" class="header-nav-btn" href="/"> about us </a>
+          <a id="" class="header-nav-btn" href="/"> signup </a>
+          <a id="" class="header-nav-btn login-btn" href="/"> login </a>
+        </nav>
+      </header>
+    </div>
+  </div>
 
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+      
+      <% @teachers_card_array.each do |teachers_card_info| %>
+        <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
+          <p> <%= teachers_card_info[:bio]%> </p>
+          <% teachers_card_info[:teach_languages].each do |language| %>
+            <p> <%= language %> </p>
+         <%end%>
+       <%end%>
+    </div>
+  </div>
 
-<% @teachers_card_array.each do |teachers_card_info| %>
-    <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
-    <p> <%= teachers_card_info[:bio]%> </p>
-    <% teachers_card_info[:teach_languages].each do |language| %>
-        <p> <%= language %> </p>
-    <%end%>
-<%end%>
+  <div id="footer" class="outer-wrapper">
+    <div class="inner-wrapper">
+      <footer class="header-footer-container">
+        <div id="" class="site-icon-logo-footer">
+          <a href="/">
+            <div id="site-icon-logo-footer"></div>
+          </a>
+        </div>
+        <nav id="footer-nav" class="footer-nav">
+          <a id="" class="footer-nav-btn" href="/"> browse </a>
+          <a id="" class="footer-nav-btn" href="/"> how it works </a>
+          <a id="" class="footer-nav-btn" href="/"> about us </a>
+          <a id="" class="footer-nav-btn" href="/"> signup </a>
+          <a id="" class="footer-nav-btn" href="/"> login </a>
+        </nav>
+        <div id="" class="footer-credits-container">
+          <div id="" class="footer-credits"> 2019 | Chatr | All Rights Reserved </div>
+        </div>
+      </footer>
+    </div>
+  </div>
 
+</body>
