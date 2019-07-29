@@ -1,0 +1,9 @@
+<% @lesson_card_array.each do |lesson| %>
+    <p> <%= lesson[:language]  %> </p>
+    <p> <%= lesson[:duration]  %> </p>
+    <p> <%= lesson[:maxbooking]  %> </p>
+    <p> <%= lesson[:description]  %> </p>
+    <p> <%= lesson[:price]  %> </p>
+    <p> <%= link_to lesson[:teacher_name], "/profiles/#{lesson[:teacher_id]}" %> </p>
+    <p> <%= link_to 'BOOK', "/userbookings/new" %> </p>
+<% end %>
