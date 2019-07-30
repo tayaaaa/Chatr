@@ -2,6 +2,7 @@
 <div class="cardslider">
 <% @teachers_card_array.each do |teachers_card_info| %>
     <div class="card">
+    <%= image_tag teachers_card_info[:image].service_url %>
     <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
     <% if teachers_card_info[:stars]%>
         <% teachers_card_info[:stars].to_i.times do  %>

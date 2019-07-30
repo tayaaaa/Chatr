@@ -30,7 +30,8 @@ class PagesController < ApplicationController
                 :name => teacher.profile.firstname,
                 :bio => teacher.profile.bio,
                 :teach_languages => languages,
-                :stars => get_teacher_stars(teacher)
+                :stars => get_teacher_stars(teacher),
+                :image => teacher.profile.uploaded_image
             }
             @teachers_card_array << @teacher_card_info
         end
@@ -65,8 +66,6 @@ class PagesController < ApplicationController
         end
         if(userbookings_with_review != 0)
             average_stars = (total_stars / (userbookings_with_review * 5.0)) * 5
-        else
-            "no reviews"
         end
     end
 
