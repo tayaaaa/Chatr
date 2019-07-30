@@ -7,25 +7,11 @@
 </head>
 
 <body>
-  <div id="header" class="outer-wrapper">
-    <div class="inner-wrapper">
-      <header class="header-footer-container">
-        <div id="" class="site-icon-logo">
-          <a href="/">
-            <div id="site-icon-logo"></div>
-          </a>
-        </div>
-        <nav id="header-nav" class="header-nav">
-          <a id="header-nav-btn-current" class="header-nav-btn" href="/"> home </a>
-          <a id="" class="header-nav-btn" href="/"> browse </a>
-          <a id="" class="header-nav-btn" href="/"> how it works </a>
-          <a id="" class="header-nav-btn" href="/"> about us </a>
-          <a id="" class="header-nav-btn" href="/"> signup </a>
-          <a id="" class="header-nav-btn login-btn" href="/"> login </a>
-        </nav>
-      </header>
-    </div>
-  </div>
+  <% if current_user %>
+    <%= render 'header_nav_authenticated' %>
+  <% else %>
+    <%= render 'header_nav_public' %>
+  <% end %>
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
