@@ -6,16 +6,16 @@ class PagesController < ApplicationController
     end
 
     def index
-        # @lesson_card_array = []
-        # @lessons.each do |lesson|
-        #     lesson_card_info = {
-        #         language: lesson.languageskill.language_name, 
-        #         duration: lesson.duration, 
-        #         maxbooking: lesson.maxbooking, 
-        #         description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
-        #         price:lesson.price}
-        #     @lesson_card_array << lesson_card_info
-        # end
+        @lesson_card_array = []
+        @lessons.each do |lesson|
+            lesson_card_info = {
+                language: lesson.languageskill.language_name, 
+                duration: lesson.duration, 
+                maxbooking: lesson.maxbooking, 
+                description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
+                price:lesson.price}
+            @lesson_card_array << lesson_card_info
+        end
 
         @teachers_card_array = []
 
@@ -38,17 +38,6 @@ class PagesController < ApplicationController
             }
             @teachers_card_array << @teacher_card_info
         end
-        # @lesson_card_array = []
-        # @lessons.each do |lesson|
-        #     lesson_card_info = {
-        #         id: lesson.id,
-        #         language: lesson.languageskill.language_name, 
-        #         duration: lesson.duration, 
-        #         maxbooking: lesson.maxbooking, 
-        #         description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
-        #         price:lesson.price}
-        #     @lesson_card_array << lesson_card_info
-        # end
     end
     
 
