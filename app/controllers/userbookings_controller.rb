@@ -36,7 +36,6 @@ class UserbookingsController < ApplicationController
         format.json { render json: @userbooking.errors, status: :unprocessable_entity }
       end
     end
-    
   end
 
   # PATCH/PUT /userbookings/1

@@ -5,6 +5,7 @@ class PagesController < ApplicationController
         @lesson_card_array = []
         @lessons.each do |lesson|
             lesson_card_info = {
+                id: lesson.id,
                 language: lesson.languageskill.language_name, 
                 duration: lesson.duration, 
                 maxbooking: lesson.maxbooking, 

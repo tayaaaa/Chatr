@@ -16,8 +16,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :lesson_id %>
-    <%= form.text_field :lesson_id %>
+    <%= form.hidden_field :lesson_id, value: params[:lesson_id]%>
   </div>
 
   <div class="field">
@@ -28,16 +27,6 @@
   <div class="field">
     <%= form.label :date_booked %>
     <%= form.datetime_select :date_booked %>
-  </div>
-
-  <div class="field">
-    <%= form.label :completedstu %>
-    <%= form.check_box :completedstu %>
-  </div>
-
-  <div class="field">
-    <%= form.label :completedteach %>
-    <%= form.check_box :completedteach %>
   </div>
 
   <div class="actions">
