@@ -12,7 +12,6 @@
       <header class="header-footer-container">
         <div id="" class="site-icon-logo">
           <a href="/">
-            <%# <div id="site-icon"></div> %>
             <div id="site-icon-logo"></div>
           </a>
         </div>
@@ -33,9 +32,8 @@
       
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
        
-      <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>    
-
-      <%if false%>
+      <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+      
       <div class= "lessoncards">
         <h1 class = "heading"> Browse Available Lessons...</h2>
         <%= render 'lessoncard' %>
