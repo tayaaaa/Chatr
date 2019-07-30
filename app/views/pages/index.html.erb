@@ -27,7 +27,13 @@
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
+      
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+      
+      <div class= "lessoncards">
+        <h1 class = "heading"> Browse Available Lessons...</h2>
+        <%= render 'lessoncard' %>
+      </div>
       
       <% @teachers_card_array.each do |teachers_card_info| %>
         <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
@@ -36,6 +42,7 @@
             <p> <%= language %> </p>
          <%end%>
        <%end%>
+      
     </div>
   </div>
 
