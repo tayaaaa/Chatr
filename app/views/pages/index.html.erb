@@ -30,9 +30,18 @@
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
+      
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
        
       <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>    
+
+      
+      <div class= "lessoncards">
+        <h1 class = "heading"> Browse Available Lessons...</h2>
+        <%= render 'lessoncard' %>
+      </div>
+      
+      
     </div>
   </div>
 
