@@ -33,7 +33,6 @@ body {
 }
 
 #body .inner-wrapper {
-  background-color: rgb(243, 243, 243);
   min-height: 500px;
   padding: 0px 10px;
   margin-bottom: 110px;
@@ -41,8 +40,6 @@ body {
 
 #footer.outer-wrapper {
   background-color: rgb(58, 58, 58);
-  position: fixed;
-  bottom: 0;
 }
 
 .inner-wrapper {
@@ -199,6 +196,16 @@ nav.footer-nav {
 .header-nav-btn.login-btn:hover {
   background-color: rgba(255, 255, 255, 0.08);
   border-color: rgba(255, 255, 255, 0.05);
+}
+
+.header-nav-btn.public:active,
+.header-nav-btn:focus,
+.header-nav-btn:hover,
+.header-nav-btn.login-btn:active,
+.header-nav-btn.login-btn:focus,
+.header-nav-btn.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 1);
 }
 
 .footer-nav-btn {
