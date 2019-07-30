@@ -2,6 +2,9 @@ class PagesController < ApplicationController
     before_action :set_teachers
     before_action :set_lessons
     
+    def landing
+    end
+
     def index
         # @lesson_card_array = []
         # @lessons.each do |lesson|
