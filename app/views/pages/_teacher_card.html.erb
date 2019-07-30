@@ -19,6 +19,8 @@
         <p> <%= language %> </p>
     <% end %>
     <p> <%= teachers_card_info[:bio]%> </p>
+
+    <div> <p><%= link_to "View Profile", "/profiles/#{teachers_card_info[:profile_id]}" %></p> </div>
     </div>
 <% end %>
 </div>

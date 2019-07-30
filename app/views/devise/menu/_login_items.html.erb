@@ -2,9 +2,11 @@
     <p>
         <%= link_to('Logout', destroy_user_session_path, method: :delete) %>        
     </p>
+    <% if(current_user.profile) %>
     <p>
         <%= "Welcome #{current_user.profile.firstname}, user_id: #{current_user.id}, role: #{current_user.role.privilege}"%>
     </p>
+    <% end %>
 <% else %>
     <p>
         <%= link_to('Login', new_user_session_path) %>  
