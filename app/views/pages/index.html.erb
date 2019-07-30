@@ -1,6 +1,9 @@
 <head>
   <title>Home | Chatr</title>
   <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -26,7 +29,18 @@
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
+      
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+       
+      <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>    
+
+      
+      <div class= "lessoncards">
+        <h1 class = "heading"> Browse Available Lessons...</h2>
+        <%= render 'lessoncard' %>
+      </div>
+      
+      
     </div>
   </div>
 
