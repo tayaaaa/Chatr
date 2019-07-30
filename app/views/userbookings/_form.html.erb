@@ -1,0 +1,46 @@
+<%= form_with(model: userbooking, local: true) do |form| %>
+  <% if userbooking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(userbooking.errors.count, "error") %> prohibited this userbooking from being saved:</h2>
+
+      <ul>
+      <% userbooking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, value: "#{current_user.id}"%>
+  </div>
+
+  <div class="field">
+    <%= form.label :lesson_id %>
+    <%= form.text_field :lesson_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :note %>
+    <%= form.text_area :note %>
+  </div>
+
+  <div class="field">
+    <%= form.label :date_booked %>
+    <%= form.datetime_select :date_booked %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completedstu %>
+    <%= form.check_box :completedstu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :completedteach %>
+    <%= form.check_box :completedteach %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

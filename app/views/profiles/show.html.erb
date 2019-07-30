@@ -1,12 +1,12 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @profile.user %>
+  <strong>User id:</strong>
+  <%= @profile.user_id %>
 </p>
 
-<p>
-  <strong>Uploaded Image:</strong>
+<p> 
+  <strong>Uploaded image:</strong>
   <% if @profile.uploaded_image.attached? %>
     <%= image_tag @profile.uploaded_image %>
   <% else %>
@@ -15,12 +15,12 @@
 </p>
 
 <p>
-  <strong>Firstname:</strong>
+  <strong>First name:</strong>
   <%= @profile.firstname %>
 </p>
 
 <p>
-  <strong>Lastname:</strong>
+  <strong>Last name:</strong>
   <%= @profile.lastname %>
 </p>
 
@@ -32,6 +32,31 @@
 <p>
   <strong>Skypename:</strong>
   <%= @profile.skypename %>
+</p>
+
+<p>
+  <strong>Language skills:</strong> 
+  <% @user.profile.languageskills.each do |languageskill| %>
+    <div>
+      <p> Language: <%= languageskill.language_name %> </p>
+      <p> Proficiency: <%= languageskill.proficiency %> </p>
+    </div>
+  <%end%>
+</p>
+
+<% if @user.role.privilege == "teacher" %>
+  <p>
+    <strong>Lessons:</strong>
+    <% @user.lessons.each do |lesson|%>
+      <div>
+        <p> Lesson id: <%= lesson.id %> </p>
+        <p> Price: <%= lesson.price %> </p>
+        <p> Duration: <%= lesson.duration %> </p>
+        <p> Description: <%= lesson.description %> </p>
+        <p> Maxbooking: <%= lesson.maxbooking %> </p>
+      </div>
+    <%end%>
+  <%end%>
 </p>
 
 <%= link_to 'Edit', edit_profile_path(@profile) %> |

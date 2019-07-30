@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Student:</strong>
+  <%= @userbooking.user %>
+</p>
+
+<p>
+  <strong>Lesson:</strong>
+  <%= @userbooking.lesson %>
+</p>
+
+<p>
+  <strong>Note:</strong>
+  <%= @userbooking.note %>
+</p>
+
+<p>
+  <strong>Date booked:</strong>
+  <%= @userbooking.date_booked %>
+</p>
+
+<p>
+  <strong>Completedstu:</strong>
+  <%= @userbooking.completedstu %>
+</p>
+
+<p>
+  <strong>Completedteach:</strong>
+  <%= @userbooking.completedteach %>
+</p>
+
+<%= link_to 'Edit', edit_userbooking_path(@userbooking) %> |
+<%= link_to 'Back', userbookings_path %>
