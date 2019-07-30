@@ -33,9 +33,12 @@
       
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
        
-      <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+      <div class= "rowofcards">
+        <h1 class = "heading"> Top Rated Teachers: </h2>
+        <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+      </div>
       
-      <div class= "lessoncards">
+      <div class= "rowofcards">
         <h1 class = "heading"> Browse Available Lessons...</h2>
         <%= render 'lessoncard' %>
       </div>
