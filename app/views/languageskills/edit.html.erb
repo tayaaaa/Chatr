@@ -2,5 +2,5 @@
 
 <%= render 'form', languageskill: @languageskill %>
 
-<%= link_to 'Show', @languageskill %> |
+<%= link_to 'Destroy', @languageskill, method: :delete, data: { confirm: 'Are you sure?' } %>
 <%= link_to 'Back', languageskills_path %>
