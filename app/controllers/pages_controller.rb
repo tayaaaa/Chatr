@@ -31,7 +31,7 @@ class PagesController < ApplicationController
                 :bio => teacher.profile.bio,
                 :teach_languages => languages,
                 :stars => get_teacher_stars(teacher),
-                :image => teacher.profile.uploaded_image
+                # :image => teacher.profile.uploaded_image
             }
             @teachers_card_array << @teacher_card_info
         end
