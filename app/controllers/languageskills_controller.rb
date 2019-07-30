@@ -1,15 +1,12 @@
 class LanguageskillsController < ApplicationController
   before_action :set_languageskill, only: [:show, :edit, :update, :destroy]
+  before_action :language_names_array, only: [:new, :edit, :create, :update]
+
 
   # GET /languageskills
   # GET /languageskills.json
   def index
     @languageskills = Languageskill.all
-  end
-
-  # GET /languageskills/1
-  # GET /languageskills/1.json
-  def show
   end
 
   # GET /languageskills/new
@@ -62,6 +59,17 @@ class LanguageskillsController < ApplicationController
   end
 
   private
+    def language_names_array
+      languagesarray= HTTParty.get("https://restcountries.eu/rest/v2/all?fields=languages")
+      langnames = []
+      languagesarray.each do |languagehash|
+        languagehash["languages"].each do |languagedetails|
+          langnames << languagedetails["name"]
+        end
+      end
+      @languagenames = langnames.uniq
+    end
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_languageskill
       @languageskill = Languageskill.find(params[:id])
@@ -69,6 +77,6 @@ class LanguageskillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def languageskill_params
-      params.require(:languageskill).permit(:references, :teaches, :proficiency)
+      params.require(:languageskill).permit(:profile_id, :teaches, :proficiency, :language_name)
     end
 end
