@@ -216,45 +216,63 @@ nav.footer-nav {
   text-decoration: underline;
 }
 
-.cardslider{
+.lessoncards {
   width: 100%;
-  display:flex;
-  flex-direction:row;
-  overflow-x: auto;
-  .card {
-    box-shadow: 0 0 2px 0 rgba(46,62,72,.12), 0 2px 4px 0 rgba(46,62,72,.12);
-    border: 1px solid grey;
-    border-radius: 2px;
-    margin: 10px;
-    padding: 10px;
-    align-items: center;
-    min-width: calc(25% - 42px);
 
-    #language {
-      text-align: center;
-    }
+  .cardslider{
+    width: 100%;
+    display:flex;
+    flex-direction:row;
+    overflow-x: auto;
 
-    #duration {}
+    .card {
+      box-shadow: 0 0 2px 0 rgba(46,62,72,.12), 0 2px 4px 0 rgba(46,62,72,.12);
+      border: 1px solid grey;
+      border-radius: 2px;
+      margin: 10px;
+      padding: 10px;
+      align-items: center;
+      min-width: calc(25% - 42px);
 
-    #maxbooking {}
-
-    #description {}
-
-    #price {}
-
-    #teacher {}
-
-    #bookbutton {
-      background-color: #4267B2;
-      border-style: solid;
-      border-width: 1px;
-    }
-  }
+      .seemorebutton{
+        display:flex;
+        justify-content: center;
+      }
   
-  .card:hover{
-    bottom: 1px;
-    right: 1px;
-    cursor: pointer;
-    box-shadow: 3px 3px 2px 2px rgba(24, 43, 56, 0.637);
+      .cardtitle {
+        #language {
+          text-align: center;
+        }
+      }
+  
+      .lessonstats{
+        display:flex;
+        flex-direction: row;
+        justify-content:center;
+      }
+      
+      .bookbuttondiv {
+        display:flex;
+        align-items:center;
+        .bookbutton {
+          background-color: #4267B2;
+          text-align: center;
+          color: white;
+          width: 80%;
+          justify-content: center;
+        }
+  
+        .bookbutton:visited{
+          color: white;
+        }
+      }
+    }
+    
+    .card:hover{
+      bottom: 1px;
+      right: 1px;
+      cursor: pointer;
+      box-shadow: 3px 3px 2px 2px rgba(24, 43, 56, 0.637);
+    }
   }
 }
