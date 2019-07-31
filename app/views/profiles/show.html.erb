@@ -29,7 +29,7 @@
       <p>
         <strong>First name:</strong>
         <%= @profile.firstname %>
-      </p>
+      </p> 
 
       <p>
         <strong>Last name:</strong>
@@ -68,11 +68,7 @@
               <p> Maxbooking: <%= lesson.maxbooking %> </p>
             </div>
           <%end%>
-        <%end%>
-      </p>
-      <% if false %>
-        <%User.first.lessons.first.userbookings.first.reviews.reply%>
-      <% end %> 
+       </p>
 
       <p>
         <% @user_reviews.each do |review| %>
@@ -89,10 +85,9 @@
             <p> Date <%= review.reply.date_published %> </p>
             <p> Content: <%= review.reply.content %> </p>
           </div>
-         
           <% end %>
-         
         <% end %>
+      <%end%>
       </p>
     </div>
   </div>
