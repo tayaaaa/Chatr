@@ -17,13 +17,13 @@
     <div class="inner-wrapper">
       
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-      <div class = "card-wrapper">
-        <div class="upcoming-bookings">
+      <div class = "cardwrapper">
+        <div class="rowofcards">
           <h1> Your upcoming bookings: </h1>
           <%= render 'userbooking_card', locals: {completed: 0}  %>
         </div>
 
-        <div class="previous-bookings">
+        <div class="rowofcards">
           <h1> Your previous bookings: </h1>
           <%= render 'userbooking_card', locals: {completed: 1} %>
         </div>

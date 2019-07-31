@@ -6,7 +6,7 @@ class UserbookingsController < ApplicationController
   # GET /userbookings.json
   def index
     @all_userbooking_cards = [[],[]]
-    userbookings = Userbooking.all
+    userbookings = Userbooking.all.where(user_id: current_user.id)
     userbookings.each do |booking|
       card_information = {
         userbooking: booking,
