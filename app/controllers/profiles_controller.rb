@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :set_default_image, only:[:create]
 
+
   # GET /profiles
   # GET /profiles.json
   def index
@@ -12,6 +13,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @user
+    @user_reviews = user_reviews(@user)
   end
 
   # GET /profiles/new
@@ -84,4 +87,19 @@ class ProfilesController < ApplicationController
     #       profile.uploaded_image.attach(io: File.open('/assets/images/default-user-img.png'), filename: 'default-user-img.png')
     #   end
     # end
+
+    def user_reviews(user) 
+        userbookings = []
+        user.lessons.each do |lesson|
+          lesson.userbookings.each do |userbooking|
+              userbookings << userbooking
+          end
+        end
+
+        reviews = []
+        userbookings.each do |userbooking|
+          reviews << userbooking.review
+        end
+        return reviews
+    end
 end
