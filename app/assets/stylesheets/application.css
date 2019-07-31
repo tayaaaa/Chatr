@@ -5,6 +5,7 @@
 @import url("./pages.scss");
 @import url("./profiles.scss");
 @import url("./scaffolds.scss");
+@import url("./userbookings.scss");
 
 * {
   box-sizing: border-box;

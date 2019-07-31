@@ -5,12 +5,39 @@ class UserbookingsController < ApplicationController
   # GET /userbookings
   # GET /userbookings.json
   def index
-    @userbookings = Userbooking.all
+    @all_userbooking_cards = [[],[]]
+    userbookings = Userbooking.all
+    userbookings.each do |booking|
+      card_information = {
+        userbooking: booking,
+        picture: booking.lesson.user.profile,
+        teacher: booking.lesson.user.profile.firstname,
+        language: booking.lesson.languageskill.language_name,
+        date: booking.date_booked,
+        note: booking.note,
+        description: booking.lesson.description,
+        duration: booking.lesson.duration,
+        complete: booking.completedstu
+      }
+      if card_information[:complete] == true
+        @all_userbooking_cards[1] << card_information
+      else 
+        @all_userbooking_cards[0] << card_information
+      end
+    end
+    puts @all_userbooking_cards
   end
 
   # GET /userbookings/1
   # GET /userbookings/1.json
   def show
+  end
+
+  def completelesson
+    userbooking = Userbooking.find(params[:id])
+    userbooking.completedstu = true
+    userbooking.save!
+    redirect_to request.headers["HTTP_REFERER"]
   end
 
   # GET /userbookings/new
