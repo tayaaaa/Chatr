@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>References:</strong>
-  <%= @message.references %>
+  <strong>Conversation:</strong>
+  <%= @message.conversation.id %>
 </p>
 
 <p>
@@ -16,8 +16,8 @@
 </p>
 
 <p>
-  <strong>References:</strong>
-  <%= @message.references %>
+  <strong>Author:</strong>
+  <%= @message.author %>
 </p>
 
 <%= link_to 'Edit', edit_message_path(@message) %> |
