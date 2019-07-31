@@ -12,18 +12,16 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :references %>
-    <%= form.text_field :references %>
+    <%= form.hidden_field :profile_id, value: "#{current_user.profile.id}" %>
   </div>
 
   <div class="field">
-    <%= form.label :teaches %>
-    <%= form.check_box :teaches %>
+    <%= form.select :language_name, options_for_select(@languagenames) %>
   </div>
 
   <div class="field">
     <%= form.label :proficiency %>
-    <%= form.number_field :proficiency %>
+    <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5 %>
   </div>
 
   <div class="actions">
