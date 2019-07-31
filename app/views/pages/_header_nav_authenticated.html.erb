@@ -10,9 +10,12 @@
         <a id="" class="header-nav-btn" href="/browse"> browse </a>
         <%= link_to 'Bookings', userbookings_path(:user_id => current_user.id), class:"header-nav-btn" %>
         <a id="" class="header-nav-btn" href="/"> finances </a>
-        <a id="" class="header-nav-btn profile-nav-btn" href="/profiles/<%=current_user.profile.id%>">
-          <div class="profile-nav-image"> <img src="profile_1-paul-1240x1240.jpg" alt=""> </div> <%= current_user.profile.firstname %>
-        </a>
+        <% if current_user.profile %>
+          <a id="" class="header-nav-btn profile-nav-btn" href="/profiles/<%=current_user.profile.id%>">
+          <div class="profile-nav-image"> <img src="profile_1-paul-1240x1240.jpg" alt=""> </div> <%= current_user.profile.firstname %> </a>
+        <% else %>
+          <%= current_user.email %>
+        <% end %>
         <div class="header-nav-notifications">
           <i class="fas fa-globe-americas"></i>
           <span class="seperator"></span>

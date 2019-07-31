@@ -12,7 +12,9 @@
           <a id="" class="footer-nav-btn" href="/browse"> browse </a>
           <%= link_to 'Bookings', userbookings_path(:user_id => current_user.id), class:"footer-nav-btn" %>
           <a id="" class="footer-nav-btn" href="/"> finances </a>
-          <a id="" class="footer-nav-btn" href="/profiles/<%=current_user.profile.id%>"> my profile </a>
+          <% if current_user.profile %>
+            <a id="" class="footer-nav-btn" href="/profiles/<%=current_user.profile.id%>"> my profile </a>
+          <% end %>
         <% else %>
           <a id="" class="footer-nav-btn" href="/"> browse </a>
           <a id="" class="footer-nav-btn" href="#howitworks"> how it works </a>
