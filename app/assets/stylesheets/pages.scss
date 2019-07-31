@@ -403,7 +403,7 @@ div.column-teacher {
   text-transform: none;
 }
 
-#body .signup .btn-signup {
+#body .signup a.btn-signup {
   background-color: #4267B2;
   border: solid 1px #fff;
   border-radius: 5px;
@@ -412,10 +412,11 @@ div.column-teacher {
   line-height: 1.1em;
   margin-top: 20px;
   padding: 15px 50px;
+  text-decoration: none;
   text-transform: uppercase;
 }
 
-#body .signup .btn-signup:hover {
+#body .signup a.btn-signup:hover {
   background-color: rgb(46, 72, 124);
   border: solid 1px #fff;
 }
