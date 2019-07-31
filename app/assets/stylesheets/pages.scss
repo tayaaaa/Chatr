@@ -199,14 +199,17 @@ nav.footer-nav {
   border-color: rgba(255, 255, 255, 0.05);
 }
 
-.header-nav-btn.public:active,
-.header-nav-btn:focus,
-.header-nav-btn:hover,
-.header-nav-btn.login-btn:active,
-.header-nav-btn.login-btn:focus,
-.header-nav-btn.login-btn:hover {
+a.header-nav-btn.public:active,
+a.header-nav-btn:focus,
+a.header-nav-btn:hover,
+a.header-nav-btn.login-btn:active,
+a.header-nav-btn.login-btn:focus,
+a.header-nav-btn.login-btn:hover {
   background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 1);
+  border-color: #fff;
+  color: #fff;
+  cursor: default;
+  text-decoration: none;
 }
 
 .footer-nav-btn {
@@ -264,6 +267,7 @@ nav.footer-nav {
 #header-nav .header-nav-logout {
   color: #fff;
   padding: 4px 0px;
+  cursor: default;
 }
 
 #header-nav .header-nav-logout:hover > .fas.fa-lock,
@@ -282,6 +286,143 @@ span.logout {
 #header-nav .fas:hover {
   color: #e2e2e2;
 }
+
+/**  LANDING PAGE STYLES (BEGIN)  **/
+
+#header.outer-wrapper.public {
+  box-shadow: none;
+}
+
+#body.outer-wrapper.outer-wrapper-public {
+  height: calc(100vh - 60px);
+  margin-top: 0px;
+}
+
+#body.outer-wrapper.outer-wrapper-public.outer-wrapper-public-first {
+  height: calc(100vh - 60px);
+}
+
+#body .inner-wrapper.inner-wrapper-public {
+  height: 100%;
+  margin-bottom: 0px;
+  min-height: 600px;
+  padding: 0px 10px;
+}
+
+.bgr-image-signup {
+  background-image: url("landing-img-01.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.bgr-image-cover {
+  align-items: center;
+  background: rgba(80, 80, 80, 0.4);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: flex-start;
+  width: 100%;  
+}
+
+div.column-student,
+div.column-teacher {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: center;
+  width: 50%;
+}
+
+#body .signup {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.22);
+  border: solid 1px #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 300px;
+  justify-content: center;
+  width: 80%;
+}
+
+#body .signup .signup-info-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 80%;
+}
+
+#body .signup .signup-info-col {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+#body .signup .pretitle,
+#body .signup .title,
+#body .signup .image {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+#body .signup .image img {
+  border: solid 1px #fff;
+  border-radius: 100%;
+  margin-right: 10px;
+  width: 120px;
+}
+
+.title h3 {
+  color: #fff;
+  font-size: 3em;
+  line-height: 1.2em;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.pretitle h4 {
+  color: #fff;
+  font-size: 2em;
+  line-height: 1em;
+  margin: 0;
+  text-transform: none;
+}
+
+#body .signup a.btn-signup {
+  background-color: #4267B2;
+  border: solid 1px #fff;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 2.4em;
+  line-height: 1.1em;
+  margin-top: 20px;
+  padding: 15px 50px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#body .signup a.btn-signup:hover {
+  background-color: rgb(46, 72, 124);
+  border: solid 1px #fff;
+}
+
+/**  LANDING PAGE STYLES (END)  **/
+
 
 .lessoncards {
   width: 100%;
@@ -345,5 +486,3 @@ span.logout {
         box-shadow: 3px 3px 2px 2px rgba(24, 43, 56, 0.637);
       }
     }
-  }
-}

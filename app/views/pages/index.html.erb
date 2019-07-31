@@ -7,6 +7,7 @@
 </head>
 
 <body>
+
   <% if current_user %>
     <%= render 'header_nav_authenticated' %>
   <% else %>
@@ -17,43 +18,21 @@
     <div class="inner-wrapper">
       
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-       
-      <div class= "rowofcards">
-        <h1 class = "heading"> Top Rated Teachers: </h2>
-        <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+      <div class ="cardwrapper">
+        <div class= "rowofcards">
+          <h1 class = "heading"> Top Rated Teachers: </h2>
+          <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+        </div>
+        
+        <div class= "rowofcards">
+          <h1 class = "heading"> Browse Available Lessons...</h2>
+          <%= render 'lessoncard' %>
+        </div>
       </div>
-      
-      <% if false%>
-      <div class= "rowofcards">
-        <h1 class = "heading"> Browse Available Lessons...</h2>
-        <%= render 'lessoncard' %>
-      </div>
-      <% end %>
-      
       
     </div>
   </div>
 
-  <div id="footer" class="outer-wrapper">
-    <div class="inner-wrapper">
-      <footer class="header-footer-container">
-        <div id="" class="site-icon-logo-footer">
-          <a href="/">
-            <div id="site-icon-logo-footer"></div>
-          </a>
-        </div>
-        <nav id="footer-nav" class="footer-nav">
-          <a id="" class="footer-nav-btn" href="/"> browse </a>
-          <a id="" class="footer-nav-btn" href="/"> how it works </a>
-          <a id="" class="footer-nav-btn" href="/"> about us </a>
-          <a id="" class="footer-nav-btn" href="/"> signup </a>
-          <a id="" class="footer-nav-btn" href="/"> login </a>
-        </nav>
-        <div id="" class="footer-credits-container">
-          <div id="" class="footer-credits"> 2019 | Chatr | All Rights Reserved </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+  <%= render 'footer_public' %>
 
 </body>

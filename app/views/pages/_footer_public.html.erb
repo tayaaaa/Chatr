@@ -7,11 +7,19 @@
           </a>
         </div>
         <nav id="footer-nav" class="footer-nav">
+
+        <% if current_user %>
+          <a id="" class="footer-nav-btn" href="/browse"> browse </a>
+          <%= link_to 'Bookings', userbookings_path(:user_id => current_user.id), class:"footer-nav-btn" %>
+          <a id="" class="footer-nav-btn" href="/"> finances </a>
+          <a id="" class="footer-nav-btn" href="/profiles/<%=current_user.profile.id%>"> my profile </a>
+        <% else %>
           <a id="" class="footer-nav-btn" href="/"> browse </a>
-          <a id="" class="footer-nav-btn" href="/"> how it works </a>
-          <a id="" class="footer-nav-btn" href="/"> about us </a>
-          <a id="" class="footer-nav-btn" href="/"> signup </a>
-          <a id="" class="footer-nav-btn" href="/"> login </a>
+          <a id="" class="footer-nav-btn" href="#howitworks"> how it works </a>
+          <a id="" class="footer-nav-btn" href="#about"> about us </a>
+          <a id="" class="footer-nav-btn" href="/users/sign_up"> signup </a>
+          <a id="" class="footer-nav-btn" href="/users/signin"> login </a>
+        <% end %>
         </nav>
         <div id="" class="footer-credits-container">
           <div id="" class="footer-credits"> 2019 | Chatr | All Rights Reserved </div>

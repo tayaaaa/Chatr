@@ -1,34 +1,81 @@
-<p id="notice"><%= notice %></p>
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-<p>
-  <strong>Student:</strong>
-  <%= @userbooking.user %>
-</p>
+<body>
+  <% if current_user %>
+    <%= render 'pages/header_nav_authenticated' %>
+  <% else %>
+    <%= render 'pages/header_nav_public' %>
+  <% end %>
 
-<p>
-  <strong>Lesson:</strong>
-  <%= @userbooking.lesson %>
-</p>
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+       
+      <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Note:</strong>
-  <%= @userbooking.note %>
-</p>
+      <p>
+        <strong>Student:</strong>
+        <%= @userbooking.user %>
+      </p>
 
-<p>
-  <strong>Date booked:</strong>
-  <%= @userbooking.date_booked %>
-</p>
+      <p>
+        <strong>Lesson:</strong>
+        <%= @userbooking.lesson %>
+      </p>
 
-<p>
-  <strong>Completedstu:</strong>
-  <%= @userbooking.completedstu %>
-</p>
+      <p>
+        <strong>Note:</strong>
+        <%= @userbooking.note %>
+      </p>
 
-<p>
-  <strong>Completedteach:</strong>
-  <%= @userbooking.completedteach %>
-</p>
+      <p>
+        <strong>Date booked:</strong>
+        <%= @userbooking.date_booked %>
+      </p>
 
-<%= link_to 'Edit', edit_userbooking_path(@userbooking) %> |
-<%= link_to 'Back', userbookings_path %>
+      <p>
+        <strong>Completedstu:</strong>
+        <%= @userbooking.completedstu %>
+      </p>
+
+      <p>
+        <strong>Completedteach:</strong>
+        <%= @userbooking.completedteach %>
+      </p>
+
+      <%= link_to 'Edit', edit_userbooking_path(@userbooking) %> |
+      <%= link_to 'Back', userbookings_path %>    
+      
+    </div>
+  </div>
+
+  <div id="footer" class="outer-wrapper">
+    <div class="inner-wrapper">
+      <footer class="header-footer-container">
+        <div id="" class="site-icon-logo-footer">
+          <a href="/">
+            <div id="site-icon-logo-footer"></div>
+          </a>
+        </div>
+        <nav id="footer-nav" class="footer-nav">
+          <a id="" class="footer-nav-btn" href="/"> browse </a>
+          <a id="" class="footer-nav-btn" href="/"> how it works </a>
+          <a id="" class="footer-nav-btn" href="/"> about us </a>
+          <a id="" class="footer-nav-btn" href="/"> signup </a>
+          <a id="" class="footer-nav-btn" href="/"> login </a>
+        </nav>
+        <div id="" class="footer-credits-container">
+          <div id="" class="footer-credits"> 2019 | Chatr | All Rights Reserved </div>
+        </div>
+      </footer>
+    </div>
+  </div>
+
+</body>
