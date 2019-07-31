@@ -30,7 +30,9 @@ class ProfilesController < ApplicationController
   # POST /profiles.json
   def create
     @profile = Profile.new(profile_params)
-    # set_default_image(@profile)
+    if @profile.uploaded_image.attached? == false
+      set_default_profile_image(@profile)
+    end
 
     respond_to do |format|
       if @profile.save
@@ -82,12 +84,10 @@ class ProfilesController < ApplicationController
       params.require(:profile).permit(:user_id, :firstname, :lastname, :bio, :skypename, :uploaded_image)
     end
 
-    # def set_default_image(profile)
-    #   if profile.uploaded_image.attached? == false
-    #       profile.uploaded_image.attach(io: File.open('/assets/images/default-user-img.png'), filename: 'default-user-img.png')
-    #   end
-    # end
-
+    def set_default_profile_image(profile)
+          profile.uploaded_image.attach(io: File.open('app/assets/images/default-user-img.png'), filename: 'default-user-img.png')
+    end
+  
     def user_reviews(user) 
         userbookings = []
         user.lessons.each do |lesson|
