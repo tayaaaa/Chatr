@@ -281,14 +281,7 @@ span.logout {
 #header-nav .fas:hover {
   color: #e2e2e2;
 }
-
-.lessoncards {
-  width: 100%;
-
-  .cardslider{
-    width: 100%;
-
-    .cardslider{
+.cardslider{
       width: 100%;
       display:flex;
       flex-direction:row;
@@ -344,5 +337,3 @@ span.logout {
         box-shadow: 3px 3px 2px 2px rgba(24, 43, 56, 0.637);
       }
     }
-  }
-}
