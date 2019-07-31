@@ -198,14 +198,17 @@ nav.footer-nav {
   border-color: rgba(255, 255, 255, 0.05);
 }
 
-.header-nav-btn.public:active,
-.header-nav-btn:focus,
-.header-nav-btn:hover,
-.header-nav-btn.login-btn:active,
-.header-nav-btn.login-btn:focus,
-.header-nav-btn.login-btn:hover {
+a.header-nav-btn.public:active,
+a.header-nav-btn:focus,
+a.header-nav-btn:hover,
+a.header-nav-btn.login-btn:active,
+a.header-nav-btn.login-btn:focus,
+a.header-nav-btn.login-btn:hover {
   background-color: rgba(255, 255, 255, 0.08);
-  border-color: rgba(255, 255, 255, 1);
+  border-color: #fff;
+  color: #fff;
+  cursor: default;
+  text-decoration: none;
 }
 
 .footer-nav-btn {
@@ -263,6 +266,7 @@ nav.footer-nav {
 #header-nav .header-nav-logout {
   color: #fff;
   padding: 4px 0px;
+  cursor: default;
 }
 
 #header-nav .header-nav-logout:hover > .fas.fa-lock,
@@ -387,6 +391,7 @@ div.column-teacher {
   color: #fff;
   font-size: 3em;
   line-height: 1.2em;
+  margin: 0;
   text-transform: capitalize;
 }
 
@@ -394,6 +399,7 @@ div.column-teacher {
   color: #fff;
   font-size: 2em;
   line-height: 1em;
+  margin: 0;
   text-transform: none;
 }
 
