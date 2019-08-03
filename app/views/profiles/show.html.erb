@@ -69,29 +69,32 @@
               <p> <%= link_to 'Book', new_userbooking_path(:lesson_id => lesson[:id]), class: "bookbutton" %> </p>
             </div>
           <%end%>
-       </p>
-
-      <p>
-        <% @user_reviews.each do |review| %>
-          <div>
-            <p> Review_id: <%= review.id %> </p>
-            <p> Date: <%= review.date_published %> </p>
-            <p> Stars: <%= review.stars %> </p>
-            <p> Content: <%= review.content %> </p>
-          </div>
-          <% if review.reply %>
-          <div>
-            <p> Reply.review_id: <%= review.reply.review_id %> </p>
-            <p> Reply_id: <%= review.reply.id %> </p>
-            <p> Date <%= review.reply.date_published %> </p>
-            <p> Content: <%= review.reply.content %> </p>
-          </div>
+        </p>
+        
+        <p>
+          <% @user_reviews.each do |review| %>
+            <div>
+              <p> Review_id: <%= review.id %> </p>
+              <p> Date: <%= review.date_published %> </p>
+              <p> Stars: <%= review.stars %> </p>
+              <p> Content: <%= review.content %> </p>
+            </div>
+            <% if review.reply %>
+            <div>
+              <p> Reply.review_id: <%= review.reply.review_id %> </p>
+              <p> Reply_id: <%= review.reply.id %> </p>
+              <p> Date <%= review.reply.date_published %> </p>
+              <p> Content: <%= review.reply.content %> </p>
+            </div>
+            <% end %>
           <% end %>
-        <% end %>
-      <%end%>
-      </p>
+        </p>
+      <% end %>
+      
+      
     </div>
   </div>
+
 
   <div id="footer" class="outer-wrapper">
     <div class="inner-wrapper">

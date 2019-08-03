@@ -19,10 +19,13 @@
             </div>
         </a>
     <% end %>
+    <% if !request.path_info.include?("lessons") %>
     <div class= "card">
         <div class = "seemorebutton">
-            <p> <%= link_to "See more!" %> </p>
+            <p> <%= link_to "See more!", "/browse/lessons" %> </p>
         </div>
     </div>
+    <%end%>
+    
 </div>
 </div>

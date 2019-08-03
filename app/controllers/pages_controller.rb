@@ -1,11 +1,28 @@
 class PagesController < ApplicationController
     before_action :set_teachers
     before_action :set_lessons
+    before_action :set_lesson_card_array
+    before_action :set_teachers_card_array
     
     def landing
     end
 
     def index
+    end
+
+    def browse_lessons
+    end
+
+    def browse_teachers
+    end
+    
+
+    private
+    def set_lessons
+        @lessons = Lesson.all
+    end
+
+    def set_lesson_card_array
         @lesson_card_array = []
         @lessons.each do |lesson|
             lesson_card_info = {
@@ -16,19 +33,24 @@ class PagesController < ApplicationController
                 price:lesson.price}
             @lesson_card_array << lesson_card_info
         end
+    end
 
+    def set_teachers
+        @teachers = User.where(role: Role.second)
+    end
+
+    def set_teachers_card_array
         @teachers_card_array = []
-
         @teachers.each do |teacher|
-            languages_arr = teacher.profile.languageskills
+            languageskills_arr = teacher.profile.languageskills
             languages = []
-            languages_arr.each do |languageskill|
+            languageskills_arr.each do |languageskill|
                 if(languageskill.teaches == true)
                 languages << languageskill.language_name
                 end
             end
 
-            @teacher_card_info = {
+            teacher_card_info = {
                 :profile_id => teacher.profile.id,
                 :name => teacher.profile.firstname,
                 :bio => teacher.profile.bio,
@@ -36,19 +58,8 @@ class PagesController < ApplicationController
                 :stars => get_teacher_stars(teacher),
                 # :image => teacher.profile.uploaded_image
             }
-            @teachers_card_array << @teacher_card_info
+            @teachers_card_array << teacher_card_info
         end
-    end
-    
-
-    private
-    def set_lessons
-        @lessons = Lesson.all
-    end
-
-    private
-    def set_teachers
-        @teachers = User.where(role: Role.second)
     end
 
     def get_teacher_stars(teacher)
