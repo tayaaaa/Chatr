@@ -66,6 +66,7 @@
               <p> Duration: <%= lesson.duration %> </p>
               <p> Description: <%= lesson.description %> </p>
               <p> Maxbooking: <%= lesson.maxbooking %> </p>
+              <p> <%= link_to 'Book', new_userbooking_path(:lesson_id => lesson[:id]), class: "bookbutton" %> </p>
             </div>
           <%end%>
        </p>
