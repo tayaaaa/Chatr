@@ -25,10 +25,12 @@
     <div> <p><%= link_to "View Profile", "/profiles/#{teachers_card_info[:profile_id]}" %></p> </div>
     </div>
 <% end %>
+ <% if !request.path_info.include?("teachers") %>
     <div class= "card">
         <div class = "seemorebutton">
-            <p> <%= link_to "See more!" %> </p>
+            <p> <%= link_to "See more!", "/browse/teachers" %> </p>
         </div>
     </div>
+<% end %>
 </div>
 </div>
