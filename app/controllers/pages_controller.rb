@@ -30,7 +30,8 @@ class PagesController < ApplicationController
                 duration: lesson.duration, 
                 maxbooking: lesson.maxbooking, 
                 description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
-                price:lesson.price}
+                price:lesson.price,
+                id: lesson.id                    }
             @lesson_card_array << lesson_card_info
         end
     end

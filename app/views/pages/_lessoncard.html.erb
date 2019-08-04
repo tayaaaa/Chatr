@@ -13,8 +13,7 @@
 
                 <div id= "teacher"> <%= link_to lesson[:teacher_name], "/profiles/#{lesson[:teacher_id]}" %> </div>
 
-                <div id = "bookbuttondiv">
-                    <%= link_to 'BOOK', new_userbooking_path(:lesson_id => lesson[:id] ), class: "bookbutton"%>
+                <div id = "bookbuttondiv"><%= link_to 'BOOK', new_userbooking_path(:lesson_id => lesson[:id]), class: "bookbutton"%>
                 </div>
             </div>
         </a>
