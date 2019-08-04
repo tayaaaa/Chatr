@@ -58,6 +58,11 @@
 
       <% if @user.role.privilege == "teacher" %>
         <p>
+          <strong>Rating:</strong>
+          <%= @user.profile.average_rating %>
+        </p>
+
+        <p>
           <strong>Lessons:</strong>
           <% @user.lessons.each do |lesson|%>
             <div>
