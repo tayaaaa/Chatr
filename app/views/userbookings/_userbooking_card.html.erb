@@ -34,8 +34,10 @@
                     </div>
 
                     <div class = "complete?">
-                        <%if cardinfo[:complete] == false %>
+                        <% if cardinfo[:complete] == false %>
                             <%= link_to "MARK AS COMPLETE", "/userbookings/completelesson/#{cardinfo[:userbooking].id}", method: :put%>
+                        <% else %>
+                            <%= link_to "REVIEW", "/userbookings/#{cardinfo[:userbooking].id}/review" %>
                         <% end %>
                     </div>
                 </div>
