@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
-    before_action :set_teachers
-    before_action :set_lessons
-    before_action :set_lesson_card_array
-    before_action :set_teachers_card_array
+    before_action :set_teachers, only: [:browse_teachers]
+    before_action :set_lessons, only: [:browse_lessons]
+    before_action :set_lesson_card_array, only: [:browse_lessons]
+    before_action :set_teachers_card_array, only: [:browse_teachers]
     
     def landing
     end
