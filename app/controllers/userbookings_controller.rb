@@ -53,7 +53,6 @@ class UserbookingsController < ApplicationController
   # POST /userbookings.json
   def create
     @userbooking = Userbooking.new(userbooking_params)
-
     respond_to do |format|
       if @userbooking.save
         format.html { redirect_to @userbooking, notice: 'Userbooking was successfully created.' }

@@ -1,3 +1,4 @@
+Reply.destroy_all
 Review.destroy_all
 Userbooking.destroy_all
 Lesson.destroy_all
@@ -8,7 +9,6 @@ Conversation.destroy_all
 User.destroy_all
 Role.destroy_all
 Notification.destroy_all
-Reply.destroy_all
 
 #CREATE 3 ROLES:
 puts "Started seeding Roles"
@@ -192,32 +192,32 @@ puts "Finished creating and assigning lessons for teachers"
 # #CREATE USERBOOKINGS FOR LESSONS:
 puts "Creating some user bookings for lessons"
     # USER 7
-user7.userbookings << Userbooking.new(:lesson_id => user2.lessons.first.id, :note => "I am a beginner and looking for help with my spoken accuracy", :date_booked => "2019-02-05", :completedstu => true , :amountpaid => 50)
-user7.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "Hi! I would love to focus a bit more on understanding a Canadian French accent and I have some questions about plurals.", :date_booked => "2019-03-05", :completedstu => true , :amountpaid => 60)
-user7.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "Hey! Could we please focus on Northern French this lesson?", :date_booked => "2019-09-09", :amountpaid => 60)
-user7.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "My exam is next week - could we go through some of those topics?", :date_booked => "2019-18-09", :completedstu => true , :amountpaid => 60)
+user7.userbookings << Userbooking.new(:lesson_id => user2.lessons.first.id, :note => "I am a beginner and looking for help with my spoken accuracy", :date_booked => "2019-02-05 04:37:12", :completedstu => true , :amountpaid => 50)
+user7.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "Hi! I would love to focus a bit more on understanding a Canadian French accent and I have some questions about plurals.", :date_booked => "2019-03-05 04:37:12", :completedstu => true , :amountpaid => 60)
+user7.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "Hey! Could we please focus on Northern French this lesson?", :date_booked => "2019-09-09 04:37:12", :amountpaid => 60)
+user7.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "My exam is next week - could we go through some of those topics?", :date_booked => "2019-09-18 04:37:12", :completedstu => true , :amountpaid => 60)
     # USER 8
-user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.first.id, :note => "This is my first session with you, excited to meet you!", :date_booked => "2019-01-02", :completedstu => true , :amountpaid => 100)
-user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.third.id, :note => "Can you please mark my speech and give me feedback on how I sound while reading it?", :date_booked => "2019-05-04", :completedstu => true , :amountpaid => 20)
-user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.fourth.id, :note => "I would love to focus on words related to celebrations", :date_booked => "2019-10-09", :amountpaid => 30)
-user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.third.id, :note => "I'm struggling a lot with my listening skills. Please help me with this!", :date_booked => "2019-08-01", :completedstu => true , :amountpaid => 20)
+user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.first.id, :note => "This is my first session with you, excited to meet you!", :date_booked => "2019-01-02 04:37:12", :completedstu => true , :amountpaid => 100)
+user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.third.id, :note => "Can you please mark my speech and give me feedback on how I sound while reading it?", :date_booked => "2019-05-04 04:37:12", :completedstu => true , :amountpaid => 20)
+user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.fourth.id, :note => "I would love to focus on words related to celebrations", :date_booked => "2019-10-09 04:37:12", :amountpaid => 30)
+user8.userbookings << Userbooking.new(:lesson_id => user5.lessons.third.id, :note => "I'm struggling a lot with my listening skills. Please help me with this!", :date_booked => "2019-08-01 04:37:12", :completedstu => true , :amountpaid => 20)
     # user 9
-user9.userbookings << Userbooking.new(:lesson_id => user2.lessons.last.id, :note => "I need help with english numbers.", :date_booked => "2018-12-11", :amountpaid => 100)
+user9.userbookings << Userbooking.new(:lesson_id => user2.lessons.last.id, :note => "I need help with english numbers.", :date_booked => "2018-12-11 04:37:12", :amountpaid => 100)
     # user 10
-user10.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "I am travelling to France next week, please give me a crash course in basic phrases.", :completedstu => true, :date_booked => "2019-06-08", :amountpaid => 20)
+user10.userbookings << Userbooking.new(:lesson_id => user6.lessons.third.id, :note => "I am travelling to France next week, please give me a crash course in basic phrases.", :completedstu => true, :date_booked => "2019-06-08 04:37:12", :amountpaid => 20)
 puts "Finished creating user bookings for lessons"
 
 # WRITE REVIEWS FOR COMPLETED BOOKINGS
 puts "Creating reviews for some user bookings."
-user10.userbookings.last.review = Review.new(:stars => 5, :content => "Tara was amazing and made it so easy for me to pick up on the basics of French! I would highly reccomend her as a teacher.", :date_published => "2019-06-10" )
+user10.userbookings.last.review = Review.new(:stars => 5, :content => "Tara was amazing and made it so easy for me to pick up on the basics of French! I would highly reccomend her as a teacher.", :date_published => "2019-06-10 04:37:12" )
 
-user8.userbookings.first.review = Review.new(:stars => 4, :content => "This lesson helped me SO much with my speech! I did so well thanks to this tutor's help. However, I think the teacher could have been a bit more prepared for the lesson.", :date_published => "2019-06-10" )
-user8.userbookings.second.review = Review.new(:stars => 5, :content => "Great experience my first time booking this teacher for a lesson. Loved it and will be booking again.", :date_published => "2019-06-10" )
-user8.userbookings.fourth.review = Review.new(:stars => 5, :content => "So happy that I made a second booking. Terry is a great teacher and really knows how to connect to you. He is friendly and approachable, so I don't feel afraid of making mistakes when I have lessons with him.", :date_published => "2019-06-10" )
+user8.userbookings.first.review = Review.new(:stars => 4, :content => "This lesson helped me SO much with my speech! I did so well thanks to this tutor's help. However, I think the teacher could have been a bit more prepared for the lesson.", :date_published => "2019-06-10 04:37:12" )
+user8.userbookings.second.review = Review.new(:stars => 5, :content => "Great experience my first time booking this teacher for a lesson. Loved it and will be booking again.", :date_published => "2019-06-10 04:37:12" )
+user8.userbookings.fourth.review = Review.new(:stars => 5, :content => "So happy that I made a second booking. Terry is a great teacher and really knows how to connect to you. He is friendly and approachable, so I don't feel afraid of making mistakes when I have lessons with him.", :date_published => "2019-06-10 04:37:12" )
 
-user7.userbookings.first.review = Review.new(:stars => 3, :content => "Fairly okay lesson, but could have been more interesting if the teacher had added some visual aids.", :date_published => "2019-06-10" )
-user7.userbookings.second.review = Review.new(:stars => 4, :content => "Decent class! I learnt a lot from this teacher.", :date_published => "2019-06-10" )
-user7.userbookings.fourth.review = Review.new(:stars => 2, :content => "This is the second time I have booked this lesson, however it was very dissapointing this time.", :date_published => "2019-06-10" )
+user7.userbookings.first.review = Review.new(:stars => 3, :content => "Fairly okay lesson, but could have been more interesting if the teacher had added some visual aids.", :date_published => "2019-06-10 04:37:12" )
+user7.userbookings.second.review = Review.new(:stars => 4, :content => "Decent class! I learnt a lot from this teacher.", :date_published => "2019-06-10 04:37:12" )
+user7.userbookings.fourth.review = Review.new(:stars => 2, :content => "This is the second time I have booked this lesson, however it was very dissapointing this time.", :date_published => "2019-06-10 04:37:12" )
 puts "Finished creating reviews for some user bookings."
 
 # WRITE REPLIES FOR PUBLISHED REVIEWS
