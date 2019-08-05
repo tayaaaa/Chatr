@@ -16,12 +16,12 @@
         <% else %>
           <%= current_user.email %>
         <% end %>
-        <div class="header-nav-notifications">
+        <a class="header-nav-notifications", href="/notifications" >
           <i class="fas fa-globe-americas"></i>
-          <span class="seperator"></span>
-
-          <a href="/conversations">
-          <i class="fas fa-comment-dots"></i>
+        </a>
+          <span class="seperator"></span>          
+          <a href="conversations/new">
+            <i class="fas fa-comment-dots"></i>
           </a>
 
           <span class="seperator"></span>

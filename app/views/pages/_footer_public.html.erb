@@ -2,9 +2,15 @@
     <div class="inner-wrapper">
       <footer class="header-footer-container">
         <div id="" class="site-icon-logo-footer">
-          <a href="/browse">
-            <div id="site-icon-logo-footer"></div>
-          </a>
+          <% if current_user %>
+            <a href="/browse">
+              <div id="site-icon-logo-footer"></div>
+            </a>
+          <% else %>
+            <a href="/">
+              <div id="site-icon-logo-footer"></div>
+            </a>
+          <% end %>
         </div>
         <nav id="footer-nav" class="footer-nav">
 
@@ -19,8 +25,8 @@
           <a id="" class="footer-nav-btn" href="/browse"> browse </a>
           <a id="" class="footer-nav-btn" href="#howitworks"> how it works </a>
           <a id="" class="footer-nav-btn" href="#about"> about us </a>
-          <a id="" class="footer-nav-btn" href="/users/sign_up"> signup </a>
-          <a id="" class="footer-nav-btn" href="/users/signin"> login </a>
+          <a id="" class="footer-nav-btn" href="#signup"> signup </a>
+          <a id="" class="footer-nav-btn" href="/users/sign_in"> login </a>
         <% end %>
         </nav>
         <div id="" class="footer-credits-container">
