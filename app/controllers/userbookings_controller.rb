@@ -101,6 +101,6 @@ class UserbookingsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def userbooking_params
-      params.require(:userbooking).permit(:user_id, :lesson_id, :note, :date_booked, :completedstu, :completedteach)
+      params.require(:userbooking).permit(:user_id, :lesson_id, :note, :date_booked, :completedstu, :completedteach, :amountpaid)
     end
 end
