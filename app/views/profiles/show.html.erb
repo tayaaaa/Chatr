@@ -77,19 +77,19 @@
         </p>
         
         <p>
-          <% @user_reviews.each do |review| %>
+          <% @user_reviews.each do |element| %>
             <div>
-              <p> Review_id: <%= review.id %> </p>
-              <p> Date: <%= review.date_published %> </p>
-              <p> Stars: <%= review.stars %> </p>
-              <p> Content: <%= review.content %> </p>
+              <p> Review_id: <%= element.id %> </p>
+              <p> Date: <%= element.date_published %> </p>
+              <p> Stars: <%= element.stars %> </p>
+              <p> Content: <%= element.content %> </p>
             </div>
-            <% if review.reply %>
+            <% if element.reply %>
             <div>
-              <p> Reply.review_id: <%= review.reply.review_id %> </p>
-              <p> Reply_id: <%= review.reply.id %> </p>
-              <p> Date <%= review.reply.date_published %> </p>
-              <p> Content: <%= review.reply.content %> </p>
+              <p> Reply.element_id: <%= element.reply.review_id %> </p>
+              <p> Reply_id: <%= element.reply.id %> </p>
+              <p> Date <%= element.reply.date_published %> </p>
+              <p> Content: <%= element.reply.content %> </p>
             </div>
             <% end %>
           <% end %>

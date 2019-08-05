@@ -1,7 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-  before_action :set_default_image, only:[:create]
+
 
 
   # GET /profiles
@@ -95,10 +95,11 @@ class ProfilesController < ApplicationController
               userbookings << userbooking
           end
         end
-
         reviews = []
         userbookings.each do |userbooking|
-          reviews << userbooking.review
+          if userbooking.review
+            reviews << userbooking.review
+          end
         end
         return reviews
     end
