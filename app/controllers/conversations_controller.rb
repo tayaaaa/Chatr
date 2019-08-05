@@ -24,23 +24,27 @@ class ConversationsController < ApplicationController
   # POST /conversations
   # POST /conversations.json
   def create
+    @conversation = Conversation.new(conversation_params)
 
-    Conversation.all do |convo|
-      #If there is an existing conversation then:
-      if (@conversation.user1 == convo.user1 and @conversation.user2 == convo.user2) or (@conversation.user1 == convo.user2 and @conversation.user2 == convo.user1)
-        #set this as @conversation and break the loop to redirect to create a new message.
+    conversations = Conversation.all
+    conversations.each do |convo|
+      if((@conversation.user1_id == convo.user1 and @conversation.user2 == convo.user2) or (@conversation.user1 == convo.user2 and @conversation.user2 == convo.user1))
         @conversation = convo
-        break
-      
-      #If you have checked all convos and the conversation does not exist then:
-      else
-        #create a new conversation
-        @conversation = Conversation.new(conversation_params)
-
+        redirect_to conversation_path(@conversation)
+        return
       end
     end
+  
+      respond_to do |format|
+        if @conversation.save
+          format.html { redirect_to @conversation, notice: 'conversation was successfully created.' }
+          format.json { render :show, status: :created, location: @conversation }
+        else
+          format.html { render :new }
+          format.json { render json: @conversation.errors, status: :unprocessable_entity }
+        end
+      end
 
-    redirect_to new_message_path(@conversation)
   end
 
   # PATCH/PUT /conversations/1

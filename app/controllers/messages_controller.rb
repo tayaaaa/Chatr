@@ -14,8 +14,6 @@ class MessagesController < ApplicationController
 
   # GET /messages/new
   def new
-    @conversation
-    raise
     @message = Message.new
   end
 
