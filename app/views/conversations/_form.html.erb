@@ -15,9 +15,9 @@
     <%= form.hidden_field :user1_id, value: "#{current_user.id}" %>
   </div>
 
-  <div class="field">
+   <div class="field">
     <%= form.label :user2_id %>
-    <%= form.text_field :user2_id %>
+    <%= form.select(:user2_id, User.all.collect {|user| [user.profile.firstname, user.id]}) %>
     
   </div>
 
