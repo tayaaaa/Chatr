@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/new
   def new
     @conversation = Conversation.new
+    @users = User.all
   end
 
   # GET /conversations/1/edit
@@ -28,12 +29,13 @@ class ConversationsController < ApplicationController
 
     conversations = Conversation.all
     conversations.each do |convo|
-      if((@conversation.user1_id == convo.user1 and @conversation.user2 == convo.user2) or (@conversation.user1 == convo.user2 and @conversation.user2 == convo.user1))
+      if((@conversation.user1 == convo.user1 and @conversation.user2 == convo.user2) or (@conversation.user1 == convo.user2 and @conversation.user2 == convo.user1))
         @conversation = convo
         redirect_to conversation_path(@conversation)
         return
       end
     end
+   
   
       respond_to do |format|
         if @conversation.save
