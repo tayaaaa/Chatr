@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
-    before_action :set_teachers, only: [:browse_teachers]
-    before_action :set_lessons, only: [:browse_lessons]
-    before_action :set_lesson_card_array, only: [:browse_lessons]
-    before_action :set_teachers_card_array, only: [:browse_teachers]
+    before_action :set_teachers
+    before_action :set_lessons
+    before_action :set_lesson_card_array
+    before_action :set_teachers_card_array
     
     def landing
     end
@@ -29,7 +29,9 @@ class PagesController < ApplicationController
                 language: lesson.languageskill.language_name, 
                 duration: lesson.duration, 
                 maxbooking: lesson.maxbooking, 
-                description: lesson.description, teacher_name:lesson.user.profile.firstname, teacher_id:lesson.user_id,
+                description: lesson.description,
+                teacher_name:lesson.user.profile.firstname,
+                teacher_id:lesson.user_id,
                 price:lesson.price,
                 id: lesson.id                    }
             @lesson_card_array << lesson_card_info
