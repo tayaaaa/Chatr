@@ -12,13 +12,14 @@
           <a id="" class="footer-nav-btn" href="/browse"> browse </a>
           <%= link_to 'Bookings', userbookings_path(:user_id => current_user.id), class:"footer-nav-btn" %>
           <a id="" class="footer-nav-btn" href="/"> finances </a>
-          <a id="" class="footer-nav-btn" href="/profiles/<%=current_user.profile.id%>"> my profile </a>
+          <%# <a id="" class="footer-nav-btn" href="/profiles/<%=current_user.profile.id%>"> my profile </a> %>
+          <a id="" class="footer-nav-btn" href="/users/sign_out"> logout </a>
         <% else %>
           <a id="" class="footer-nav-btn" href="/"> browse </a>
           <a id="" class="footer-nav-btn" href="#howitworks"> how it works </a>
           <a id="" class="footer-nav-btn" href="#about"> about us </a>
           <a id="" class="footer-nav-btn" href="/users/sign_up"> signup </a>
-          <a id="" class="footer-nav-btn" href="/users/signin"> login </a>
+          <a id="" class="footer-nav-btn" href="/users/sign_in"> login </a>
         <% end %>
         </nav>
         <div id="" class="footer-credits-container">
