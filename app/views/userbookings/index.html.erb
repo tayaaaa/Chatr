@@ -18,17 +18,32 @@
       
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
       <div class = "cardwrapper">
-        <div class="rowofcards">
-          <h1> Your upcoming bookings: </h1>
-          <%= render 'userbooking_card', locals: {completed: 0}  %>
-        </div>
+      
+        <% if current_user.role.privilege == "teacher" %>
+          <div class="rowofcards">
+            <h1> Your upcoming bookings: </h1>
+            <%= render 'teacherbooking_card', locals: {completed: 0}  %>
+          </div>
 
-        <div class="rowofcards">
-          <h1> Your previous bookings: </h1>
-          <%= render 'userbooking_card', locals: {completed: 1} %>
-        </div>
+          <div class="rowofcards">
+            <h1> Your previous bookings: </h1>
+            <%= render 'teacherbooking_card', locals: {completed: 1} %>
+          </div>
+        <% else %>
+          <div class="rowofcards">
+            <h1> Your upcoming bookings: </h1>
+            <%= render 'userbooking_card', locals: {completed: 0}  %>
+          </div>
+
+          <div class="rowofcards">
+            <h1> Your previous bookings: </h1>
+            <%= render 'userbooking_card', locals: {completed: 1} %>
+          </div>
+        <% end %>
       </div>
+
     </div>
   </div>
+
   <%= render "pages/footer_public" %>
 </body>
