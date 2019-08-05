@@ -15,5 +15,6 @@ Rails.application.routes.draw do
   get '/browse/lessons', to: 'pages#browse_lessons'
   get '/browse/teachers', to: 'pages#browse_teachers'
   get '/userbookings/:id/review', to: 'reviews#new'
+  resources :charges
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

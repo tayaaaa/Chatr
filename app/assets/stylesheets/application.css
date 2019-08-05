@@ -8,6 +8,7 @@
 @import url("./userbookings.scss");
 @import url("./devise.scss");
 
+
 * {
   box-sizing: border-box;
   cursor: default;

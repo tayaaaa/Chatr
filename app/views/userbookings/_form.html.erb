@@ -20,6 +20,10 @@
   </div>
 
   <div class="field">
+    <%= form.hidden_field :amountpaid, value: @lesson.price%>
+  </div>
+
+  <div class="field">
     <%= form.label :note %>
     <%= form.text_area :note %>
   </div>
@@ -30,6 +34,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Confirm Booking', :name => 'Confirm Booking', :id => "submit-button" %>
   </div>
 <% end %>

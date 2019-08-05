@@ -1,5 +1,19 @@
 <h1>New Userbooking</h1>
 
+<%= render partial: "layouts/shared/stripe_form" %>
+
 <%= render 'form', userbooking: @userbooking %>
 
 <%= link_to 'Back', userbookings_path %>
+
+<%if false%>
+<script>
+    var stripe = document.querySelector(".stripe-button-el")
+    var submit = document.querySelector("#submit-button")
+    if (stripe) {
+        stripe.addEventListener("click", function (){
+            submit.disabled = false
+        })
+    }
+</script>
+<%end%>
