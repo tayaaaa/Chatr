@@ -78,14 +78,20 @@ class UserbookingsController < ApplicationController
   # POST /userbookings.json
   def create
     @userbooking = Userbooking.new(userbooking_params)
-    respond_to do |format|
-      if @userbooking.save
-        format.html { redirect_to @userbooking, notice: 'Userbooking was successfully created.' }
-        format.json { render :show, status: :created, location: @userbooking }
-      else
-        format.html { render :new }
-        format.json { render json: @userbooking.errors, status: :unprocessable_entity }
+    @lesson = @userbooking.lesson
+    if(@lesson.maxbooking != 0)
+      
+      respond_to do |format|
+        if @userbooking.save
+          format.html { redirect_to @userbooking, notice: 'Userbooking was successfully created.' }
+          format.json { render :show, status: :created, location: @userbooking }
+        else
+          format.html { render :new }
+          format.json { render json: @userbooking.errors, status: :unprocessable_entity }
+        end
       end
+      # decrement maxbooking on lesson each time a new userbooking is created for that lesson
+      decrement_lesson_maxbooking(@lesson)
     end
   end
 
@@ -126,5 +132,10 @@ class UserbookingsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def userbooking_params
       params.require(:userbooking).permit(:user_id, :lesson_id, :note, :date_booked, :completedstu, :completedteach, :amountpaid)
+    end
+
+    def decrement_lesson_maxbooking(lesson)
+      lesson.maxbooking -= 1
+      lesson.save!
     end
 end
