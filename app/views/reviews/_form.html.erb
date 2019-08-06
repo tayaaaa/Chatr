@@ -23,17 +23,12 @@
   <div class="field">
     <%= form.label :stars, :class => "labels" %>
     <span class="glyphicon glyphicon-star"></span>
-    <%= form.number_field :stars, {min: 0, max: 5} %>
+    <%= form.number_field :stars, :class => "textbox", :min => 0, :max => 5%>
   </div>
 
   <div class="field">
     <%= form.label :content, :class => "labels" %>
     <%= form.text_area :content, :class => "resizable-textboxes"%>
-  </div>
-
-  <div class="field dateselect">
-    <%= form.label :date_published, :class => "labels" %>
-    <%= form.datetime_select :date_published %>
   </div>
 
   <div class="submit-actions">

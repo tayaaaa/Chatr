@@ -16,31 +16,31 @@
   </div>
 
   <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname %>
+    <%= form.label "First name", :class => "labels" %>
+    <%= form.text_field :firstname, :class => "textbox" %>
   </div>
 
   <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
+    <%= form.label "Last name", :class => "labels" %>
+    <%= form.text_field :lastname, :class => "textbox" %>
   </div>
 
   <div class="field">
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
+    <%= form.label :bio, :class => "labels"%>
+    <%= form.text_area :bio, :class => "resizable-textboxes", :placeholder => "Write a short bio here" %>
   </div>
 
   <div class="field">
-    <%= form.label :skypename %>
-    <%= form.text_field :skypename %>
+    <%= form.label :skypename, :class => "labels" %>
+    <%= form.text_field :skypename, :class => "textbox" %>
   </div>
 
   <div class="field">
-    <%= form.label :uploaded_image %>
+    <%= form.label "Profile picture", :class => "labels" %>
     <%= form.file_field :uploaded_image %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="submit-actions">
+    <%= form.submit 'create profile', :id => "submit-button" %>
   </div>
 <% end %>
