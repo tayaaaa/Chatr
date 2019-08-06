@@ -1,22 +1,49 @@
-<p id="notice"><%= notice %></p>
+<body>
 
+  <% if current_user %>
+    <%= render 'pages/header_nav_authenticated' %>
+  <% else %>
+    <%= render 'pages/header_nav_public' %>
+  <% end %>
+
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
 <p>
-  <strong>User:</strong>
-  <%= @conversation.user1.email %>
-  <%= @conversation.user2.email %>
+  <strong>Your messages with <%= @conversation_partner.profile.firstname%></strong>
 </p>
 
 <p>
   <strong>Messages:</strong>
   <% @conversation.messages.each do |message| %>
     <div>
-      <p><%= message.content %> </p>
-      <p> <%= message.author.email %> </p>
+      <% if message.author = current_user%>
+        <p> You </p>
+      <%else%>
+        <p> <%= message.author.profile.firstname %> </p>
+      <% end %>
+      <p> <%= message.content %> </p>
       <p> <%= message.date_sent %> </p>
     </div>
   <% end %>
 </p>
 
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
-<%= link_to 'Back', conversations_path %>
-<%= link_to 'New Message', new_message_path(:conversation => @conversation) %>
+
+<div>
+  <%= link_to 'New Message', new_message_path(:conversation => @conversation) %>
+  <%= link_to 'Back', conversations_path %>
+</div>
+
+      
+    </div>
+  </div>
+
+  <%= render 'pages/footer_public' %>
+  
+</body>
+
+
+
+
+
