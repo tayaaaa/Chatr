@@ -13,16 +13,18 @@
 
                 <div id= "teacher"> <%= link_to lesson[:teacher_name], "/profiles/#{lesson[:teacher_id]}" %> </div>
 
-                <div id = "bookbuttondiv">
-                    <%= link_to 'BOOK', new_userbooking_path(:lesson_id => lesson[:id] ), class: "bookbutton"%>
+                <div id = "bookbuttondiv"><%= link_to 'BOOK', new_userbooking_path(:lesson_id => lesson[:id]), class: "bookbutton"%>
                 </div>
             </div>
         </a>
     <% end %>
+    <% if !request.path_info.include?("lessons") %>
     <div class= "card">
         <div class = "seemorebutton">
-            <p> <%= link_to "See more!" %> </p>
+            <p> <%= link_to "See more!", "/browse/lessons" %> </p>
         </div>
     </div>
+    <%end%>
+    
 </div>
 </div>

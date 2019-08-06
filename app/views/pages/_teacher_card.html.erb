@@ -11,7 +11,7 @@
         <span class="glyphicon glyphicon-star"></span>
         <% end %>
     <% end %>
-    <% if teachers_card_info[:stars].to_i != 5 %>
+    <% if teachers_card_info[:stars].to_i != 5 || teachers_card_info[:stars].to_i != nil %>
         <% (5 - teachers_card_info[:stars].to_i).times do %>
         <span class="glyphicon glyphicon-star-empty"></span>
         <% end %>
@@ -25,10 +25,12 @@
     <div> <p><%= link_to "View Profile", "/profiles/#{teachers_card_info[:profile_id]}" %></p> </div>
     </div>
 <% end %>
+ <% if !request.path_info.include?("teachers") %>
     <div class= "card">
         <div class = "seemorebutton">
-            <p> <%= link_to "See more!" %> </p>
+            <p> <%= link_to "See more!", "/browse/teachers" %> </p>
         </div>
     </div>
+<% end %>
 </div>
 </div>

@@ -1,3 +1,5 @@
+<% @conversation %>
+
 <%= form_with(model: message, local: true) do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
@@ -12,12 +14,11 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :conversation %>
-    <%= form.text_field :conversation_id %>
+    <%= form.hidden_field :conversation_id, value: "#{params[:conversation]}" %>
   </div>
 
   <div class="field">
-    <%= form.hidden_field :author, value: "#{current_user.id}" %>
+    <%= form.hidden_field :author_id, value: "#{current_user.id}" %>
   </div>
 
   <div class="field">
@@ -27,10 +28,11 @@
 
   <div class="field">
     <%= form.label :date_sent %>
-    <%= form.datetime_select :date_sent %>
+    <%= form.hidden_field :date_sent, value: "#{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}" %>
   </div>
 
   <div class="actions">
     <%= form.submit %>
   </div>
+
 <% end %>
