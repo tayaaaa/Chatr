@@ -1,5 +1,5 @@
 <h1>New Conversation</h1>
 
-<%= render 'form', conversation: @conversation %>
+<%= render partial: 'form', locals: {conversation: @conversation, can_message: @can_message} %>
 
 <%= link_to 'Back', conversations_path %>

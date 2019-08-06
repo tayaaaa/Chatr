@@ -10,12 +10,29 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
+    if @conversation.user1 == current_user
+      @conversation_partner = @conversation.user2
+    else
+      @conversation_partner = @conversation.user1
+    end
   end
 
   # GET /conversations/new
   def new
     @conversation = Conversation.new
     @users = User.all
+    @can_message = []
+    @users.each do |user|
+      if current_user.role.privilege == "student" && user.role.privilege == "teacher"
+        @can_message << user
+      elsif current_user.role.privilege == "admin"
+        @can_message << user
+      end
+    end
+    if current_user.role.privilege == "teacher"
+        @can_message = get_userbooking_users(current_user)
+    end
+  
   end
 
   # GET /conversations/1/edit
@@ -82,5 +99,18 @@ class ConversationsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
       params.require(:conversation).permit(:user2_id, :user1_id)
+    end
+
+    def get_userbooking_users(user)
+      lessons = user.lessons
+      users = []
+      lessons.each do |lesson|
+        if lesson.userbookings
+          lesson.userbookings.each do |userbooking|
+            users << userbooking.user
+          end
+        end
+      end
+      return users
     end
 end
