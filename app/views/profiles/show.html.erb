@@ -13,87 +13,86 @@
     <%= render '/pages/header_nav_public' %>
   <% end %>
 
-  <div id="body" class="outer-wrapper">
-    <div class="inner-wrapper">
-      
-      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-      <p> 
-        <strong>Uploaded image:</strong>
-        <% if @profile.uploaded_image.attached? %>
-          <%= image_tag @profile.uploaded_image %>
-        <% else %>
-          <p>No image for this user</p>
-        <% end %>
-      </p>
+  <div id="body" class="user-profile outer-wrapper">
+    <div class="profile-cover-image">
+        <i class="fas fa-image"></i>
+        <a class="default-image-text">upload a cover image</a>
+    </div>
+    <div class="profile-inner-wrapper">
+      <div class="profile-col-1">
+        <div class="profile-picture">
+            <i class="fas fa-user"></i>
+            <a class="default-picture-text">add a profile picture</a>
+        </div>
+        <div class="profile-row profile-firstname-lastname">
+          <span> <%= @profile.firstname %> <%= @profile.lastname %> </span>
+        </div>
+        <div class="profile-row profile-user-rating">
+          <span>star rating</span>
+        </div>
+        <div class="profile-row profile-title">
+          <span> <i class="fas fa-info-circle"></i> About Cookie </span>
+        </div>
+        <div class="profile-row profile-info">
+            <span> <%= @profile.bio %> </span>
+        </div>
+        <div class="profile-row profile-title">
+          <span> <i class="fab fa-skype"></i> Skype Cookie </span>
+        </div>
+        <div class="profile-row profile-info">
+            <span> <%= @profile.skypename %> </span>
+        </div>
+        <div class="profile-row profile-title">
+          <span> <i class="fas fa-volume-up"></i> Languages Spoken </span>
+        </div>
+        <div class="profile-row profile-info">
+            <span>Lorem ipsum dolor sit</span>
+        </div>
+        <div class="profile-row profile-title">
+          <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
+        </div>
+        <div class="profile-row profile-info">
+            <span>Lorem ipsum dolor sit</span>
+        </div>
+      </div>
 
-      <p>
-        <strong>First name:</strong>
-        <%= @profile.firstname %>
-      </p>
-
-      <p>
-        <strong>Last name:</strong>
-        <%= @profile.lastname %>
-      </p>
-
-      <p>
-        <strong>Bio:</strong>
-        <%= @profile.bio %>
-      </p>
-
-      <p>
-        <strong>Skypename:</strong>
-        <%= @profile.skypename %>
-      </p>
-
-      <p>
-        <strong>Language skills:</strong> 
-        <% @user.profile.languageskills.each do |languageskill| %>
-          <div>
-            <p> Language: <%= languageskill.language_name %> </p>
-            <p> Proficiency: <%= languageskill.proficiency %> </p>
+      <div class="profile-col-2">
+        <div class="profile-col-2-container">
+          <div id="profile-sub-menu">
+            <a id="" class="sub-menu-btn active" href="/"> lessons </a>
+            <a id="" class="sub-menu-btn" href="/"> reviews </a>
           </div>
-        <%end%>
-      </p>
-
-      <% if @user.role.privilege == "teacher" %>
-        <p>
-          <strong>Lessons:</strong>
-          <% @user.lessons.each do |lesson|%>
-            <div>
-              <p> Lesson id: <%= lesson.id %> </p>
-              <p> Price: <%= lesson.price %> </p>
-              <p> Duration: <%= lesson.duration %> </p>
-              <p> Description: <%= lesson.description %> </p>
-              <p> Maxbooking: <%= lesson.maxbooking %> </p>
-            </div>
+          <% if @user.role.privilege == "teacher" %>
+            <% @user.lessons.each do |lesson|%>
+              <div class="profile-card">
+                <div class="profile-card-row profile-card-title">
+                  <h2> <%= lesson[:language] %> </h2>
+                </div>
+                <div class="profile-card-row profile-card-lesson-stats">
+                  <span> <%= lesson[:duration] %> minutes | $<%= lesson[:price] %> | <%= lesson[:maxbooking] %> available </span>
+                </div>
+                <div class="profile-card-row profile-card-description-title">
+                    <h3> lesson description </h3>
+                </div>
+                <div class="profile-card-row profile-card-lesson-description">
+                  <span> <%= lesson[:description] %> </span>
+                </div>
+                <div class="profile-card-row profile-card-teacher">
+                    <div class="profile-card-teacher-image"> <img src="profile_1-paul-1240x1240.jpg" alt=""> </div>
+                    <div class="profile-card-teacher-name"> <%= @profile.firstname %> <%= @profile.lastname %> </div>
+                </div>
+                <div class="profile-card-row profile-card-book-btn">
+                  <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                </div>
+              </div>
+            <%end%>
           <%end%>
-        <%end%>
-      </p>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div id="footer" class="outer-wrapper">
-    <div class="inner-wrapper">
-      <footer class="header-footer-container">
-        <div id="" class="site-icon-logo-footer">
-          <a href="/">
-            <div id="site-icon-logo-footer"></div>
-          </a>
-        </div>
-        <nav id="footer-nav" class="footer-nav">
-          <a id="" class="footer-nav-btn" href="/"> browse </a>
-          <a id="" class="footer-nav-btn" href="/"> how it works </a>
-          <a id="" class="footer-nav-btn" href="/"> about us </a>
-          <a id="" class="footer-nav-btn" href="/"> signup </a>
-          <a id="" class="footer-nav-btn" href="/"> login </a>
-        </nav>
-        <div id="" class="footer-credits-container">
-          <div id="" class="footer-credits"> 2019 | Chatr | All Rights Reserved </div>
-        </div>
-      </footer>
-    </div>
-  </div>
+  <%= render 'footer_public' %>
 
 </body>
 

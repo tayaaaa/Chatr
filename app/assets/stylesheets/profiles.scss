@@ -1,3 +1,368 @@
-// Place all the styles related to the Profiles controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/**  USER PROFILE PAGE STYLES (START)  **/
+
+#body .profile-cover-image {
+  align-items: center;
+  background-color: #e8e8e8;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 310px;
+  justify-content: center;
+  margin-top: -10px;
+  width: 100%;
+}
+
+#body .profile-cover-image .fas.fa-image {
+  color: #d9d9d9;
+  font-size: 10em;
+  margin: 0;
+  padding: 0;
+}
+
+#body .profile-cover-image a.default-image-text {
+  border: solid 1px rgba(255, 255, 255, 0);
+  color: #d2d0d0;
+  font-size: 2em;
+  line-height: 1em;
+  padding: 10px;
+  text-transform: capitalize;
+}
+
+#body .profile-cover-image a.default-image-text:active,
+#body .profile-cover-image a.default-image-text:focus,
+#body .profile-cover-image a.default-image-text:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: solid 1px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
+}
+
+#body .profile-inner-wrapper {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  max-width: 1200px;
+  margin-bottom: 10px;
+  min-height: 500px;
+  padding: 0px 10px;
+  width: 100%;
+}
+
+#body .profile-inner-wrapper .profile-col-1 {
+  align-items: center;
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 0 10px 10px;
+  width: 35%;
+}
+#body .profile-inner-wrapper .profile-col-2 {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: flex-start;
+  padding: 10px;
+  width: 65%;
+}
+
+.profile-inner-wrapper .profile-picture {
+  align-items: center;
+  background-color: #eee;
+  border: solid 2px #d9d6d6;
+  border-radius: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 180px;
+  justify-content: center;
+  margin-top: -90px;
+  width: 180px;
+}
+
+#body .profile-picture .fas.fa-user {
+  color: #d9d9d9;
+  font-size: 5em;
+  margin: -5px 0px 5px 0px;
+  padding: 0;
+}
+
+#body .profile-picture a.default-picture-text {
+  border: solid 1px rgba(255, 255, 255, 0);
+  color: #d2d0d0;
+  font-size: 1em;
+  line-height: 1em;
+  padding: 4px;
+  text-transform: capitalize;
+}
+
+#body .profile-picture a.default-picture-text:active,
+#body .profile-picture a.default-picture-text:focus,
+#body .profile-picture a.default-picture-text:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+  border: solid 1px rgba(0, 0, 0, 0.08);
+  border-radius: 5px;
+  color: rgba(0, 0, 0, 0.3);
+  padding: 4px;
+}
+
+.user-profile .profile-row {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.profile-firstname-lastname {
+  margin-top: 10px;
+}
+
+.profile-firstname-lastname span {
+  color: #666;
+  font-size: 2em;
+  font-weight: 500;
+  line-height: 1em;
+}
+
+.profile-user-rating {
+  color: #666;
+  font-size: 1.4em;
+  font-weight: 400;
+  line-height: 1em;
+}
+
+.profile-title {
+  background-color: #e2e2e2;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 5px 5px 0px 0px;
+  border-width: 1px 1px 1px 1px;
+  color: #666;
+  font-size: 1.2em;
+  font-weight: 400;
+  line-height: 1em;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.profile-info {
+  background-color: #fff;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 0px 0px 5px 5px;
+  border-width: 0px 1px 1px 1px;
+  color: #9b9b9b;
+  font-size: 1em;
+  font-weight: 400;
+  line-height: 1.2em;
+  padding: 10px;
+  text-align: justify;
+}
+
+.profile-col-2-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+#profile-sub-menu {
+  align-items: flex-start;
+  background-color: #e2e2e2;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 5px 5px 0px 0px;
+  border-width: 1px 1px 1px 1px;
+  color: #666;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 1.2em;
+  font-weight: 400;
+  height: 50px;
+  justify-content: space-evenly;
+  line-height: 1em;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+#profile-sub-menu .sub-menu-btn {
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0);
+  color: #666;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  font-size: 1.2em;
+  font-weight: 400;
+  height: 100%;
+  justify-content: center;
+  line-height: 1em;
+  text-transform: capitalize;
+  width: 50%;
+}
+
+#profile-sub-menu .active::before {
+  border: solid transparent;
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #d6d6d6;
+  border-width: 12px;
+  top: 429px;
+  box-sizing: inherit;
+  content: " ";
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  right: auto;
+  left: auto;
+}
+
+#profile-sub-menu .active::after {
+  border: solid transparent;
+  border-color: rgba(255, 255, 255, 0);
+  border-top-color: #e2e2e2;
+  border-width: 10px;
+  top: 429px;
+  box-sizing: inherit;
+  content: " ";
+  height: 0;
+  pointer-events: none;
+  position: absolute;
+  width: 0;
+  right: auto;
+  left: auto;
+}
+
+#profile-sub-menu .sub-menu-btn:hover {
+  background-color: #d7d7d7;
+}
+
+#profile-sub-menu .sub-menu-btn:hover::after {
+  border-top-color: #d7d7d7;
+}
+
+.profile-card {
+  align-items: center;
+  background-color: #fbfbfb;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 10px;
+  width: calc(100% - 20px);
+}
+
+.profile-card:hover {
+  box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+}
+
+.profile-card-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.profile-card-title {
+  border-bottom: solid 2px #e8e8e8;
+  padding-bottom: 10px;
+  width: 50%;
+}
+
+.profile-card-title h2 {
+  color: #666;
+  font-weight: 400;
+  font-size: 2em;
+  text-transform: capitalize;
+}
+
+.profile-card-lesson-stats {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.4em;
+  text-transform: capitalize;
+}
+
+.profile-card-description-title,
+.profile-card-description-title h3 {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.1em;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.profile-card-lesson-description {
+  color: #666;
+  font-weight: 300;
+  font-size: 1em;
+  padding: 0 20px;
+  text-align: justify;
+  text-transform: none;
+  width: 80%;
+}
+
+.profile-card-teacher {}
+
+.profile-card-teacher-image {
+  border: solid 1px #ccc;
+  border-radius: 100%;
+  margin-right: 5px;
+  width: 40px;
+}
+
+.profile-card-teacher-image img {
+  border-radius: 100%;
+  width: 100%;
+}
+
+.profile-card-teacher-name {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.profile-card-book-btn {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+a.book-btn {
+  background-color: #4267B2;
+  border: solid 1px #4267B2;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1.4em;
+  font-weight: 400;
+  padding: 10px 50px;
+}
+
+a.book-btn:hover {
+  background-color: #2e487c;
+  border: solid 1px #2e487c;
+}
+
+/**  USER PROFILE PAGE STYLES (END)  **/
