@@ -1,3 +1,12 @@
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+
 <%= form_with(model: review, local: true) do |form| %>
   <% if review.errors.any? %>
     <div id="error_explanation">
@@ -12,13 +21,13 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :userbooking_id %>
-    <%= form.text_field :userbooking_id %>
+    <%= form.hidden_field :userbooking_id, value: params[:id] %>
   </div>
 
   <div class="field">
     <%= form.label :stars %>
-    <%= form.number_field :stars %>
+    <span class="glyphicon glyphicon-star"></span>
+    <%= form.number_field :stars, {min: 0, max: 5} %>
   </div>
 
   <div class="field">

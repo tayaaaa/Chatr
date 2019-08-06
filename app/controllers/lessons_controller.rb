@@ -49,7 +49,6 @@ class LessonsController < ApplicationController
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
       end
     end
-    raise
   end
 
   # DELETE /lessons/1

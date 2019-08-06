@@ -15,6 +15,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/new
   def new
     @conversation = Conversation.new
+    @users = User.all
   end
 
   # GET /conversations/1/edit
@@ -26,15 +27,26 @@ class ConversationsController < ApplicationController
   def create
     @conversation = Conversation.new(conversation_params)
 
-    respond_to do |format|
-      if @conversation.save
-        format.html { redirect_to @conversation, notice: 'Conversation was successfully created.' }
-        format.json { render :show, status: :created, location: @conversation }
-      else
-        format.html { render :new }
-        format.json { render json: @conversation.errors, status: :unprocessable_entity }
+    conversations = Conversation.all
+    conversations.each do |convo|
+      if((@conversation.user1 == convo.user1 and @conversation.user2 == convo.user2) or (@conversation.user1 == convo.user2 and @conversation.user2 == convo.user1))
+        @conversation = convo
+        redirect_to conversation_path(@conversation)
+        return
       end
     end
+   
+  
+      respond_to do |format|
+        if @conversation.save
+          format.html { redirect_to @conversation, notice: 'conversation was successfully created.' }
+          format.json { render :show, status: :created, location: @conversation }
+        else
+          format.html { render :new }
+          format.json { render json: @conversation.errors, status: :unprocessable_entity }
+        end
+      end
+
   end
 
   # PATCH/PUT /conversations/1

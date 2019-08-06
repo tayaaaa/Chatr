@@ -16,7 +16,7 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
-        <td><%= review.userbooking %></td>
+        <td>teacher user_id: <%= review.userbooking.lesson.user.id %>, userbooking_id: <%= review.userbooking.id %>, student user_id: <%= review.userbooking.user_id %> </td>
         <td><%= review.stars %></td>
         <td><%= review.content %></td>
         <td><%= review.date_published %></td>

@@ -8,6 +8,8 @@ class User < ApplicationRecord
   has_many :userbookings
   has_many :messages
   has_many :lessons
+  
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
+  :recoverable, :rememberable, :validatable
+  
 end

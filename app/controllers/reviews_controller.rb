@@ -25,9 +25,11 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = Review.new(review_params)
-
+    @teacher = get_teacher(@review)
+ 
     respond_to do |format|
       if @review.save
+        @teacher.profile.update_average_rating
         format.html { redirect_to @review, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
@@ -40,8 +42,10 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
+    @teacher = get_teacher(@review)
     respond_to do |format|
       if @review.update(review_params)
+        @teacher.profile.update_average_rating
         format.html { redirect_to @review, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
@@ -70,5 +74,9 @@ class ReviewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
       params.require(:review).permit(:userbooking_id, :stars, :content, :date_published)
+    end
+
+    def get_teacher(review)
+      review.userbooking.lesson.user
     end
 end
