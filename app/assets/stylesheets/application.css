@@ -7,7 +7,7 @@
 @import url("./scaffolds.scss");
 @import url("./userbookings.scss");
 @import url("./devise.scss");
-
+@import url("./forms.scss");
 
 * {
   box-sizing: border-box;

@@ -5,16 +5,21 @@
         <p><%= flash[:error] %></p>
       </div>
     <% end %>
-    <label class="amount">
-      <% @lesson = Lesson.find(params[:lesson_id]) %>
-      <span>Amount: $<%= @lesson.price %></span>
-    </label>
+
   </article>
   <input type="hidden" id="lesson_id" name="lesson_id" value="<%= @lesson.id %>">
 
   <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Purchase Book"
+          data-description="Purchase Lesson"
           data-amount="<%= @lesson.price * 100%>"
-          data-locale="auto"></script>
+          data-locale="auto">
+  </script>
+
+  <script>
+        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+  </script>
+  
+  <button class="custom-stripe-button", type="submit" >Pay With Card</button>
+
 <% end %>
