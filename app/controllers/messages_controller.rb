@@ -25,14 +25,14 @@ class MessagesController < ApplicationController
   # POST /messages.json
   def create
     @message = Message.new(message_params)
-
+    @conversation = @message.conversation
     respond_to do |format|
       if @message.save
-        format.html { redirect_to @message, notice: 'Message was successfully created.' }
-        format.json { render :show, status: :created, location: @message }
+        format.html { redirect_to @conversation, notice: 'Message was successfully created.' }
+        format.json { render :show, status: :created, location: @conversation }
       else
         format.html { render :new }
-        format.json { render json: @message.errors, status: :unprocessable_entity }
+        format.json { render json: @conversation.errors, status: :unprocessable_entity }
       end
     end
   end

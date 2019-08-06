@@ -21,7 +21,7 @@
             <div class="formcontent">
                 <h1 id= "formtitle">New Conversation</h1>
                 <div class="formfields">
-                    <%= render 'form', conversation: @conversation %>
+                    <%= render 'form', locals: {conversation: @conversation, can_message: @can_message} %>
                 </div>
             </div>
         </div>
@@ -31,5 +31,3 @@
 
   <%= render "pages/footer_public" %>
 </body>
-
-
