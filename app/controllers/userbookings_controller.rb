@@ -1,33 +1,58 @@
 class UserbookingsController < ApplicationController
   before_action :set_userbooking, only: [:show, :edit, :update, :destroy]
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:index, :show, :edit, :update, :destroy]
 
   # GET /userbookings
   # GET /userbookings.json
   def index
-    @all_userbooking_cards = [[],[]]
-    userbookings = Userbooking.all.where(user_id: current_user.id)
-    userbookings.each do |booking|
-      card_information = {
-        userbooking: booking,
-        picture: booking.lesson.user.profile,
-        teacher: booking.lesson.user.profile.firstname,
-        language: booking.lesson.languageskill.language_name,
-        date: booking.date_booked,
-        note: booking.note,
-        description: booking.lesson.description,
-        duration: booking.lesson.duration,
-        complete: booking.completedstu
-      }
-      if card_information[:complete] == true
-        @all_userbooking_cards[1] << card_information
-      else 
-        @all_userbooking_cards[0] << card_information
+    # raise
+    if current_user.role.privilege == "student"
+      @all_userbooking_cards = [[],[]]
+      userbookings = Userbooking.all.where(user_id: current_user.id)
+      userbookings.each do |booking|
+        card_information = {
+          userbooking: booking,
+          picture: booking.lesson.user.profile,
+          teacher: booking.lesson.user.profile.firstname,
+          language: booking.lesson.languageskill.language_name,
+          date: booking.date_booked,
+          note: booking.note,
+          description: booking.lesson.description,
+          duration: booking.lesson.duration,
+          complete: booking.completedstu
+        }
+        if card_information[:complete] == true
+          @all_userbooking_cards[1] << card_information
+        else 
+          @all_userbooking_cards[0] << card_information
+        end
       end
-    end
+    else
+      @all_userbooking_cards = [[],[]]
+      Userbooking.all.each do |booking|
+        if booking.lesson.user_id == current_user.id
+          card_information = {userbooking: booking,
+            picture: booking.user.profile,
+            teacher: booking.lesson.user.profile.firstname,
+            language: booking.lesson.languageskill.language_name,
+            date: booking.date_booked,
+            note: booking.note,
+            description: booking.lesson.description,
+            duration: booking.lesson.duration,
+            complete: booking.completedstu,
+            review: booking.review,
+            student: booking.user.profile.firstname
+          }
+          if card_information[:complete] == true
+            @all_userbooking_cards[1] << card_information
+          else
+            @all_userbooking_cards[0] << card_information
+          end
+        end
+      end
     puts @all_userbooking_cards
+    end
   end
-
   # GET /userbookings/1
   # GET /userbookings/1.json
   def show

@@ -9,13 +9,7 @@ class User < ApplicationRecord
   has_many :messages
   has_many :lessons
   
-  # after_initialize :set_default_role, :if => :new_record?
-
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
-
-  # def set_default_role
-  #   self.role = Role.where(privilege: params[:role])
-  # end
-
+  
 end

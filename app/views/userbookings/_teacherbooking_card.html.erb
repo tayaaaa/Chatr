@@ -13,7 +13,7 @@
                     <% end %>
                     
                     <div class="righthandside">
-                        <h2 id = "langwithteach"> <%= "#{cardinfo[:language]} with #{cardinfo[:teacher]}" %> </h2>
+                        <h2 id = "langwithteach"> <%= "#{cardinfo[:language]} with #{cardinfo[:student]}" %> </h2>
                         <div class = "subtitlesection">
                             <span class="glyphicon glyphicon-hourglass"></span>
                             <%= "#{cardinfo[:duration]} minutes | #{cardinfo[:date].strftime("%e %B, %Y")}"%>
@@ -23,21 +23,26 @@
                 </div>
 
                 <div class = "cardbody">
-                    <p id = "subtitle"> <strong> Your note to <%= "#{cardinfo[:teacher]}:" %> </strong> <%= "#{cardinfo[:note]}" %> </p> 
-
                     <p id = "subtitle"> <strong> Lesson description: </strong> <%= "#{cardinfo[:description]}" %> </p> 
+
+                    <p id = "subtitle"> <strong> Your note from  <%= "#{cardinfo[:student]}:" %> </strong> <%= "#{cardinfo[:note]}" %> </p> 
                 </div>
                 
                 <div class = "bottombar">
                     <div class = "button" >
-                        <%= link_to "CONTACT #{cardinfo[:teacher].upcase}",new_conversation_path %>
+                        <%= link_to "CONTACT #{cardinfo[:student].upcase}",new_conversation_path %>
                     </div>
 
                     <div class = "complete?">
-                        <% if cardinfo[:complete] == false %>
-                            <%= link_to "MARK AS COMPLETE", "/userbookings/completelesson/#{cardinfo[:userbooking].id}", method: :put%>
+                        <% if cardinfo[:review] != nil %>
+                            <p id = "subtitle"> <strong> Review available: </strong> <%= "#{cardinfo[:review].content}" %> </p> 
+                            <% if cardinfo[:userbooking].review.reply == nil %>
+                                <%= link_to "REPLY", "/userbookings/replies" %>
+                            <% else %>
+                                <%= link_to "You have already replied. View your reply here.", "/userbookings/replies" %>
+                            <% end %>
                         <% else %>
-                            <%= link_to "REVIEW", "/userbookings/#{cardinfo[:userbooking].id}/review" %>
+                            <p id = "subtitle"> <strong> Review not yet available </strong> </p> 
                         <% end %>
                     </div>
                 </div>

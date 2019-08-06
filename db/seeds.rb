@@ -47,10 +47,10 @@ user4.role_id = role2.id
 user4.save!
 user5.role_id = role2.id
 user5.save!
-user6.role_id = role2.id
+user6.role = role2
 user6.save!
 
-user7.role_id = role3.id
+user7.role = role3
 user7.save!
 user8.role_id = role3.id
 user8.save!
