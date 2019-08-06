@@ -24,6 +24,9 @@
   <div>
     <p class= "labels"> <%= @userbooking.user.profile.firstname %>'s review: </p>
     <% @userbooking.review.stars.to_i.times do %>
+        <span class="glyphicon glyphicon-star"></span>
+    <% end %>
+    <% (5 - @userbooking.review.stars.to_i).times do %>
         <span class="glyphicon glyphicon-star-empty"></span>
     <% end %>
     <p> <%= @userbooking.review.content %> </p>
