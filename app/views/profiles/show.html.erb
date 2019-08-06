@@ -47,7 +47,7 @@
       </p>
 
       <p>
-        <strong>Language skills:</strong> 
+        <strong>Languages Spoken:</strong> 
         <% @user.profile.languageskills.each do |languageskill| %>
           <div>
             <p> Language: <%= languageskill.language_name %> </p>
@@ -55,8 +55,20 @@
           </div>
         <%end%>
       </p>
+     
 
       <% if @user.role.privilege == "teacher" %>
+        <p>
+          <strong>Languages Taught:</strong> 
+          <% @user.profile.languageskills.each do |languageskill| %>
+            <% if languageskill.teaches%>
+              <div>
+                <p> Language: <%= languageskill.language_name %> </p>
+              </div>
+            <% end %>
+          <%end%>
+        </p>
+
         <p>
           <strong>Rating:</strong>
           <%= @user.profile.average_rating %>
