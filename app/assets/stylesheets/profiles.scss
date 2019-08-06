@@ -1,5 +1,9 @@
 /**  USER PROFILE PAGE STYLES (START)  **/
 
+#body.user-profile.outer-wrapper {
+  margin-top: 10px;
+}
+
 #body .profile-cover-image {
   align-items: center;
   background-color: #e8e8e8;
@@ -84,33 +88,13 @@
   height: 180px;
   justify-content: center;
   margin-top: -90px;
+  overflow: hidden;
   width: 180px;
 }
 
-#body .profile-picture .fas.fa-user {
-  color: #d9d9d9;
-  font-size: 5em;
-  margin: -5px 0px 5px 0px;
-  padding: 0;
-}
-
-#body .profile-picture a.default-picture-text {
-  border: solid 1px rgba(255, 255, 255, 0);
-  color: #d2d0d0;
-  font-size: 1em;
-  line-height: 1em;
-  padding: 4px;
-  text-transform: capitalize;
-}
-
-#body .profile-picture a.default-picture-text:active,
-#body .profile-picture a.default-picture-text:focus,
-#body .profile-picture a.default-picture-text:hover {
-  background-color: rgba(0, 0, 0, 0.05);
-  border: solid 1px rgba(0, 0, 0, 0.08);
-  border-radius: 5px;
-  color: rgba(0, 0, 0, 0.3);
-  padding: 4px;
+.profile-picture img {
+  height: 100%;
+  width: 100%;
 }
 
 .user-profile .profile-row {
@@ -131,6 +115,7 @@
   font-size: 2em;
   font-weight: 500;
   line-height: 1em;
+  text-transform: capitalize;
 }
 
 .profile-user-rating {
@@ -166,6 +151,28 @@
   line-height: 1.2em;
   padding: 10px;
   text-align: justify;
+}
+
+.profile-buttons {
+  justify-content: space-evenly !important;
+  margin-top: 20px;
+}
+
+.go-back-btn,
+.edit-profile-btn {
+  background-color: #4267B2;
+  border: solid 1px #4267B2;
+  border-radius: 3px;
+  color: #fff;
+  font-size: 1.1em;
+  font-weight: 300;
+  padding: 10px 40px;
+}
+
+.go-back-btn:hover,
+.edit-profile-btn:hover {
+  background-color: #2e487c;
+  border: solid 1px #2e487c;
 }
 
 .profile-col-2-container {
@@ -324,17 +331,17 @@
   width: 80%;
 }
 
-.profile-card-teacher {}
-
 .profile-card-teacher-image {
   border: solid 1px #ccc;
   border-radius: 100%;
+  height: 40px;
   margin-right: 5px;
   width: 40px;
 }
 
 .profile-card-teacher-image img {
-  border-radius: 100%;
+  border-radius: 100px;
+  height: 100%;
   width: 100%;
 }
 
@@ -358,11 +365,15 @@ a.book-btn {
   font-size: 1.4em;
   font-weight: 400;
   padding: 10px 50px;
+  text-decoration: none;
+  text-transform: capitalize;
 }
 
 a.book-btn:hover {
   background-color: #2e487c;
   border: solid 1px #2e487c;
+  color: #fff;
+  text-decoration: none;
 }
 
 /**  USER PROFILE PAGE STYLES (END)  **/

@@ -7,6 +7,7 @@
 </head>
 
 <body>
+  
   <% if current_user %>
     <%= render '/pages/header_nav_authenticated' %>
   <% else %>
@@ -15,29 +16,38 @@
 
   <div id="body" class="user-profile outer-wrapper">
     <div class="profile-cover-image">
-        <i class="fas fa-image"></i>
-        <a class="default-image-text">upload a cover image</a>
+      <%# <%= image_tag @profile.cover_image %> %>
     </div>
     <div class="profile-inner-wrapper">
       <div class="profile-col-1">
         <div class="profile-picture">
-            <i class="fas fa-user"></i>
-            <a class="default-picture-text">add a profile picture</a>
+          <%= image_tag @profile.uploaded_image %>
         </div>
         <div class="profile-row profile-firstname-lastname">
           <span> <%= @profile.firstname %> <%= @profile.lastname %> </span>
         </div>
         <div class="profile-row profile-user-rating">
-          <span>star rating</span>
+          <span> 
+            <% if teachers_card_info[:stars]%>
+              <% teachers_card_info[:stars].to_i.times do  %>
+                <span class="glyphicon glyphicon-star"></span>
+              <% end %>
+            <% end %>
+            <% if teachers_card_info[:stars].to_i != 5 %>
+              <% (5 - teachers_card_info[:stars].to_i).times do %>
+                <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+            <% end %>
+          </span>
         </div>
         <div class="profile-row profile-title">
-          <span> <i class="fas fa-info-circle"></i> About Cookie </span>
+          <span> <i class="fas fa-info-circle"></i> About <%= @profile.firstname %> </span>
         </div>
         <div class="profile-row profile-info">
             <span> <%= @profile.bio %> </span>
         </div>
         <div class="profile-row profile-title">
-          <span> <i class="fab fa-skype"></i> Skype Cookie </span>
+          <span> <i class="fab fa-skype"></i> Skype <%= @profile.firstname %> </span>
         </div>
         <div class="profile-row profile-info">
             <span> <%= @profile.skypename %> </span>
@@ -54,6 +64,10 @@
         <div class="profile-row profile-info">
             <span>Lorem ipsum dolor sit</span>
         </div>
+        <div class="profile-row profile-buttons">
+          <div class="go-back-btn"> <i class="fas fa-arrow-alt-circle-left"></i> go back </div>
+          <div class="edit-profile-btn"> <i class="fas fa-edit"></i> edit my profile </div>
+        </div>
       </div>
 
       <div class="profile-col-2">
@@ -66,10 +80,10 @@
             <% @user.lessons.each do |lesson|%>
               <div class="profile-card">
                 <div class="profile-card-row profile-card-title">
-                  <h2> <%= lesson[:language] %> </h2>
+                  <h2> <%= lesson.languageskill.language_name %> with <%= lesson.user.profile.firstname %> </h2>
                 </div>
                 <div class="profile-card-row profile-card-lesson-stats">
-                  <span> <%= lesson[:duration] %> minutes | $<%= lesson[:price] %> | <%= lesson[:maxbooking] %> available </span>
+                  <span> <%= lesson.duration %> minutes | $<%= lesson[:price] %> | <%= lesson[:maxbooking] %> available </span>
                 </div>
                 <div class="profile-card-row profile-card-description-title">
                     <h3> lesson description </h3>
@@ -78,7 +92,7 @@
                   <span> <%= lesson[:description] %> </span>
                 </div>
                 <div class="profile-card-row profile-card-teacher">
-                    <div class="profile-card-teacher-image"> <img src="profile_1-paul-1240x1240.jpg" alt=""> </div>
+                    <div class="profile-card-teacher-image"> <%= image_tag lesson.user.profile.uploaded_image %> </div>
                     <div class="profile-card-teacher-name"> <%= @profile.firstname %> <%= @profile.lastname %> </div>
                 </div>
                 <div class="profile-card-row profile-card-book-btn">
@@ -92,9 +106,6 @@
     </div>
   </div>
 
-  <%= render 'footer_public' %>
+  <%= render '/pages/footer_public' %>
 
 </body>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
