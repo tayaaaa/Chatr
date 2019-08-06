@@ -1,5 +1,35 @@
-<h1>New Conversation</h1>
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-<%= render 'form', conversation: @conversation %>
+<body>
+  <% if current_user %>
+    <%= render '/pages/header_nav_authenticated' %>
+  <% else %>
+    <%= render '/pages/header_nav_public' %>
+  <% end %>
 
-<%= link_to 'Back', conversations_path %>
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+        <div class= "formbox">
+            <div class="formcontent">
+                <h1 id= "formtitle">New Conversation</h1>
+                <div class="formfields">
+                    <%= render 'form', conversation: @conversation %>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+  </div>
+
+  <%= render "pages/footer_public" %>
+</body>
+
+

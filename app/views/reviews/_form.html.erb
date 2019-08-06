@@ -1,13 +1,9 @@
-<head>
-  <title>Home | Chatr</title>
-  <link rel="icon" type="image/png" href="">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-</head>
-
-
 <%= form_with(model: review, local: true) do |form| %>
+  <div class="formstats">
+    <% @userbooking = Userbooking.find(params[:id]) %>
+    <p> Reviewing your <%= @userbooking.lesson.duration %> minute <%= @userbooking.lesson.languageskill.language_name %> class with <%= @userbooking.lesson.user.profile.firstname %> from the <%= @userbooking.date_booked.strftime("%e %B, %Y") %>. </p> 
+  </div>
+  
   <% if review.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
@@ -25,22 +21,29 @@
   </div>
 
   <div class="field">
-    <%= form.label :stars %>
+    <%= form.label :stars, :class => "labels" %>
     <span class="glyphicon glyphicon-star"></span>
     <%= form.number_field :stars, {min: 0, max: 5} %>
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :content, :class => "labels" %>
+    <%= form.text_area :content, :class => "resizable-textboxes"%>
   </div>
 
-  <div class="field">
-    <%= form.label :date_published %>
+  <div class="field dateselect">
+    <%= form.label :date_published, :class => "labels" %>
     <%= form.datetime_select :date_published %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="submit-actions">
+    <%= form.submit 'submit review', :id => "submit-button"%>
   </div>
 <% end %>
+
+<script>
+  var dates = document.querySelector('.dateselect')
+  var nodes = dates.childNodes
+  nodes[8].remove()
+  nodes[9].remove()
+</script>

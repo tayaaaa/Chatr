@@ -1,19 +1,48 @@
-<h1>New Userbooking</h1>
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-<%= render partial: "layouts/shared/stripe_form" %>
+<body>
+  <% if current_user %>
+    <%= render '/pages/header_nav_authenticated' %>
+  <% else %>
+    <%= render '/pages/header_nav_public' %>
+  <% end %>
 
-<%= render 'form', userbooking: @userbooking %>
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
 
-<%= link_to 'Back', userbookings_path %>
+    <div class="formbox">
+    <div class = "formcontent">
 
-<%if false%>
-<script>
-    var stripe = document.querySelector(".stripe-button-el")
-    var submit = document.querySelector("#submit-button")
-    if (stripe) {
-        stripe.addEventListener("click", function (){
-            submit.disabled = false
-        })
-    }
-</script>
-<%end%>
+        <h1 id="formtitle">New Booking</h1>
+            <div class= "formfields">
+                <%= render 'form', userbooking: @userbooking %>
+
+                <%= render partial: "layouts/shared/stripe_form" %>
+            </div>
+
+            <%if false%>
+                <script>
+                    var stripe = document.querySelector(".stripe-button-el")
+                    var submit = document.querySelector("#submit-button")
+                    if (stripe) {
+                        stripe.addEventListener("click", function (){
+                            submit.disabled = false
+                        })
+                    }
+                </script>
+            <%end%>
+        </div>
+    </div>
+      
+  </div>
+
+  <%= render "pages/footer_public" %>
+</body>

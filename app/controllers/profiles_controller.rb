@@ -13,7 +13,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @user
     @user_reviews = user_reviews(@user)
   end
 
