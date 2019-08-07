@@ -45,12 +45,19 @@
           <span> <i class="fas fa-volume-up"></i> Languages Spoken </span>
         </div>
         <div class="profile-row profile-info">
-          <span>
-            <% @user.profile.languageskills.each do |languageskill| %>
-              <p> Language: <%= languageskill.language_name %> </p>
-              <p> Proficiency: <%= languageskill.proficiency %> </p>
-            <%end%>
-          </span>
+          <% @user.profile.languageskills.each do |languageskill| %>
+            <div class="profile-info-languages-spoken">
+              <div class="languages-spoken-left">
+                <span style="font-weight: 500;"> Language:&nbsp;</span> <span style="font-style: italic;"> <%= languageskill.language_name %> </span>
+              </div>
+              <div class="languages-spoken-divider">
+                 | 
+              </div>
+              <div class="languages-spoken-right">
+                <span style="font-weight: 500;"> Proficiency:&nbsp;</span> <span style="font-style: italic;"> <%= languageskill.proficiency %> </span>
+              </div>
+            </div>
+          <%end%>
         </div>
         <div class="profile-row profile-title">
           <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
@@ -59,9 +66,12 @@
           <span>
             <% if @user.role.privilege == "teacher" %>
               <% @user.profile.languageskills.each do |languageskill| %>
-                <% if languageskill.teaches%>
-                  <p> Language: <%= languageskill.language_name %> </p>
-                <% end %>
+                <div class="profile-info-languages-spoken">
+                  <% if languageskill.teaches%>
+                    <span style="font-weight: 500;"> Language:&nbsp;</span>
+                    <span style="font-style: italic;"> <%= languageskill.language_name %> </span>
+                  <% end %>
+                </div>
               <% end %>
             <% end %>
           </span>

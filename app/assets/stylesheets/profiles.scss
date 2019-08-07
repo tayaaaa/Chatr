@@ -153,6 +153,40 @@
   text-align: justify;
 }
 
+.profile-info-languages-spoken {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.languages-spoken-left,
+.languages-spoken-right,
+.languages-spoken-divider {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.languages-spoken-left {
+  justify-content: flex-end;
+  width: 45%;
+}
+
+.languages-spoken-right {
+  justify-content: flex-start;
+  width: 45%;
+}
+
+.languages-spoken-divider {
+  justify-content: center;
+  width: 15px;
+}
+
 .profile-buttons {
   justify-content: space-evenly !important;
   margin-top: 20px;
@@ -217,6 +251,7 @@
   height: 100%;
   justify-content: center;
   line-height: 1em;
+  text-decoration: none;
   text-transform: capitalize;
   width: 50%;
 }
