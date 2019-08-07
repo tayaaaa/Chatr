@@ -201,12 +201,15 @@
   font-size: 1.1em;
   font-weight: 300;
   padding: 10px 40px;
+  text-decoration: none;
 }
 
 .go-back-btn:hover,
 .edit-profile-btn:hover {
   background-color: #2e487c;
   border: solid 1px #2e487c;
+  color: #fff;
+  text-decoration: none;
 }
 
 .profile-col-2-container {

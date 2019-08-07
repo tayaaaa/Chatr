@@ -176,7 +176,7 @@ nav.footer-nav {
   font-size: 1.2em;
   font-weight: 400;
   margin-left: 20px;
-  padding: 4px 10px;
+  padding: 8px 10px;
   text-transform: capitalize;
 }
 
@@ -228,6 +228,15 @@ a.header-nav-btn.login-btn:hover {
   text-decoration: underline;
 }
 
+#header-nav-btn-profile {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 38px;
+  width: auto;
+}
+
 .profile-nav-btn {
   align-items: center;
   display: flex;
@@ -235,14 +244,17 @@ a.header-nav-btn.login-btn:hover {
 }
 
 .profile-nav-image {
-  margin-left: -6px;
+  height: 28px;
+  margin-left: -8px;
   margin-right: 5px;
-  width: 20px;
+  overflow: hidden;
+  width: 28px;
 }
 
 .profile-nav-image img {
   border-radius: 3px;
-  width: 20px;
+  height: 100%;
+  width: 100%;
 }
 
 #header-nav .header-nav-notifications {
