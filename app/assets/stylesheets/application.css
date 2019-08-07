@@ -8,6 +8,7 @@
 @import url("./userbookings.scss");
 @import url("./devise.scss");
 @import url("./forms.scss");
+@import url("./conversations.scss");
 
 * {
   box-sizing: border-box;
