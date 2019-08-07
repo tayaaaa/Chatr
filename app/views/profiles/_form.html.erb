@@ -40,6 +40,11 @@
     <%= form.file_field :uploaded_image %>
   </div>
 
+   <div class="field">
+    <%= form.label "Profile background", :class => "labels" %>
+    <%= form.file_field :background_image %>
+  </div>
+
   <div class="submit-actions">
     <%= form.submit 'create profile', :id => "submit-button" %>
   </div>
