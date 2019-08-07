@@ -27,18 +27,7 @@
           <span> <%= @profile.firstname %> <%= @profile.lastname %> </span>
         </div>
         <div class="profile-row profile-user-rating">
-          <span> 
-            <% if teachers_card_info[:stars]%>
-              <% teachers_card_info[:stars].to_i.times do  %>
-                <span class="glyphicon glyphicon-star"></span>
-              <% end %>
-            <% end %>
-            <% if teachers_card_info[:stars].to_i != 5 %>
-              <% (5 - teachers_card_info[:stars].to_i).times do %>
-                <span class="glyphicon glyphicon-star-empty"></span>
-              <% end %>
-            <% end %>
-          </span>
+          <span> <%= @user.profile.average_rating %> </span>
         </div>
         <div class="profile-row profile-title">
           <span> <i class="fas fa-info-circle"></i> About <%= @profile.firstname %> </span>
@@ -56,13 +45,26 @@
           <span> <i class="fas fa-volume-up"></i> Languages Spoken </span>
         </div>
         <div class="profile-row profile-info">
-            <span>Lorem ipsum dolor sit</span>
+          <span>
+            <% @user.profile.languageskills.each do |languageskill| %>
+              <p> Language: <%= languageskill.language_name %> </p>
+              <p> Proficiency: <%= languageskill.proficiency %> </p>
+            <%end%>
+          </span>
         </div>
         <div class="profile-row profile-title">
           <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
         </div>
         <div class="profile-row profile-info">
-            <span>Lorem ipsum dolor sit</span>
+          <span>
+            <% if @user.role.privilege == "teacher" %>
+              <% @user.profile.languageskills.each do |languageskill| %>
+                <% if languageskill.teaches%>
+                  <p> Language: <%= languageskill.language_name %> </p>
+                <% end %>
+              <% end %>
+            <% end %>
+          </span>
         </div>
         <div class="profile-row profile-buttons">
           <div class="go-back-btn"> <i class="fas fa-arrow-alt-circle-left"></i> go back </div>
