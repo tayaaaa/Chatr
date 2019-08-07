@@ -26,6 +26,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     @conversation = @message.conversation
+  
     respond_to do |format|
       if @message.save
         format.html { redirect_to @conversation, notice: 'Message was successfully created.' }
@@ -35,6 +36,7 @@ class MessagesController < ApplicationController
         format.json { render json: @conversation.errors, status: :unprocessable_entity }
       end
     end
+  
   end
 
   # PATCH/PUT /messages/1
