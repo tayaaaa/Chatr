@@ -16,12 +16,14 @@
 
   <div id="body" class="user-profile outer-wrapper">
     <div class="profile-cover-image">
-      <%= image_tag @profile.background_image %>
+    <% if @profile.background_image.attached? %>
+      <%= image_tag @profile.background_image.service_url %>
+    <% end %>
     </div>
     <div class="profile-inner-wrapper">
       <div class="profile-col-1">
         <div class="profile-picture">
-          <%= image_tag @profile.uploaded_image %>
+          <%= image_tag @profile.uploaded_image.service_url %>
         </div>
         <div class="profile-row profile-firstname-lastname">
           <span> <%= @profile.firstname %> <%= @profile.lastname %> </span>
@@ -84,40 +86,15 @@
 
       <div class="profile-col-2">
         <div class="profile-col-2-container">
-          <div id="profile-sub-menu">
-            <a id="" class="sub-menu-btn active" href="/"> lessons </a>
-            <a id="" class="sub-menu-btn" href="/"> reviews </a>
-          </div>
-          <% if @user.role.privilege == "teacher" %>
-            <% @user.lessons.each do |lesson|%>
-              <div class="profile-card">
-                <div class="profile-card-row profile-card-title">
-                  <h2> <%= lesson.languageskill.language_name %> with <%= lesson.user.profile.firstname %> </h2>
-                </div>
-                <div class="profile-card-row profile-card-lesson-stats">
-                  <span> <%= lesson.duration %> minutes | $<%= lesson[:price] %> | <%= lesson[:maxbooking] %> available </span>
-                </div>
-                <div class="profile-card-row profile-card-description-title">
-                    <h3> lesson description </h3>
-                </div>
-                <div class="profile-card-row profile-card-lesson-description">
-                  <span> <%= lesson[:description] %> </span>
-                </div>
-                <div class="profile-card-row profile-card-teacher">
-                    <div class="profile-card-teacher-image"> <%= image_tag lesson.user.profile.uploaded_image %> </div>
-                    <div class="profile-card-teacher-name"> <%= @profile.firstname %> <%= @profile.lastname %> </div>
-                </div>
-                <div class="profile-card-row profile-card-book-btn">
-                  <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
-                </div>
-              </div>
-            <%end%>
-          <%end%>
+          <% if params[:reviews] == "1" %>
+            <%= render partial: 'reviews_profile'%>
+          <% else %>
+            <%= render partial: 'lessons_profile'%>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 
   <%= render '/pages/footer_public' %>
-
 </body>

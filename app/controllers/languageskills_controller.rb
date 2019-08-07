@@ -24,13 +24,7 @@ class LanguageskillsController < ApplicationController
     @languageskill = Languageskill.new(languageskill_params)
 
     respond_to do |format|
-      if @languageskill.save
-        format.html { redirect_to @languageskill, notice: 'Languageskill was successfully created.' }
-        format.json { render :show, status: :created, location: @languageskill }
-      else
-        format.html { render :new }
-        format.json { render json: @languageskill.errors, status: :unprocessable_entity }
-      end
+        format.html { render :success }
     end
   end
 

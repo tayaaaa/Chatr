@@ -11,5 +11,7 @@ class User < ApplicationRecord
   
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable
+
+  #validating that the email is unique.
   
 end
