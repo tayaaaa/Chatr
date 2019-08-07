@@ -25,6 +25,7 @@ body {
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 #body.outer-wrapper {
