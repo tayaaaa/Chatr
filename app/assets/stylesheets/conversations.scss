@@ -6,10 +6,6 @@ body {
     margin: 0 auto;
   }
   
-  .container-messages {
-    display: flex;
-    flex-direction: column;
-  }
 
   .container-message {
     border: 2px solid #dedede;
@@ -17,6 +13,7 @@ body {
     border-radius: 5px;
     padding: 10px;
     margin: 10px 0;
+    position: relative;
   }
   
   .darker {
@@ -38,18 +35,32 @@ body {
     border-radius: 50%;
   }
   
-  .container-message img.right {
+  .container-message .right {
     float: right;
     margin-left: 20px;
     margin-right:0;
   }
   
   .time-right {
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: flex-end;
+    // align-items: flex-end;
     float: right;
     color: #aaa;
+    position: absolute;
+    bottom: 0;
   }
   
   .time-left {
     float: left;
     color: #999;
+    position: absolute;
+    bottom: 0;
+  }
+
+  #author-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end
   }

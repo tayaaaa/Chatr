@@ -15,44 +15,27 @@
 
 
   <div class="container-messages">
-  <h2><strong>Your messages with <%= @conversation_partner.profile.firstname%></strong></h2>
+    <h2><strong>Your messages with <%= @conversation_partner.profile.firstname%></strong></h2>
 
     <div class="">
-    <% @conversation.messages.each do |message| %>
-      <div class="container-message">
-        <img src="/assets/bandmember.jpg" alt="Avatar" style="width:100%;">
+      <% @conversation.messages.each do |message| %>
         <% if message.author == current_user%>
-          <p> You </p>
-        <%else%>
-          <p> <%= message.author.profile.firstname %> </p>
-        <% end %>
-        <p> <%= message.content %> </p>
-        <span class="time-right"> <%= message.created_at %> </span>
-      </div>
+          <div class="container-message">
+            <%= image_tag current_user.profile.uploaded_image %>
+            <p> <%= message.content %> </p>
+            <span class="time-right"> <%= message.created_at %> </span>
+          </div>
+        <% else %>
+          <div class="container-message darker">
+            <p class="right"><%= image_tag message.author.profile.uploaded_image %></p>
+            <p class="right"> <%= message.content %> </p>
+            <span class="time-left"> <%= message.created_at %> </span>
+          </div>
+        <%end%>
+
       <% end %>
-      </div>
-
- 
-    <%if false%>
-    <div class="container-message darker">
-    <img src="/assets/avatar_g2.jpg" alt="Avatar" class="right" style="width:100%;">
-    <p>Hey! I'm fine. Thanks for asking!</p>
-    <span class="time-left">11:01</span>
     </div>
-
-    <div class="container-message">
-    <img src="/assets/bandmember.jpg" alt="Avatar" style="width:100%;">
-    <p>Sweet! So, what do you wanna do today?</p>
-    <span class="time-right">11:02</span>
-    </div>
-
-    <div class="container-message darker">
-    <img src="/assets/avatar_g2.jpg" alt="Avatar" style="width:100%;">
-    <p>Nah, I dunno. Play soccer.. or learn more coding perhaps?</p>
-    <span class="time-left">11:05</span>
-    </div>
-
-    <%end%>
+    
   <div>
 
 
@@ -61,29 +44,6 @@
 
 
 
-
-<%if false %>
-<p>
-  <strong>Your messages with <%= @conversation_partner.profile.firstname%></strong>
-</p>
-
-<p>
-
-
-  <strong>Messages:</strong>
-  <% @conversation.messages.each do |message| %>
-    <div>
-      <% if message.author == current_user%>
-        <p> You </p>
-      <%else%>
-        <p> <%= message.author.profile.firstname %> </p>
-      <% end %>
-      <p> <%= message.content %> </p>
-      <p> <%= message.created_at %> </p>
-    </div>
-  <% end %>
- 
-</p>
 
 
 <div>
@@ -97,9 +57,9 @@
     </div>
   </div>
 
-
+<%if false%>
   <%= render 'pages/footer_public' %>
-  <%end%> 
+<%end%>
 
 </body>
 
