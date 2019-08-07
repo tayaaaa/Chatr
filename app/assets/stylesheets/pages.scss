@@ -426,7 +426,7 @@ div.column-teacher {
 /*  LANDING PAGE STYLES (END)  */
 
 
-.rowofcards {
+.cardwrapper {
   width: 100%;
 }
 
@@ -437,13 +437,41 @@ div.column-teacher {
   overflow-x: auto;
 }
 
-.card {
-  box-shadow: 0 0 2px 0 rgba(46,62,72,.12), 0 2px 4px 0 rgba(46,62,72,.12);
-  border: 1px solid grey;
-  border-radius: 2px;
+#lesson-card {
+  margin: 10px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  min-width: 350px;
+}
+
+#see-more-card {
   margin: 10px;
   align-items: center;
-  min-width: calc(25% - 42px);
+  justify-content: center;
+  min-width: 350px;
+}
+
+.align-button{
+  display:flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+
+}
+
+.bottomalign{
+  justify-content:flex-end;
+  align-items: center;
+}
+
+.bottomcontainer{
+  display:flex;
+  flex-direction: column;
+}
+
+#lessoncardtitle{
+  width: 100%;
 }
 ​
 .seemorebutton {
@@ -451,7 +479,7 @@ div.column-teacher {
   justify-content: center;
 }
 
-#language {
+#teachcard{
   text-align: center;
 }
 
@@ -487,10 +515,6 @@ div.column-teacher {
 
 th {
   text-align: left;
-}
-
-tr {
-  border: 1px solid black;
 }
 
 #financeswrapper {

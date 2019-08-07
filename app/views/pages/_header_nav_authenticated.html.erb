@@ -12,7 +12,7 @@
         <a id="" class="header-nav-btn" href="/finances"> finances </a>
         <% if current_user.profile %>
           <a id="" class="header-nav-btn profile-nav-btn" href="/profiles/<%=current_user.profile.id%>">
-          <div class="profile-nav-image"> <img src="profile_1-paul-1240x1240.jpg" alt=""> </div> <%= current_user.profile.firstname %> </a>
+          <div class="profile-nav-image"> <%= image_tag current_user.profile.uploaded_image %> </div> <%= current_user.profile.firstname %> </a>
         <% else %>
           <%= current_user.email %>
         <% end %>
