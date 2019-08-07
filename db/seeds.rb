@@ -81,18 +81,16 @@ user11.profile = Profile.create! :firstname => 'Sonny', :lastname => 'student', 
 puts "Finished creating and Assigning profiles for users"
 
 # puts "Attaching images to users"
-# file_path = Rails.root + 'app/assets/images/profilepics'
-# user1.uploaded_image.attach(io: File.open(file_path + 'user1.jpeg'), filename: 'user1.jpeg')
-# user2.uploaded_image.attach(io: File.open(file_path + 'user2.jpeg'), filename: 'user2.jpeg')
-# user3.uploaded_image.attach(io: File.open(file_path + 'user3.jpeg'), filename: 'user3.jpeg')
-# user4.uploaded_image.attach(io: File.open(file_path + 'user4.jpeg'), filename: 'user4.jpeg')
-# user5.uploaded_image.attach(io: File.open(file_path + 'user5.jpeg'), filename: 'user5.jpeg')
-# user6.uploaded_image.attach(io: File.open(file_path + 'user6.jpeg'), filename: 'user6.jpeg')
-# user7.uploaded_image.attach(io: File.open(file_path + 'user7.jpeg'), filename: 'user7.jpeg')
-# user8.uploaded_image.attach(io: File.open(file_path + 'user8.jpeg'), filename: 'user8.jpeg')
-# user9.uploaded_image.attach(io: File.open(file_path + 'user9.jpeg'), filename: 'user9.jpeg')
-# user10.uploaded_image.attach(io: File.open(file_path + 'use10.jpeg'), filename: 'user10.jpeg')
-# user11.uploaded_image.attach(io: File.open(file_path + 'user11.jpeg'), filename: 'user11.jpeg')
+user2.uploaded_image.attach()
+user3.uploaded_image.attach()
+user4.uploaded_image.attach()
+user5.uploaded_image.attach()
+user6.uploaded_image.attach()
+user7.uploaded_image.attach()
+user8.uploaded_image.attach()
+user9.uploaded_image.attach()
+user10.uploaded_image.attach()
+user11.uploaded_image.attach()
 # puts "Finished attaching images to users"
 
 
