@@ -81,16 +81,16 @@ user11.profile = Profile.create! :firstname => 'Sonny', :lastname => 'student', 
 puts "Finished creating and Assigning profiles for users"
 
 # puts "Attaching images to users"
-user2.uploaded_image.attach()
-user3.uploaded_image.attach()
-user4.uploaded_image.attach()
-user5.uploaded_image.attach()
-user6.uploaded_image.attach()
-user7.uploaded_image.attach()
-user8.uploaded_image.attach()
-user9.uploaded_image.attach()
-user10.uploaded_image.attach()
-user11.uploaded_image.attach()
+user2.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user3.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user4.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user5.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user6.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user7.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user8.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user9.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user10.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+user11.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
 # puts "Finished attaching images to users"
 
 
