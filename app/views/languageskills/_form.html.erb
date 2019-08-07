@@ -15,16 +15,43 @@
     <%= form.hidden_field :profile_id, value: "#{current_user.profile.id}" %>
   </div>
 
-  <div class="field">
-    <%= form.select :language_name, options_for_select(@languagenames) %>
+  <div class = "languageformwrapper">
+    <div class="field">
+      <%= form.select :language_name, options_for_select(@languagenames) %>
+    </div>
+
+    <div class="field" id="slider-wrapper">
+      <%= form.label :proficiency %>
+      <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5, :class => "slider", :id => "rangevalue" %>
+    </div>
+
+    <p><span id="proficiencylevel"></span></p>
   </div>
 
-  <div class="field" id="slider-wrapper">
-    <%= form.label :proficiency %>
-    <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5, :class => "slider" %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+  <div class="submit-actions">
+    <%= form.submit 'Submit language skill', :id => "submit-button" %>
   </div>
 <% end %>
+
+<script>
+  var slider = document.getElementById("rangevalue");
+  var output = document.getElementById("proficiencylevel");
+  output.innerHTML = "Drag to see proficiency level"; 
+  slider.oninput = function() {
+    if (this.value == 0) {
+      output.innerHTML = "Novice"; 
+    }
+    else if (this.value == 2.5) {
+      output.innerHTML = "Beginner";
+    }
+    else if (this.value == 5.0) {
+      output.innerHTML = "Intermediate";
+    }
+    else if (this.value == 7.5) {
+      output.innerHTML = "Advanced";
+    }
+    else {
+      output.innerHTML = "Native speaker"
+    }
+  }
+</script>

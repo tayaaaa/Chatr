@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
     if @profile.background_image.attached? == false
       set_default_background_image(@profile)
     end
+    @profile.save!
     redirect_to new_languageskill_path(:profile_id => @profile.id)
   end
 
@@ -95,7 +96,7 @@ class ProfilesController < ApplicationController
     end
 
     def set_default_profile_image(profile)
-          profile.uploaded_image.attach(io: File.open('app/assets/images/default-user-img.png'), filename: 'default-user-img.png')
+          profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
     end
 
     def set_default_background_image(profile)
