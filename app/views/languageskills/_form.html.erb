@@ -19,9 +19,9 @@
     <%= form.select :language_name, options_for_select(@languagenames) %>
   </div>
 
-  <div class="field">
+  <div class="field" id="slider-wrapper">
     <%= form.label :proficiency %>
-    <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5 %>
+    <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5, :class => "slider" %>
   </div>
 
   <div class="actions">
