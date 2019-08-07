@@ -33,7 +33,9 @@ class PagesController < ApplicationController
                 teacher_name:lesson.user.profile.firstname,
                 teacher_id:lesson.user_id,
                 price:lesson.price,
-                id: lesson.id                    }
+                id: lesson.id,    
+                profilepic: lesson.user.profile.uploaded_image
+            }
             @lesson_card_array << lesson_card_info
         end
     end
@@ -58,8 +60,8 @@ class PagesController < ApplicationController
                 :name => teacher.profile.firstname,
                 :bio => teacher.profile.bio,
                 :teach_languages => languages,
-                :stars => teacher.profile.average_rating
-                # :image => teacher.profile.uploaded_image
+                :stars => teacher.profile.average_rating,
+                :image => teacher.profile.uploaded_image
             }
             @teachers_card_array << teacher_card_info
         end

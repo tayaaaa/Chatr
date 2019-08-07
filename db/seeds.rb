@@ -65,21 +65,18 @@ puts "Finished assigning roles to Users"
 
 #CREATE PROFILES FOR USERS:
 puts "Creating and Assigning profiles for users"
-user1.profile = Profile.create! :firstname => 'admin1', :lastname => 'admin1', :bio => 'I can access everything!'
-
-user2.profile = Profile.create! :firstname => 'Tim', :lastname => 'teacher', :skypename => "@greenfrog33", :bio => 'I have a relaxed teaching style and love to go on morning runs.'
-user3.profile = Profile.create! :firstname => 'Tory', :lastname => 'teacher', :skypename => "@y3llowcar", :bio => 'Passionate lifelong teacher who loves to help'
-user4.profile = Profile.create! :firstname => 'Tamara', :lastname => 'teacher', :skypename => "@astronautbill", :bio => 'Contact me for help with grammar'
-user5.profile = Profile.create! :firstname => 'Terry', :lastname => 'teacher', :skypename => "@Love2Learn", :bio => 'Native arabic speaker. Let me help you with pronunciation'
-user6.profile = Profile.create! :firstname => 'Tara', :lastname => 'teacher', :skypename => "@goodfood19", :bio => 'I speak 9 languages fluently. I can help you learn a new one!'
-
-user7.profile = Profile.create! :firstname => 'Sarah', :lastname => 'student', :skypename => "@bluebus11", :bio => 'I love reading books and learning spanish :)'
-user8.profile = Profile.create! :firstname => 'Sam', :lastname => 'student', :skypename => "@oranges22", :bio => 'Stressed for my university exams!'
-user9.profile = Profile.create! :firstname => 'Ser', :lastname => 'student', :skypename => "@fruitsalad", :bio => "Can't wait to be fluent"
-user10.profile = Profile.create! :firstname => 'Sally', :lastname => 'student', :skypename => "@2cool", :bio => 'My target language is French. Native English speaker.'
-user11.profile = Profile.create! :firstname => 'Sonny', :lastname => 'student', :skypename => "@car_enthusiast_98", :bio => 'Looking for casual conversation partners'
+user1.profile = Profile.create! :firstname => 'admin1', :lastname => 'admin1', :bio => 'I can access everything!', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user2.profile = Profile.create! :firstname => 'Tim', :lastname => 'teacher', :skypename => "@greenfrog33", :bio => 'I have a relaxed teaching style and love to go on morning runs.', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user3.profile = Profile.create! :firstname => 'Tory', :lastname => 'teacher', :skypename => "@y3llowcar", :bio => 'Passionate lifelong teacher who loves to help', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user4.profile = Profile.create! :firstname => 'Tamara', :lastname => 'teacher', :skypename => "@astronautbill", :bio => 'Contact me for help with grammar', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user5.profile = Profile.create! :firstname => 'Terry', :lastname => 'teacher', :skypename => "@Love2Learn", :bio => 'Native arabic speaker. Let me help you with pronunciation', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user6.profile = Profile.create! :firstname => 'Tara', :lastname => 'teacher', :skypename => "@goodfood19", :bio => 'I speak 9 languages fluently. I can help you learn a new one!', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user7.profile = Profile.create! :firstname => 'Sarah', :lastname => 'student', :skypename => "@bluebus11", :bio => 'I love reading books and learning spanish :)', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user8.profile = Profile.create! :firstname => 'Sam', :lastname => 'student', :skypename => "@oranges22", :bio => 'Stressed for my university exams!', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user9.profile = Profile.create! :firstname => 'Ser', :lastname => 'student', :skypename => "@fruitsalad", :bio => "Can't wait to be fluent", :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user10.profile = Profile.create! :firstname => 'Sally', :lastname => 'student', :skypename => "@2cool", :bio => 'My target language is French. Native English speaker.', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
+user11.profile = Profile.create! :firstname => 'Sonny', :lastname => 'student', :skypename => "@car_enthusiast_98", :bio => 'Looking for casual conversation partners', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
 puts "Finished creating and Assigning profiles for users"
-
 
 #CREATE LANGUAGE SKILLS FOR USERS:
 puts "Creating and assigning language skills for users"
