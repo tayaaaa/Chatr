@@ -11,8 +11,10 @@
         <%= link_to 'Bookings', userbookings_path(:user_id => current_user.id), class:"header-nav-btn" %>
         <a id="" class="header-nav-btn" href="/finances"> finances </a>
         <% if current_user.profile %>
+
           <a id="header-nav-btn-profile" class="header-nav-btn profile-nav-btn" href="/profiles/<%= current_user.profile.id %>">
-          <div class="profile-nav-image"> <%= image_tag @profile.uploaded_image %> </div> <%= current_user.profile.firstname %> </a>
+          <div class="profile-nav-image"> <%= image_tag current_user.profile.uploaded_image %> </div> <%= current_user.profile.firstname %> </a>
+
         <% else %>
           <%= current_user.email %>
         <% end %>

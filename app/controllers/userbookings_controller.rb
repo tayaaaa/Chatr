@@ -68,6 +68,7 @@ class UserbookingsController < ApplicationController
   # GET /userbookings/new
   def new
     @userbooking = Userbooking.new
+    @lesson = Lesson.find(params[:lesson_id])
   end
 
   # GET /userbookings/1/edit

@@ -1,5 +1,5 @@
 <% @conversation %>
-
+<p>New Message</p>
 <%= form_with(model: message, local: true) do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
@@ -14,7 +14,7 @@
   <% end %>
 
   <div class="field">
-    <%= form.hidden_field :conversation_id, value: "#{params[:conversation]}" %>
+    <%= form.hidden_field :conversation_id, value: "#{conversation.id}" %>
   </div>
 
   <div class="field">

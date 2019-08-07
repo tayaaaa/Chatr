@@ -80,6 +80,19 @@ user10.profile = Profile.create! :firstname => 'Sally', :lastname => 'student', 
 user11.profile = Profile.create! :firstname => 'Sonny', :lastname => 'student', :skypename => "@car_enthusiast_98", :bio => 'Looking for casual conversation partners'
 puts "Finished creating and Assigning profiles for users"
 
+# puts "Attaching images to users"
+# user2.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user3.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user4.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user5.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user6.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user7.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user8.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user9.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user10.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# user11.profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+# puts "Finished attaching images to users"
+
 
 #CREATE LANGUAGE SKILLS FOR USERS:
 puts "Creating and assigning language skills for users"

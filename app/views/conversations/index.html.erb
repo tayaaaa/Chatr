@@ -2,23 +2,19 @@
 
 <h1>Conversations</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
   <tbody>
     <% @conversations.each do |conversation| %>
       <tr>
-        <td><%= conversation.user1 %></td>
-        <td><%= conversation.user2 %></td>
-        <td><%= link_to 'Show', conversation %></td>
+        <% if conversation.user1 != current_user %>
+          <td><%= link_to "#{conversation.user1.profile.firstname}", conversation_path(conversation) %></td>
+        <% else %>
+            <td><%= link_to "#{conversation.user2.profile.firstname}", conversation_path(conversation) %></td>
+        <% end %>
+        <% if false %>
         <td><%= link_to 'Edit', edit_conversation_path(conversation) %></td>
         <td><%= link_to 'Destroy', conversation, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

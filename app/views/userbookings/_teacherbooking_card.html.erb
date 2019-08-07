@@ -37,7 +37,7 @@
                         <% if cardinfo[:review] != nil %>
                             <p id = "subtitle"> <strong> Review available: </strong> <%= "#{cardinfo[:review].content}" %> </p> 
                             <% if cardinfo[:userbooking].review.reply == nil %>
-                                <%= link_to "REPLY", "/userbookings/replies" %>
+                                <%= link_to "REPLY", new_reply_path(:id => cardinfo[:userbooking].id) %>
                             <% else %>
                                 <%= link_to "You have already replied. View your reply here.", "/userbookings/replies" %>
                             <% end %>
