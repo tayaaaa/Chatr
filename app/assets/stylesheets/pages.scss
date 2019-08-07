@@ -483,3 +483,33 @@ div.column-teacher {
   cursor: pointer;
   box-shadow: 3px 3px 2px 2px rgba(24, 43, 56, 0.637);
 }
+
+th {
+  text-align: left;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+#financeswrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+#finances tr:nth-child(even){background-color: #f2f2f2;}
+
+#finances td, #finances th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#finances th {
+  background-color: #4267B2;
+  color: white;
+}
+
+#finances {
+  width: 90vw;
+}

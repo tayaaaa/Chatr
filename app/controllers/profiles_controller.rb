@@ -68,6 +68,22 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def finances
+    if current_user.role_id == 2
+      @user_transactions = [] 
+      current_user.lessons.each do |lesson|
+        lesson.userbookings.each do |userbooking|
+          @user_transactions << userbooking
+        end
+      end
+    else
+      @user_transactions = []
+      current_user.userbookings.each do |booking|
+        @user_transactions << booking
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
