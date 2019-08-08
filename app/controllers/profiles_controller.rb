@@ -36,6 +36,7 @@ class ProfilesController < ApplicationController
     if @profile.background_image.attached? == false
       set_default_background_image(@profile)
     end
+   
     if @profile
     redirect_to new_languageskill_path(:profile_id => @profile.id)
     end
