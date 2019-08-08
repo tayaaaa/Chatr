@@ -10,6 +10,7 @@ class ConversationsController < ApplicationController
   # GET /conversations/1
   # GET /conversations/1.json
   def show
+    
     if @conversation.user1 == current_user
       @conversation_partner = @conversation.user2
     else
