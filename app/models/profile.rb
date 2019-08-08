@@ -2,7 +2,7 @@ class Profile < ApplicationRecord
   belongs_to :user, optional: true
   has_one_attached :uploaded_image
   has_one_attached :background_image
-  has_many :languageskills
+  has_many :languageskills, dependent: :destroy
 
   def update_average_rating
     set_average_rating

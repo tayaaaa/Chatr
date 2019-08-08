@@ -22,10 +22,12 @@ class LanguageskillsController < ApplicationController
   # POST /languageskills.json
   def create
     @languageskill = Languageskill.new(languageskill_params)
-
-    respond_to do |format|
-        format.html { render :success }
+    @profile = @languageskill.profile
+    
+    if @languageskill.save
+      redirect_to profile_path(@profile)
     end
+  
   end
 
   # PATCH/PUT /languageskills/1

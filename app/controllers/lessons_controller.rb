@@ -26,6 +26,7 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
     @profile = @lesson.user.profile
+  
     if @lesson.save
       redirect_to profile_path @profile
     else
