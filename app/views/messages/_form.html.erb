@@ -1,5 +1,4 @@
 <% @conversation %>
-<p>New Message</p>
 <%= form_with(model: message, local: true) do |form| %>
   <% if message.errors.any? %>
     <div id="error_explanation">
@@ -22,17 +21,16 @@
   </div>
 
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :content, :class => "labels" %>
+    <%= form.text_area :content, :class => "resizable-textboxes" %>
   </div>
 
   <div class="field">
-    <%= form.label :date_sent %>
     <%= form.hidden_field :date_sent, value: "#{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="submit-actions">
+    <%= form.submit "New Message", :id => "submit-button" %>
   </div>
 
 <% end %>

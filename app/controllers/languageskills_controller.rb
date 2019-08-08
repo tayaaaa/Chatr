@@ -61,6 +61,7 @@ class LanguageskillsController < ApplicationController
           langnames << languagedetails["name"]
         end
       end
+      langnames.sort_by!{|langname| langname}
       @languagenames = langnames.uniq
     end
   
