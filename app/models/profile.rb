@@ -4,6 +4,9 @@ class Profile < ApplicationRecord
   has_one_attached :background_image
   has_many :languageskills
 
+  validates :firstname, :lastname, :bio, :skypename, :presence => {:message => "Please fill out this field"}
+
+
   def update_average_rating
     set_average_rating
   end
