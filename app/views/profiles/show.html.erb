@@ -81,8 +81,13 @@
           </span>
         </div>
         <div class="profile-row profile-buttons">
-          <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> go back'.html_safe, profiles_path, class:"go-back-btn" %>
-          <%= link_to '<i class="fas fa-edit"></i> edit my profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
+          <% if @user.profile.id == current_user.profile.id %>
+            <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
+          <% end %>
+          <% if @user.profile.id == current_user.profile.id && @user.role.privilege == "teacher" %>
+            <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add new language'.html_safe, new_languageskill_path, class:"go-back-btn" %>
+            <%= link_to '<i class="fas fa-edit"></i> add new lesson'.html_safe, new_lesson_path, class:"edit-profile-btn" %>
+          <% end %>
         </div>
       </div>
 
@@ -91,14 +96,19 @@
         <div class="profile-col-2-container">
 
         <!-- Here is the conditional logic to have the profiles and the views render in partials so that you can have two tabs without having to copy all of th ecode from the profile show page. When you click on the 'review' or 'lessons' button it will load a new page in that one section of the site. -->
+          <%if @user.role.privilege == "teacher"%>
+            <% if params[:reviews] == "1" %>
+            <!-- Put all of your code for the reviews cards in the reviews partial called _reviews_profile.html.erb -->
+              <%= render partial: 'reviews_profile'%>
+            <% else %>
+            <!-- Put all of your code for the lesson cards in the reviews partial called _lessons_profile.html.erb -->
+                <%= render partial: 'lessons_profile'%>
+            <% end %>
+          <%end%>
+          <%if @user.role.privilege == "student"%>
+             <%= render partial: 'reviews_profile', locals:{user: @user}%>
 
-          <% if params[:reviews] == "1" %>
-          <!-- Put all of your code for the reviews cards in the reviews partial called _reviews_profile.html.erb -->
-            <%= render partial: 'reviews_profile'%>
-          <% else %>
-          <!-- Put all of your code for the lesson cards in the reviews partial called _lessons_profile.html.erb -->
-            <%= render partial: 'lessons_profile'%>
-          <% end %>
+          <%end%>
 
         </div>
       </div>
