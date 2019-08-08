@@ -33,12 +33,18 @@
               </div>
             <% end %>
           <% end %>
+          </div>
+          <%= render partial: 'messages/form', locals: {message: Message.new(), conversation: @conversation}%>
+         </div> 
+          
     </div>
+ 
+
   <div>
 
 
 
-  <%= render partial: 'messages/form', locals: {message: Message.new(), conversation: @conversation}%>
+  
     
   <div>
     <%= link_to 'Back', conversations_path %>
@@ -46,7 +52,6 @@
 
 
 <%= render 'pages/footer_public' %>
-
 
 
 </body>

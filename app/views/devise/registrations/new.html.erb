@@ -39,11 +39,11 @@
                 </div>
 
                 <div class="action">
-                  <%= f.submit "Sign up as a #{Role.find(params[:role]).privilege}", :class => "btn-signup", :id => 'submit'%>
+                  <%= f.submit "Sign up as a #{Role.find(params[:user][:role]).privilege}", :class => "btn-signup", :id => 'submit'%>
                 </div>
-                
+
                 <div class="field">
-                  <%= f.hidden_field :role_id, value: params[:role] %>
+                  <%= f.hidden_field :role, value: params[:role] %>
                 </div>
               
               <% end %>
