@@ -25,10 +25,6 @@
     <%= form.text_area :content, :class => "resizable-textboxes" %>
   </div>
 
-  <div class="field">
-    <%= form.hidden_field :date_sent, value: "#{DateTime.now.strftime("%Y-%m-%d %H:%M:%S")}" %>
-  </div>
-
   <div class="submit-actions">
     <%= form.submit "New Message", :id => "submit-button" %>
   </div>
