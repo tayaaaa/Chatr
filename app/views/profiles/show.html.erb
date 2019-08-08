@@ -86,49 +86,20 @@
         </div>
       </div>
 
-      <!--
+      
       <div class="profile-col-2">
         <div class="profile-col-2-container">
+
+        <!-- Here is the conditional logic to have the profiles and the views render in partials so that you can have two tabs without having to copy all of th ecode from the profile show page. When you click on the 'review' or 'lessons' button it will load a new page in that one section of the site. -->
+
           <% if params[:reviews] == "1" %>
+          <!-- Put all of your code for the reviews cards in the reviews partial called _reviews_profile.html.erb -->
             <%= render partial: 'reviews_profile'%>
           <% else %>
+          <!-- Put all of your code for the lesson cards in the reviews partial called _lessons_profile.html.erb -->
             <%= render partial: 'lessons_profile'%>
           <% end %>
-        </div>
-      </div>
-      -->
 
-      <div class="profile-col-2">
-        <div class="profile-col-2-container">
-          <div id="profile-sub-menu">
-            <a id="" class="sub-menu-btn" href="#"> lessons </a>
-            <a id="" class="sub-menu-btn active" href="#"> reviews </a>
-          </div>
-          <% if @user.role.privilege == "teacher" %>
-            <% @user.lessons.each do |lesson|%>
-              <div class="profile-card">
-                <div class="profile-card-row profile-card-title">
-                  <h2> <%= lesson.languageskill.language_name %> <span style="text-transform: lowercase;"> with </span> <%= lesson.user.profile.firstname %> </h2>
-                </div>
-                <div class="profile-card-row profile-card-lesson-stats">
-                  <span> <%= lesson[:duration] %> minutes | $<%= lesson[:price] %> | <%= lesson[:maxbooking] %> available </span>
-                </div>
-                <div class="profile-card-row profile-card-description-title">
-                    <h3> lesson description </h3>
-                </div>
-                <div class="profile-card-row profile-card-lesson-description">
-                  <span> <%= lesson[:description] %> </span>
-                </div>
-                <div class="profile-card-row profile-card-teacher">
-                  <div class="profile-card-teacher-image"> <%= image_tag lesson.user.profile.uploaded_image %> </div>
-                  <div class="profile-card-teacher-name"> <%= @profile.firstname %> <%= @profile.lastname %> </div>
-                </div>
-                <div class="profile-card-row profile-card-book-btn">
-                  <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
-                </div>
-              </div>
-            <%end%>
-          <%end%>
         </div>
       </div>
 
