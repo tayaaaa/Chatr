@@ -35,6 +35,7 @@ class ReviewsController < ApplicationController
  
     respond_to do |format|
       if @review.save
+        @review.save!
         @teacher.profile.update_average_rating
         format.html { redirect_to userbookings_path, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }

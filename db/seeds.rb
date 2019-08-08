@@ -19,8 +19,6 @@ puts "Finished seeding Roles"
 
 #CREATE 1 ADMIN, 5 TEACHERS AND 5 STUDENT USERS:
 puts "Started seeding Users"
-user1 = User.create! :email => 'admin1@gmail.com', :password => '123456', :password_confirmation => '123456'
-
 user2 = User.create! :email => 'teacher1@gmail.com', :password => '123456', :password_confirmation => '123456'
 user3 = User.create! :email => 'teacher2@gmail.com', :password => '123456', :password_confirmation => '123456'
 user4 = User.create! :email => 'teacher3@gmail.com', :password => '123456', :password_confirmation => '123456'
@@ -36,8 +34,6 @@ puts "Finished seeding Users"
 
 #ASSIGNING ROLES TO USERS:
 puts "Started assigning roles to Users"
-user1.role_id = role1.id
-user1.save!
 
 user2.role_id = role2.id
 user2.save!

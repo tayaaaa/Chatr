@@ -7,7 +7,7 @@ class UserbookingPolicy < ApplicationPolicy
     end
   
     def index?
-        current_user
+        @user
     end
   
     def show?
@@ -15,7 +15,7 @@ class UserbookingPolicy < ApplicationPolicy
     end
   
     def create?
-        @user.role_id == 3
+        @user and @user.role_id == 3
     end
   
     def new?
@@ -23,7 +23,7 @@ class UserbookingPolicy < ApplicationPolicy
     end
 
     def completelesson?
-        @user.id == Userbooking.find(params[:id]).user_id and Userbooking.completedstu == false
+        @user and @user.id == Userbooking.find(params[:id]).user_id and Userbooking.completedstu == false
     end
   
     def update?
