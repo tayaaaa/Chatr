@@ -1,13 +1,13 @@
-class ReplyPolicy < ApplicationPolicy
-    attr_reader :user, :reply
+class LessonPolicy < ApplicationPolicy
+    attr_reader :user, :lesson
   
-    def initialize(user, reply)
+    def initialize(user, lesson)
       @user = user
-      @reply = reply
+      @lesson = lesson
     end
   
     def index?
-      false
+        false
     end
   
     def show?
@@ -15,6 +15,7 @@ class ReplyPolicy < ApplicationPolicy
     end
   
     def create?
+        @user and @user.role_id == 2
     end
   
     def new?
@@ -22,7 +23,7 @@ class ReplyPolicy < ApplicationPolicy
     end
   
     def update?
-      @user and @user.role == Role.second
+        false
     end
   
     def edit?

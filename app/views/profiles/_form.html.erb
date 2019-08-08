@@ -17,22 +17,22 @@
 
   <div class="field">
     <%= form.label "First name", :class => "labels" %>
-    <%= form.text_field :firstname, :class => "textbox" %>
+    <%= form.text_field :firstname, :class => "textbox", :required => true %>
   </div>
 
   <div class="field">
     <%= form.label "Last name", :class => "labels" %>
-    <%= form.text_field :lastname, :class => "textbox" %>
+    <%= form.text_field :lastname, :class => "textbox", :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :bio, :class => "labels"%>
-    <%= form.text_area :bio, :class => "resizable-textboxes", :placeholder => "Write a short bio here" %>
+    <%= form.text_area :bio, :class => "resizable-textboxes", :placeholder => "Write a short bio here", :required => true %>
   </div>
 
   <div class="field">
     <%= form.label :skypename, :class => "labels" %>
-    <%= form.text_field :skypename, :class => "textbox" %>
+    <%= form.text_field :skypename, :class => "textbox", :required => true %>
   </div>
 
   <div class="field">

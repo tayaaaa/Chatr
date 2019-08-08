@@ -23,6 +23,7 @@ class ReviewPolicy < ApplicationPolicy
     end
   
     def update?
+        new?
     end
   
     def edit?

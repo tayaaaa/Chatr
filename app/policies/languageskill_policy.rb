@@ -1,13 +1,13 @@
-class ReplyPolicy < ApplicationPolicy
-    attr_reader :user, :reply
+class LanguageskillPolicy < ApplicationPolicy
+    attr_reader :user, :languageskill
   
-    def initialize(user, reply)
+    def initialize(user, languageskill)
       @user = user
-      @reply = reply
+      @languageskill = languageskill
     end
   
     def index?
-      false
+        false
     end
   
     def show?
@@ -15,6 +15,7 @@ class ReplyPolicy < ApplicationPolicy
     end
   
     def create?
+        @user
     end
   
     def new?
@@ -22,11 +23,11 @@ class ReplyPolicy < ApplicationPolicy
     end
   
     def update?
-      @user and @user.role == Role.second
+        edit?
     end
   
     def edit?
-      false
+    # @user and languageskill.profile.user_id == @user.id
     end
   
     def destroy?

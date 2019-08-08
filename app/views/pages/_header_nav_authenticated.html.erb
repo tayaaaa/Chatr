@@ -10,7 +10,6 @@
         <a id="" class="header-nav-btn" href="/browse"> browse </a>
         <%= link_to 'Bookings', userbookings_path(:user_id => current_user.id), class:"header-nav-btn" %>
         <a id="" class="header-nav-btn" href="/finances"> finances </a>
-      
         <% if current_user.profile and current_user.profile.uploaded_image.attached? %>
           <a id="header-nav-btn-profile" class="header-nav-btn profile-nav-btn" href="/profiles/<%= current_user.profile.id %>">
 
@@ -22,9 +21,10 @@
           
           </a>
         <% else %>
+          <a href= href="/profiles/<%= current_user.profile.id %>">
           <%= current_user.email %>
+          </a>
         <% end %>
-
 
         <a class="header-nav-notifications", href="/notifications" >
           <i class="fas fa-globe-americas"></i>
