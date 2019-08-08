@@ -9,7 +9,7 @@
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
 
-    <div>
+    
       <% @conversations.each do |conversation| %>
         <%if conversation.user1 == current_user or conversation.user2 == current_user %>
           <div class="conversation">
@@ -23,7 +23,6 @@
           </div>
         <% end %>
       <% end %>
-      <div>
 
 
     </div>
