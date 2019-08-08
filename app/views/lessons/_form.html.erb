@@ -17,22 +17,22 @@
 
   <div class="field">
     <%= form.label "Price $", :class => "labels" %>
-    <%= form.number_field :price, :class => "textbox", :min => 0%>
+    <%= form.number_field :price, :class => "textbox", :min => 0, :required => true%>
   </div>
 
   <div class="field">
     <%= form.label "Duration in minutes", :class => "labels" %>
-    <%= form.number_field :duration, :class => "textbox", :min => 0, :max => 180 %>
+    <%= form.number_field :duration, :class => "textbox", :min => 0, :max => 180, :required => true %>
   </div>
 
   <div class="field">
     <%= form.label "Language", :class => "labels"%>
-    <%= form.select(:languageskill_id, current_user.profile.languageskills.all.collect {|lang|[lang.language_name, lang.id]}) %>
+    <%= form.select(:languageskill_id, current_user.profile.languageskills.all.collect {|lang|[lang.language_name, lang.id]}), :required => true %>
   </div>
 
   <div class="field">
     <%= form.label "Description", :class => "labels"%>
-    <%= form.text_area :description, :class => "resizable-textboxes", :placeholder => "Write a short description of your lesson here. Include a short blurb of your teaching style and what level of learner this lesson is best suited to." %>
+    <%= form.text_area :description, :class => "resizable-textboxes", :placeholder => "Write a short description of your lesson here. Include a short blurb of your teaching style and what level of learner this lesson is best suited to.", :required => true %>
   </div>
 
   <div class="field">

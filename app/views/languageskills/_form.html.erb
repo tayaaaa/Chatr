@@ -17,12 +17,12 @@
 
   <div class = "languageformwrapper">
     <div class="field">
-      <%= form.select :language_name, options_for_select(@languagenames) %>
+      <%= form.select :language_name, options_for_select(@languagenames), :required => true %>
     </div>
 
     <div class="field" id="slider-wrapper">
       <%= form.label :proficiency %>
-      <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5, :class => "slider", :id => "rangevalue" %>
+      <%= form.range_field :proficiency, :min=>0, :max=> 10, :step => 2.5, :class => "slider", :id => "rangevalue", :required => true %>
     </div>
 
     <p><span id="proficiencylevel"></span></p>
