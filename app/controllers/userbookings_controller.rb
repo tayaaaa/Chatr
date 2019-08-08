@@ -5,7 +5,7 @@ class UserbookingsController < ApplicationController
   # GET /userbookings
   # GET /userbookings.json
   def index
-    # raise
+    authorize(Userbooking)
     if current_user.role.privilege == "student"
       @all_userbooking_cards = [[],[]]
       userbookings = Userbooking.all.where(user_id: current_user.id)
@@ -56,9 +56,11 @@ class UserbookingsController < ApplicationController
   # GET /userbookings/1
   # GET /userbookings/1.json
   def show
+    authorize(Userbooking)
   end
 
   def completelesson
+    authorize(Userbooking)
     userbooking = Userbooking.find(params[:id])
     userbooking.completedstu = true
     userbooking.save!
@@ -67,24 +69,27 @@ class UserbookingsController < ApplicationController
 
   # GET /userbookings/new
   def new
+    authorize(Userbooking)
     @userbooking = Userbooking.new
     @lesson = Lesson.find(params[:lesson_id])
   end
 
   # GET /userbookings/1/edit
   def edit
+    authorize(Userbooking)
   end
 
   # POST /userbookings
   # POST /userbookings.json
   def create
     @userbooking = Userbooking.new(userbooking_params)
+    authorize(Userbooking)
     @lesson = @userbooking.lesson
     if(@lesson.maxbooking != 0)
       
       respond_to do |format|
         if @userbooking.save
-          format.html { redirect_to @userbooking, notice: 'Userbooking was successfully created.' }
+          format.html { redirect_to request.headers["HTTP_REFERER"], notice: 'Userbooking was successfully created.' }
           format.json { render :show, status: :created, location: @userbooking }
         else
           format.html { render :new }
@@ -99,9 +104,10 @@ class UserbookingsController < ApplicationController
   # PATCH/PUT /userbookings/1
   # PATCH/PUT /userbookings/1.json
   def update
+    authorize(Userbooking)
     respond_to do |format|
       if @userbooking.update(userbooking_params)
-        format.html { redirect_to @userbooking, notice: 'Userbooking was successfully updated.' }
+        format.html { redirect_to request.headers["HTTP_REFERER"], notice: 'Userbooking was successfully updated.' }
         format.json { render :show, status: :ok, location: @userbooking }
       else
         format.html { render :edit }
@@ -113,6 +119,7 @@ class UserbookingsController < ApplicationController
   # DELETE /userbookings/1
   # DELETE /userbookings/1.json
   def destroy
+    authorize(Userbooking)
     @userbooking.destroy
     respond_to do |format|
       format.html { redirect_to userbookings_url, notice: 'Userbooking was successfully destroyed.' }
