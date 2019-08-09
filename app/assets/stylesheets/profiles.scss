@@ -17,6 +17,11 @@
   overflow: hidden;
 }
 
+.profile-cover-image img {
+  display: flex;
+  width: 100%;
+}
+
 #body .profile-cover-image .fas.fa-image {
   color: #d9d9d9;
   font-size: 10em;
