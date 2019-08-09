@@ -63,12 +63,13 @@
             </div>
           <%end%>
         </div>
+        <% if @user.role.privilege == "teacher" %>
         <div class="profile-row profile-title">
           <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
         </div>
         <div class="profile-row profile-info">
           <span>
-            <% if @user.role.privilege == "teacher" %>
+            
               <% @user.profile.languageskills.each do |languageskill| %>
                 <div class="profile-info-languages-spoken">
                   <% if languageskill.teaches%>
@@ -77,9 +78,9 @@
                   <% end %>
                 </div>
               <% end %>
-            <% end %>
           </span>
         </div>
+        <% end %>
         <div class="profile-row profile-buttons">
           <% if @user.profile.id == current_user.profile.id %>
             <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
@@ -105,9 +106,9 @@
                 <%= render partial: 'lessons_profile'%>
             <% end %>
           <%end%>
+
           <%if @user.role.privilege == "student"%>
              <%= render partial: 'reviews_profile', locals:{user: @user}%>
-
           <%end%>
 
         </div>

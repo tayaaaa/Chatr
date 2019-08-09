@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :delist_lesson]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
 
@@ -80,6 +80,13 @@ class ProfilesController < ApplicationController
         @user_transactions << booking
       end
     end
+  end
+
+  def delist_lesson
+    @lesson = Lesson.find(params[:lesson_id])
+    @lesson.delist = true
+    @lesson.save
+    redirect_to @profile
   end
 
   private
