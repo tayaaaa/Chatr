@@ -299,7 +299,8 @@
   border-top-color: #d7d7d7;
 }
 
-.profile-card {
+.profile-card,
+.profile-review-card {
   align-items: center;
   background-color: #fbfbfb;
   border-color: #d6d6d6;
@@ -315,8 +316,17 @@
   width: calc(100% - 20px);
 }
 
-.profile-card:hover {
+.profile-card:hover,
+.profile-review-card:hover {
   box-shadow: 0px 0px 6px 1px rgba(0,0,0,0.1);
+}
+
+.profile-card-review-teacher-image {
+  background-color: #fdfdfd;
+  border: solid 1px #e8e8e8;
+  border-radius: 3px;
+  height: 100px;
+  width: 100px;
 }
 
 .profile-card-row {
@@ -329,16 +339,45 @@
   width: 100%;
 }
 
+.profile-card-column-title {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.profile-card-review-title {
+  justify-content: flex-start;
+  width: auto;
+}
+
 .profile-card-title {
   border-bottom: solid 2px #e8e8e8;
   padding-bottom: 10px;
   width: 50%;
 }
 
+.profile-card-review-title h2 {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.4em;
+  text-transform: capitalize;
+}
+
 .profile-card-title h2 {
   color: #666;
   font-weight: 400;
   font-size: 2em;
+  text-transform: capitalize;
+}
+
+.profile-card-review-lesson-stats {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.4em;
+  justify-content: flex-start;
   text-transform: capitalize;
 }
 
@@ -349,6 +388,8 @@
   text-transform: capitalize;
 }
 
+.profile-card-review-description-title,
+.profile-card-review-description-title h3,
 .profile-card-description-title,
 .profile-card-description-title h3 {
   color: #666;
@@ -357,6 +398,12 @@
   font-style: italic;
   text-transform: capitalize;
   margin-bottom: 0;
+}
+
+.profile-card-review-lesson-description,
+.profile-card-review-description-title {
+  justify-content: flex-start;
+  padding-left: 120px;
 }
 
 .profile-card-lesson-description {
@@ -412,6 +459,53 @@ a.book-btn:hover {
   border: solid 1px #2e487c;
   color: #fff;
   text-decoration: none;
+}
+
+.profile-card-row-review {
+  align-items: center;
+  border-top: solid 1px #e8e8e8;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+}
+
+.profile-card-review-student-image {
+  background-color: #fdfdfd;
+  border: solid 1px #e8e8e8;
+  border-radius: 3px;
+  height: 70px;
+  width: 70px;
+}
+
+.profile-card-review-column-title {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  min-height: 70px;
+  padding-left: 20px;
+  width: calc(100% - 100px);
+}
+
+.profile-card-reviews-title {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.1em;
+  justify-content: flex-start;
+  text-transform: capitalize;
+}
+
+.profile-card-reviews-body {
+  color: #9b9b9b;
+  font-weight: 400;
+  font-size: 1.1em;
+  justify-content: flex-start;
+  text-transform: none;
 }
 
 /**  USER PROFILE PAGE STYLES (END)  **/
