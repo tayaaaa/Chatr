@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_05_082346) do
+ActiveRecord::Schema.define(version: 2019_08_06_043009) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -103,7 +103,6 @@ ActiveRecord::Schema.define(version: 2019_08_05_082346) do
   create_table "replies", force: :cascade do |t|
     t.bigint "review_id"
     t.text "content"
-    t.datetime "date_published"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["review_id"], name: "index_replies_on_review_id"

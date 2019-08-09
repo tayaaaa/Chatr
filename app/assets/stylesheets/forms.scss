@@ -1,0 +1,121 @@
+.formbox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    border: solid 1px #4267B2;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.formcontent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.formstats{
+    display: flex;
+    flex-direction: row;
+    // align-items: center;
+    justify-content: center;
+}
+
+#formtitle {
+    color: #4267B2;
+    font-size: 2.5em;
+    line-height: 1.2em;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.formstats p {
+    padding-top: 5px;
+    font-weight: bold;
+}
+
+.formfields {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-stripe-button {
+    background-color: #4267B2;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.field {
+    // justify-content: center;
+    // align-items: space-between;
+    // margin: 10px;
+}
+
+.field * {
+    align-items: space-between;
+    padding: 5px;
+}
+
+.resizable-textboxes {
+    resize: vertical;
+    width: 100%;
+    height: 100px;
+}
+
+#userbooking_date_booked_1i,
+#userbooking_date_booked_2i,
+#userbooking_date_booked_3i,
+#userbooking_date_booked_4i,
+#userbooking_date_booked_5i{
+    background-color:#4267B2;
+    color: white;
+}
+
+#submit-button {
+    background-color: #4267B2;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border: 1px solid white;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.submit-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.formbox .review {
+    max-width: 400px;
+}
+
+.slider{
+    -webkit-appearance: none;
+    width: 100%;
+    height: 2px;
+    background: #d3d3d3;
+    margin-bottom: 5px;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    background: #4267B2;
+    cursor: pointer;
+}
+  
+.languageformwrapper{
+    background-color: #efefef;
+    padding: 10px;
+    width: 400px;
+}

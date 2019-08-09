@@ -1,22 +1,69 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @conversation.user1.email %>
-  <%= @conversation.user2.email %>
-</p>
 
-<p>
-  <strong>Messages:</strong>
-  <% @conversation.messages.each do |message| %>
-    <div>
-      <p><%= message.content %> </p>
-      <p> <%= message.author.email %> </p>
-      <p> <%= message.date_sent %> </p>
-    </div>
+<body>
+
+  <% if current_user %>
+    <%= render 'pages/header_nav_authenticated' %>
+  <% else %>
+    <%= render 'pages/header_nav_public' %>
   <% end %>
-</p>
 
-<%= link_to 'Edit', edit_conversation_path(@conversation) %> |
-<%= link_to 'Back', conversations_path %>
-<%= link_to 'New Message', new_message_path(:conversation => @conversation) %>
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+
+
+  <div class="container-messages">
+    <h2><strong>Your messages with <%= @conversation_partner.profile.firstname%></strong></h2>
+
+    <div class="">
+      <% @conversation.messages.each do |message| %>
+        <% if message.author == current_user%>
+          <div class="container-message">
+            <%= image_tag current_user.profile.uploaded_image %>
+            <p> <%= message.content %> </p>
+            <span class="time-right"> <%= message.created_at %> </span>
+          </div>
+        <% else %>
+          <div class="container-message darker">
+            <p class="right"><%= image_tag message.author.profile.uploaded_image %></p>
+            <p class="right"> <%= message.content %> </p>
+            <span class="time-left"> <%= message.created_at %> </span>
+          </div>
+        <%end%>
+
+      <% end %>
+    </div>
+    
+  <div>
+
+
+
+
+
+
+
+
+
+<div>
+  <% if false %>
+  <%= link_to 'New Message', new_message_path(:conversation => @conversation) %>
+  <% end %>
+  <%= link_to 'Back', conversations_path %>
+</div>
+
+<%= render partial: 'messages/form', locals: {message: Message.new(), conversation: @conversation}%>
+    </div>
+  </div>
+
+<%if false%>
+  <%= render 'pages/footer_public' %>
+<%end%>
+
+</body>
+
+
+
+
+

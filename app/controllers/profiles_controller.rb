@@ -13,7 +13,6 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @user
     @user_reviews = user_reviews(@user)
   end
 
@@ -34,15 +33,11 @@ class ProfilesController < ApplicationController
       set_default_profile_image(@profile)
     end
 
-    respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render :show, status: :created, location: @profile }
-      else
-        format.html { render :new }
-        format.json { render json: @profile.errors, status: :unprocessable_entity }
-      end
+    if @profile.background_image.attached? == false
+      set_default_background_image(@profile)
     end
+    @profile.save!
+    redirect_to new_languageskill_path(:profile_id => @profile.id)
   end
 
   # PATCH/PUT /profiles/1
@@ -69,6 +64,22 @@ class ProfilesController < ApplicationController
     end
   end
 
+  def finances
+    if current_user.role_id == 2
+      @user_transactions = [] 
+      current_user.lessons.each do |lesson|
+        lesson.userbookings.each do |userbooking|
+          @user_transactions << userbooking
+        end
+      end
+    else
+      @user_transactions = []
+      current_user.userbookings.each do |booking|
+        @user_transactions << booking
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
@@ -81,11 +92,15 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:user_id, :firstname, :lastname, :bio, :skypename, :uploaded_image, :average_rating)
+      params.require(:profile).permit(:user_id, :firstname, :lastname, :bio, :skypename, :uploaded_image, :background_image, :average_rating)
     end
 
     def set_default_profile_image(profile)
-          profile.uploaded_image.attach(io: File.open('app/assets/images/default-user-img.png'), filename: 'default-user-img.png')
+          profile.uploaded_image.attach("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png")
+    end
+
+    def set_default_background_image(profile)
+      profile.background_image.attach(io: File.open('app/assets/images/background-image.jpg'), filename: 'background-image.jpg')
     end
   
     def user_reviews(user) 

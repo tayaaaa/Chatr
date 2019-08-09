@@ -19,10 +19,10 @@
       <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
         <div class= "formbox">
             <div class= "formcontent">
-                <h1 id="formtitle">Editing Profile</h1>
-
-                <div class="formfields">
-                    <%= render 'form', profile: @profile %>
+                <h1 id="formtitle">Success!</h1>
+                <p> You have successfully added another language to your profile. </p>
+                <div class = "submit-actions">
+                    <%= link_to 'Add another language', new_languageskill_path, :id => "submit-button" %>
                 </div>
             </div>
         </div>

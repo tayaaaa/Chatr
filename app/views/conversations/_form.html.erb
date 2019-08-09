@@ -16,12 +16,11 @@
   </div>
 
    <div class="field">
-    <%= form.label :user2_id %>
+    <%= form.label :name, 'Who would you like to message?', :class => "labels"%>
     <%= form.select(:user2_id, User.all.collect {|user| [user.profile.firstname, user.id]}) %>
-    
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="submit-actions">
+    <%= form.submit 'create new conversation', :id => "submit-button"%>
   </div>
 <% end %>
