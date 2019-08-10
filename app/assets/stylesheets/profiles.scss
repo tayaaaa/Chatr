@@ -265,6 +265,10 @@
   width: 50%;
 }
 
+#profile-sub-menu .sub-menu-btn.active {
+  background-color: #ddd;
+}
+
 #profile-sub-menu .active::before {
   border: solid transparent;
   border-color: rgba(255, 255, 255, 0);
@@ -284,7 +288,7 @@
 #profile-sub-menu .active::after {
   border: solid transparent;
   border-color: rgba(255, 255, 255, 0);
-  border-top-color: #e2e2e2;
+  border-top-color: #ddd;
   border-width: 10px;
   top: 429px;
   box-sizing: inherit;
