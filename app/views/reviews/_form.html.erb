@@ -3,18 +3,6 @@
     <% @userbooking = Userbooking.find(params[:id]) %>
     <p> Reviewing your <%= @userbooking.lesson.duration %> minute <%= @userbooking.lesson.languageskill.language_name %> class with <%= @userbooking.lesson.user.profile.firstname %> from the <%= @userbooking.date_booked.strftime("%e %B, %Y") %>. </p> 
   </div>
-  
-  <% if review.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(review.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-      <ul>
-      <% review.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= form.hidden_field :userbooking_id, value: params[:id] %>
@@ -23,12 +11,12 @@
   <div class="field">
     <%= form.label :stars, :class => "labels" %>
     <span class="glyphicon glyphicon-star"></span>
-    <%= form.number_field :stars, :class => "textbox", :min => 0, :max => 5%>
+    <%= form.number_field :stars, :class => "textbox", :min => 0, :max => 5, :required => true%>
   </div>
 
   <div class="field">
     <%= form.label :content, :class => "labels" %>
-    <%= form.text_area :content, :class => "resizable-textboxes"%>
+    <%= form.text_area :content, :class => "resizable-textboxes", :required => true %>
   </div>
 
   <div class="submit-actions">

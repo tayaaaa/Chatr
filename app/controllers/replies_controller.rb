@@ -4,31 +4,38 @@ class RepliesController < ApplicationController
   # GET /replies
   # GET /replies.json
   def index
+    authorize(Reply)
     @replies = Reply.all
+    @authorize
   end
 
   # GET /replies/1
   # GET /replies/1.json
   def show
+    authorize(Reply)
   end
 
   # GET /replies/new
   def new
-    @reply = Reply.new
+    if Userbooking.find(params[:id]).review and Userbooking.find(params[:id]).review.reply == nil and (Userbooking.find(params[:id]).lesson.user_id == current_user.id)
+      @reply = Reply.new
+    else
+      authorize(Reply)
+    end
   end
 
   # GET /replies/1/edit
   def edit
+    authorize(Reply)
   end
 
   # POST /replies
   # POST /replies.json
   def create
     @reply = Reply.new(reply_params)
-
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to @reply, notice: 'Reply was successfully created.' }
+        format.html { redirect_to userbookings_path, notice: 'Reply was successfully created.' }
         format.json { render :show, status: :created, location: @reply }
       else
         format.html { render :new }
@@ -40,9 +47,10 @@ class RepliesController < ApplicationController
   # PATCH/PUT /replies/1
   # PATCH/PUT /replies/1.json
   def update
+    authorize(Reply)
     respond_to do |format|
       if @reply.update(reply_params)
-        format.html { redirect_to @reply, notice: 'Reply was successfully updated.' }
+        format.html { redirect_to userbookings_path, notice: 'Reply was successfully updated.' }
         format.json { render :show, status: :ok, location: @reply }
       else
         format.html { render :edit }
@@ -54,6 +62,7 @@ class RepliesController < ApplicationController
   # DELETE /replies/1
   # DELETE /replies/1.json
   def destroy
+    authorize(Reply)
     @reply.destroy
     respond_to do |format|
       format.html { redirect_to replies_url, notice: 'Reply was successfully destroyed.' }

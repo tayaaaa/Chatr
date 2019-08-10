@@ -6,25 +6,31 @@ class LanguageskillsController < ApplicationController
   # GET /languageskills
   # GET /languageskills.json
   def index
+    # authorize(Languageskill)
     @languageskills = Languageskill.all
   end
 
   # GET /languageskills/new
   def new
+    authorize(Languageskill)
     @languageskill = Languageskill.new
   end
 
   # GET /languageskills/1/edit
   def edit
+    if not (current_user and Languageskill.find(params[:id]).profile.user_id == current_user.id)
+      authorize(Languageskill)
+    end
   end
 
   # POST /languageskills
   # POST /languageskills.json
   def create
     @languageskill = Languageskill.new(languageskill_params)
-
     respond_to do |format|
+      if @languageskill.save
         format.html { render :success }
+      end
     end
   end
 
@@ -33,7 +39,7 @@ class LanguageskillsController < ApplicationController
   def update
     respond_to do |format|
       if @languageskill.update(languageskill_params)
-        format.html { redirect_to @languageskill, notice: 'Languageskill was successfully updated.' }
+        format.html { redirect_to userbookings_path, notice: 'Languageskill was successfully updated.' }
         format.json { render :show, status: :ok, location: @languageskill }
       else
         format.html { render :edit }
@@ -61,6 +67,7 @@ class LanguageskillsController < ApplicationController
           langnames << languagedetails["name"]
         end
       end
+      langnames.sort_by!{|langname| langname}
       @languagenames = langnames.uniq
     end
   

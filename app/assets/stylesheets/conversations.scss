@@ -6,7 +6,6 @@ body {
     margin: 0 auto;
   }
   
-
   .container-message {
     border: 2px solid #dedede;
     background-color: #f1f1f1;
@@ -14,6 +13,7 @@ body {
     padding: 10px;
     margin: 10px 0;
     position: relative;
+    width: 100%;
   }
   
   .darker {
@@ -64,3 +64,44 @@ body {
     flex-direction: row;
     justify-content: flex-end
   }
+
+//   .heading-h1 {
+//     display: inline-block;
+//     width: 100%;
+//   }
+
+//   #conversation-heading {
+//     font-size: 36px;
+//   }
+
+//   .conversation {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: flex-start;
+//       align-items: center;
+//   }
+
+//   #convo-partner-name {
+//     font-size: 1.5em;
+//   }
+
+  .conversation-image img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+
+  .conversation {
+    display: block;
+    // flex-direction: row;
+    // justify-content: flex-start;
+    width: 100%;
+  }
+
+//   .conversation {
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: flex-start;
+//   }
