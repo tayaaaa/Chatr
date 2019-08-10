@@ -86,8 +86,8 @@
             <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
           <% end %>
           <% if @user.profile.id == current_user.profile.id && @user.role.privilege == "teacher" %>
-            <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add new language'.html_safe, new_languageskill_path, class:"go-back-btn" %>
-            <%= link_to '<i class="fas fa-edit"></i> add new lesson'.html_safe, new_lesson_path, class:"edit-profile-btn" %>
+            <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add language'.html_safe, new_languageskill_path, class:"add-language-btn" %>
+            <%= link_to '<i class="fas fa-edit"></i> add lesson'.html_safe, new_lesson_path, class:"add-lesson-btn" %>
           <% end %>
         </div>
       </div> <!-- PROFILE COLUMN 1 (LEFT) END -->
