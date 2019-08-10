@@ -82,6 +82,7 @@
         </div>
         <% end %>
         <div class="profile-row profile-buttons">
+
           <% if @user.profile.id == current_user.profile.id %>
             <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
           <% end %>
