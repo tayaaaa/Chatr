@@ -194,27 +194,31 @@
 }
 
 .profile-buttons {
-  justify-content: space-evenly !important;
+  justify-content: space-between!important;
   margin-top: 20px;
 }
 
 .go-back-btn,
+.new-convo-btn,
 .edit-profile-btn,
-.new-convo-btn {
+.add-language-btn,
+.add-lesson-btn {
   background-color: #4267B2;
   border: solid 1px #4267B2;
   border-radius: 3px;
   color: #fff;
-  font-size: 1.1em;
+  font-size: 1em;
   font-weight: 300;
-  padding: 10px 40px;
+  padding: 10px 10px;
   text-decoration: none;
   margin: 0.2em;
 }
 
 .go-back-btn:hover,
 .edit-profile-btn:hover,
-.new-convo-btn:hover {
+.new-convo-btn:hover,
+.add-language-btn:hover,
+.add-lesson-btn:hover {
   background-color: #2e487c;
   border: solid 1px #2e487c;
   color: #fff;
