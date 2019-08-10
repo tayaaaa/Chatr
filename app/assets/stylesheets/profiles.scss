@@ -202,7 +202,8 @@
 .new-convo-btn,
 .edit-profile-btn,
 .add-language-btn,
-.add-lesson-btn {
+.add-lesson-btn,
+.message-teacher-btn {
   background-color: #4267B2;
   border: solid 1px #4267B2;
   border-radius: 3px;
@@ -218,7 +219,8 @@
 .edit-profile-btn:hover,
 .new-convo-btn:hover,
 .add-language-btn:hover,
-.add-lesson-btn:hover {
+.add-lesson-btn:hover,
+.message-teacher-btn:hover {
   background-color: #2e487c;
   border: solid 1px #2e487c;
   color: #fff;
