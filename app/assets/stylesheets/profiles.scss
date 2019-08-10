@@ -209,11 +209,12 @@
   font-weight: 300;
   padding: 10px 40px;
   text-decoration: none;
+  margin: 0.2em;
 }
 
 .go-back-btn:hover,
-.edit-profile-btn:hover
-.new-convo-btn {
+.edit-profile-btn:hover,
+.new-convo-btn:hover {
   background-color: #2e487c;
   border: solid 1px #2e487c;
   color: #fff;
