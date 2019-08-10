@@ -1,5 +1,5 @@
 <head>
-  <title>Home | Chatr</title>
+  <title>Profile | Chatr</title>
   <link rel="icon" type="image/png" href="">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -7,22 +7,23 @@
 </head>
 
 <body>
-  
+  <!-- MAIN NAVIGATION | START -->
   <% if current_user %>
     <%= render '/pages/header_nav_authenticated' %>
   <% else %>
     <%= render '/pages/header_nav_public' %>
-  <% end %>
+  <% end %> <!-- MAIN NAVIGATION | END -->
 
+  <!-- USER PROFILE OUTER WRAPPER | START -->
   <div id="body" class="user-profile outer-wrapper">
+    <!-- PROFILE COVER IMAGE START -->
     <div class="profile-cover-image">
-    <% if @profile.background_image.attached? %>
-      <%= image_tag @profile.background_image.service_url %>
-    <% end %>
-    </div>
-
-    <div class="profile-inner-wrapper">
-
+      <% if @profile.background_image.attached? %>
+        <%= image_tag @profile.background_image.service_url %>
+      <% end %>
+    </div> <!-- PROFILE COVER IMAGE END -->
+    <div class="profile-inner-wrapper"> <!-- INNER WRAPPER | START -->
+      <!-- PROFILE COLUMN 1 (LEFT) START -->
       <div class="profile-col-1">
         <div class="profile-picture">
           <%= image_tag @profile.uploaded_image.service_url %>
@@ -81,23 +82,32 @@
           </span>
         </div>
         <div class="profile-row profile-buttons">
-          <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> go back'.html_safe, profiles_path, class:"go-back-btn" %>
-          <%= link_to '<i class="fas fa-edit"></i> edit my profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
-        </div>
-      </div>
-
-      <div class="profile-col-2">
-        <div class="profile-col-2-container">
-          <% if params[:reviews] == "1" %>
-            <%= render partial: 'reviews_profile'%>
-          <% else %>
-            <%= render partial: 'lessons_profile'%>
+          <% if @user.profile.id == current_user.profile.id %>
+            <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
+          <% end %>
+          <% if @user.profile.id == current_user.profile.id && @user.role.privilege == "teacher" %>
+            <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add new language'.html_safe, new_languageskill_path, class:"go-back-btn" %>
+            <%= link_to '<i class="fas fa-edit"></i> add new lesson'.html_safe, new_lesson_path, class:"edit-profile-btn" %>
           <% end %>
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <%= render '/pages/footer_public' %>
+      </div> <!-- PROFILE COLUMN 1 (LEFT) END -->
+      <!-- PROFILE COLUMN 2 (RIGHT) START -->
+      <div class="profile-col-2">
+        <div class="profile-col-2-container">
+          <%if @user.role.privilege == "teacher"%>
+            <% if params[:reviews] == "1" %>
+              <%= render partial: 'reviews_profile'%>
+            <% else %>
+              <%= render partial: 'lessons_profile'%>
+            <% end %>
+          <%end%>
+          <%if @user.role.privilege == "student"%>
+            <%= render partial: 'reviews_profile', locals:{user: @user}%>
+          <%end%>
+        </div>
+      </div> <!-- PROFILE COLUMN 2 (RIGHT) END -->
+    </div> <!-- INNER WRAPPER | END -->
+  </div> <!-- USER PROFILE OUTER WRAPPER | END -->
+  <!-- FOOTER NAVIGATION | START -->
+  <%= render '/pages/footer_public' %><!-- FOOTER NAVIGATION | END -->
 </body>
