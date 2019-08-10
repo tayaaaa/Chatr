@@ -32,12 +32,12 @@
 
     <div class="field">
       <%= form.label :note, :class => "labels" %>
-      <%= form.text_area :note, :class => "resizable-textboxes"%>
+      <%= form.text_area :note, :class => "resizable-textboxes", :required => true%>
     </div>
 
     <div class="field dateselect">
       <%= form.label :date_booked, :class => "labels" %>
-      <%= form.datetime_select :date_booked %>
+      <%= form.datetime_select :date_booked, :required => true %>
     </div>
 
     <div class="submit-actions">

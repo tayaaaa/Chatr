@@ -1,5 +1,6 @@
 class MessagesController < ApplicationController
   before_action :set_message, only: [:show, :edit, :update, :destroy]
+  before_action :authorize_message
 
   # GET /messages
   # GET /messages.json
@@ -71,6 +72,10 @@ class MessagesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def message_params
-      params.require(:message).permit(:conversation_id, :content, :date_sent, :author_id )
+      params.require(:message).permit(:conversation_id, :content, :author_id )
+    end
+
+    def authorize_message
+      authorize(Message)
     end
 end

@@ -4,21 +4,27 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    authorize(Review)
   end
 
   # GET /reviews/1
   # GET /reviews/1.json
   def show
+    authorize(Review)
   end
 
   # GET /reviews/new
   def new
-    @review = Review.new
+    if Userbooking.find(params[:id]).review == nil and (Userbooking.find(params[:id]).user_id == current_user.id)
+      @review = Review.new
+    else
+      authorize(Review)
+    end
   end
 
   # GET /reviews/1/edit
   def edit
+    authorize(Review)
   end
 
   # POST /reviews
@@ -29,8 +35,9 @@ class ReviewsController < ApplicationController
  
     respond_to do |format|
       if @review.save
+        @review.save!
         @teacher.profile.update_average_rating
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to userbookings_path, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -46,7 +53,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         @teacher.profile.update_average_rating
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to userbookings_path, notice: 'Review was successfully updated.' }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -58,6 +65,7 @@ class ReviewsController < ApplicationController
   # DELETE /reviews/1
   # DELETE /reviews/1.json
   def destroy
+    authorize(Review)
     @review.destroy
     respond_to do |format|
       format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }

@@ -7,11 +7,7 @@
 </head>
 
 <body>
-  <% if current_user %>
-    <%= render '/pages/header_nav_authenticated' %>
-  <% else %>
-    <%= render '/pages/header_nav_public' %>
-  <% end %>
+  <%= render '/pages/header_nav_public' %>
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
@@ -20,7 +16,7 @@
         <div class= "formbox">
             <div class= "formcontent">
                 <h1 id="formtitle">New Profile</h1>
-
+                  <p id="notice"><%= notice %></p>
                 <div class="formfields">
                     <%= render 'form', profile: @profile %>
                 </div>

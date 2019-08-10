@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_06_043009) do
+ActiveRecord::Schema.define(version: 2019_08_08_135512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,6 +64,7 @@ ActiveRecord::Schema.define(version: 2019_08_06_043009) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "languageskill_id"
+    t.boolean "delist", default: false
     t.index ["languageskill_id"], name: "index_lessons_on_languageskill_id"
     t.index ["user_id"], name: "index_lessons_on_user_id"
   end
@@ -71,7 +72,6 @@ ActiveRecord::Schema.define(version: 2019_08_06_043009) do
   create_table "messages", force: :cascade do |t|
     t.bigint "conversation_id"
     t.text "content"
-    t.datetime "date_sent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "author_id"

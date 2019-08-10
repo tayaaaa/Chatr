@@ -17,7 +17,7 @@
 
    <div class="field">
     <%= form.label :name, 'Who would you like to message?', :class => "labels"%>
-    <%= form.select(:user2_id, User.all.collect {|user| [user.profile.firstname, user.id]}) %>
+    <%= form.select(:user2_id, can_message.collect {|user| [user.profile.firstname, user.id]}), :required => true %>
   </div>
 
   <div class="submit-actions">

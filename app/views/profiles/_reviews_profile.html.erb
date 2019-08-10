@@ -1,6 +1,10 @@
 <div id="profile-sub-menu">
+    <%if @user.role.privilege == "teacher"%>
     <%= link_to 'lessons', profile_path, :class => "sub-menu-btn" %>
     <%= link_to 'reviews', profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
+    <%else%>
+     <%= link_to 'reviews', profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
+    <%end%>
 </div>
 
 <div class="profile-review-card">
