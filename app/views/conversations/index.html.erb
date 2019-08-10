@@ -8,22 +8,31 @@
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
+      <div class="all-conversations">
+       <h1 id="conversations-heading">Your Conversations</h1>
+        <% @conversations.each do |conversation| %>
+          <%if conversation.user1 == current_user or conversation.user2 == current_user %>
+            <div class="conversation">
+              <% if conversation.user1 != current_user %>
+                <p class="conversation-image"> <%= image_tag conversation.user1.profile.uploaded_image %> </p>
+                <p id="convo-partner-name"><%= link_to "#{conversation.user1.profile.firstname}", conversation_path(conversation) %></p>
+              <% else %>
+                <p class="conversation-image"> <%= image_tag conversation.user2.profile.uploaded_image %> </p>
+                <p id="convo-partner-name"><%= link_to "#{conversation.user2.profile.firstname}", conversation_path(conversation) %></p>
+              <% end %>
+              <div class="active-dot">
 
-    
-      <% @conversations.each do |conversation| %>
-        <%if conversation.user1 == current_user or conversation.user2 == current_user %>
-          <div class="conversation">
-            <% if conversation.user1 != current_user %>
-              <p class="conversation-image"> <%= image_tag conversation.user1.profile.uploaded_image %> </p>
-              <p id="convo-partner-name"><%= link_to "#{conversation.user1.profile.firstname}", conversation_path(conversation) %></p>
-            <% else %>
-              <p class="conversation-image"> <%= image_tag conversation.user2.profile.uploaded_image %> </p>
-              <p id="convo-partner-name"><%= link_to "#{conversation.user2.profile.firstname}", conversation_path(conversation) %></p>
-            <% end %>
-          </div>
+              </div>
+            </div>
+          <% end %>
         <% end %>
-      <% end %>
+        <div class="new-conversation">
+          <%= link_to 'new conversation', new_conversation_path, class:"new-convo-btn"%>
+        </div>
+      </div>
 
+     
+      
 
     </div>
   </div>

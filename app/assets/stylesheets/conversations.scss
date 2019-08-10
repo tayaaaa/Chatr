@@ -14,6 +14,7 @@ body {
     margin: 10px 0;
     position: relative;
     width: 100%;
+    min-width: 50em;
   }
   
   .darker {
@@ -65,25 +66,6 @@ body {
     justify-content: flex-end
   }
 
-//   .heading-h1 {
-//     display: inline-block;
-//     width: 100%;
-//   }
-
-//   #conversation-heading {
-//     font-size: 36px;
-//   }
-
-//   .conversation {
-//       display: flex;
-//       flex-direction: row;
-//       justify-content: flex-start;
-//       align-items: center;
-//   }
-
-//   #convo-partner-name {
-//     font-size: 1.5em;
-//   }
 
   .conversation-image img {
     float: left;
@@ -94,14 +76,40 @@ body {
   }
 
   .conversation {
-    display: block;
-    // flex-direction: row;
-    // justify-content: flex-start;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    padding: 1em;
+  }
+
+  .new-conversation {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .all-conversations,
+  .new-conversation {
     width: 100%;
   }
 
-//   .conversation {
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-//   }
+  .active-dot {
+    height: 15px;
+    width: 15px;
+    background-color: rgb(9, 174, 9);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1em;
+  }
+
+  #conversations-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    font-weight: 500;
+    font-size: 36px;
+  }

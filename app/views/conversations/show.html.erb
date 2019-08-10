@@ -22,8 +22,8 @@
             <% if message.author == current_user%>
               <div class="container-message">
                 <%= image_tag current_user.profile.uploaded_image %>
-                <p> <%= message.content %> </p>
-                <span class="time-right"> <%= message.created_at %> </span>
+                <p> <%= message.content %> </p> 
+                <div class="time-right"> <%= message.created_at %> </div>
               </div>
             <% else %>
               <div class="container-message darker">

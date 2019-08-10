@@ -199,7 +199,8 @@
 }
 
 .go-back-btn,
-.edit-profile-btn {
+.edit-profile-btn,
+.new-convo-btn {
   background-color: #4267B2;
   border: solid 1px #4267B2;
   border-radius: 3px;
@@ -211,7 +212,8 @@
 }
 
 .go-back-btn:hover,
-.edit-profile-btn:hover {
+.edit-profile-btn:hover
+.new-convo-btn {
   background-color: #2e487c;
   border: solid 1px #2e487c;
   color: #fff;
