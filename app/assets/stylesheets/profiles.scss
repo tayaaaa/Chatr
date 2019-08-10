@@ -198,6 +198,8 @@
   margin-top: 20px;
 }
 
+.go-back-btn,
+.new-convo-btn,
 .edit-profile-btn,
 .add-language-btn,
 .add-lesson-btn {
@@ -211,6 +213,9 @@
   text-decoration: none;
 }
 
+.go-back-btn:hover,
+.edit-profile-btn:hover,
+.new-convo-btn:hover,
 .edit-profile-btn:hover,
 .add-language-btn:hover,
 .add-lesson-btn:hover {
