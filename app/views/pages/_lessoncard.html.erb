@@ -1,7 +1,7 @@
 <div class="rowofcards">
 <div class="cardslider">
     <% @lesson_card_array.each do |lesson| %>
-        <a href=<%="/lessons/#{lesson[:id]}"%> >
+        <a href=<%="/profiles/#{lesson[:teacher_id]}"%> >
             <div class="profile-card" id="lesson-card">            
                 <div class = "profile-card-row profile-card-title" id="lessoncardtitle">
                     <h2> <%= lesson[:language].capitalize  %> With <%= lesson[:teacher_name].capitalize  %></h2>

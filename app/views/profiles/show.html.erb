@@ -32,7 +32,16 @@
           <span> <%= @profile.firstname %> <%= @profile.lastname %> </span>
         </div>
         <div class="profile-row profile-user-rating">
-          <span> <%= @user.profile.average_rating %> </span>
+          <% if @user.role.privilege == "teacher"%>
+            <% @user.profile.average_rating.to_i.times do  %>
+              <span class="glyphicon glyphicon-star"></span>
+            <% end %>
+            <% if @user.profile.average_rating.to_i != 5 || @user.profile.average_rating.to_i != nil %>
+              <% (5 - @user.profile.average_rating.to_i).times do %>
+              <span class="glyphicon glyphicon-star-empty"></span>
+              <% end %>
+            <% end %>
+          <% end %>
         </div>
         <div class="profile-row profile-title">
           <span> <i class="fas fa-info-circle"></i> About <%= @profile.firstname %> </span>
@@ -88,8 +97,8 @@
           <% if @user.profile.id == current_user.profile.id && @user.role.privilege == "teacher" %>
             <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add language'.html_safe, new_languageskill_path, class:"add-language-btn" %>
             <%= link_to '<i class="fas fa-edit"></i> add lesson'.html_safe, new_lesson_path, class:"add-lesson-btn" %>
-          <% elsif @user.profile.id != current_user.profile.id %>
-            <%= button_to('send message', "/conversations", params: {:user1_id => current_user.id, :user2_id => @user}, :method => :post)%>
+          <% elsif @user.profile.id != current_user.profile.id && current_user.role.privilege != "teacher" %>
+            <%= button_to('send message', "/conversations", params: {:conversation => {:user1_id => current_user.id, :user2_id => @user} }, :method => :post)%>
           <% end %>
         </div>
       </div> <!-- PROFILE COLUMN 1 (LEFT) END -->

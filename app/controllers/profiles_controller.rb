@@ -67,7 +67,7 @@ class ProfilesController < ApplicationController
   end
 
   def finances
-    if current_user.role_id == 2
+    if current_user.role.privilege == "teacher"
       @user_transactions = [] 
       current_user.lessons.each do |lesson|
         lesson.userbookings.each do |userbooking|
@@ -80,6 +80,7 @@ class ProfilesController < ApplicationController
         @user_transactions << booking
       end
     end
+    
   end
 
   def delist_lesson

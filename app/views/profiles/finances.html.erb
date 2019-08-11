@@ -24,7 +24,7 @@
 
         <div class="financeswrapper">
         <div class = "earningsheader">
-            <% if current_user.role_id == 2%>
+            <% if current_user.role.privilege == "teacher" %>
                 <h1> You have earnt $<%= total_money %> </h1>
             <% else %>
                 <h1> You have spent $<%= total_money %> </h1>
@@ -39,7 +39,7 @@
                     <th>Date</th>
                     <th>Language</th>
                     <th>Duration</th>
-                    <% if current_user.role_id == 2 %>
+                    <% if current_user.role.privilege == "teacher" %>
                         <th>From</th>
                     <% else %>
                         <th>To</th>
@@ -54,7 +54,7 @@
                             <td><%= transact.date_booked.strftime("%F") %></td>
                             <td><%= transact.lesson.languageskill.language_name %></td>
                             <td><%= transact.lesson.duration %></td>
-                            <% if current_user.role_id == 2 %>
+                            <% if current_user.role.privilege == "teacher" %>
                                 <td><%= "#{transact.user.profile.firstname} #{transact.user.profile.lastname}" %></td>
                             <% else %>
                                 <td><%= "#{transact.lesson.user.profile.firstname} #{transact.lesson.user.profile.lastname}" %></td>
