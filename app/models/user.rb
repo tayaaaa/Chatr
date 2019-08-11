@@ -14,6 +14,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
   :recoverable, :rememberable, :validatable  
 
-  scope :teachers_by_firstname, -> (firstname) { joins.(:profile).where('firstname = ?', firstname) }
-  
+  scope :teachers_by_firstname, -> (firstname) { joins(:profile).where('firstname = ?', firstname) }
+
 end
