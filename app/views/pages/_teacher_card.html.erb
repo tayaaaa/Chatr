@@ -4,11 +4,11 @@
             <div id="lesson-card" class="lesson-card">  
                 <div class="lesson-card-top">
                     <div class="lesson-card-row profile-card-teacher" >
-                        <div class="profile-card-teacher-image">
+                        <div class="teacher-card-teacher-image">
                             <% if teachers_card_info[:image].attached? %>
                                 <%= image_tag teachers_card_info[:image].service_url %>
                             <% else %>
-                                <p> N/A </p>
+                                <i id="browse-pages" class="fas fa-user"></i>
                             <% end %>          
                         </div>
                         <div class = "lesson-card-row profile-card-title browse-page">

@@ -705,18 +705,38 @@ th {
   width: 100%;
 }
 
-.lesson-card-teacher-image {
+.teacher-card-teacher-image {
+  align-items: center;
   border: solid 1px #ccc;
   border-radius: 100%;
-  height: 40px;
+  display: flex;
+  justify-content: center;
+  height: 80px;
   margin-right: 5px;
-  width: 40px;
+  width: 80px;
 }
 
+.lesson-card-teacher-image {
+  align-items: center;
+  border: solid 1px #ccc;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  margin-right: 5px;
+  width: 80px;
+}
+
+.teacher-card-teacher-image img,
 .lesson-card-teacher-image img {
   border-radius: 100px;
   height: 100%;
   width: 100%;
+}
+
+#browse-pages.fas.fa-user {
+  color: #a8a8a8;
+  font-size: 3em;
 }
 
 .lesson-card-teacher-name {
@@ -725,6 +745,27 @@ th {
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
+}
+
+.teacher-card-title {
+  align-items: flex-start;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.teacher-card-title h1 a {
+  border-bottom: 0;
+  color: #666;
+  font-size: 1.4em;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  width: auto;
 }
 
 #see-more-card {
@@ -743,7 +784,7 @@ th {
   text-transform: capitalize;
 }
 
-
+#lesson-card:hover > .lesson-card-top .lesson-card-row.profile-card-teacher .teacher-card-title h1 a,
 #lesson-card:hover > a .lesson-card-top .lesson-card-row.lesson-card-title h1 {
   color: #4267B2;
 }

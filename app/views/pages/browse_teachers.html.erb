@@ -23,15 +23,15 @@
               <div id="lesson-card" class="lesson-card">  
                   <div class="lesson-card-top">
                       <div class="lesson-card-row profile-card-teacher" >
-                          <div class="profile-card-teacher-image">
+                          <div class="teacher-card-teacher-image">
                               <% if teachers_card_info[:image].attached? %>
-                                  <%= image_tag teachers_card_info[:image].service_url %>
+                                <%= image_tag teachers_card_info[:image].service_url %>
                               <% else %>
-                                  <p> N/A </p>
+                                <i id="browse-pages" class="fas fa-user"></i>
                               <% end %>          
                           </div>
-                          <div class = "lesson-card-row profile-card-title browse-page">
-                              <h3> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </h3>
+                          <div class = "lesson-card-row teacher-card-title">
+                            <h1> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </h1>
                           </div>
                       </div>
                       <div class = "lesson-card-row lesson-card-star-rating" > 
