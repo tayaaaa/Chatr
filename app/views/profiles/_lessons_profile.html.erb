@@ -22,9 +22,11 @@
             <div class="profile-card-teacher-image"> <%= image_tag lesson.user.profile.uploaded_image %> </div>
             <div class="profile-card-teacher-name"> <%= @profile.firstname %> <%= @profile.lastname %> </div>
         </div>
-        <div class="profile-card-row profile-card-book-btn">
-            <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
-        </div>
+        <% if current_user.role.privilege != "teacher" %>
+            <div class="profile-card-row profile-card-book-btn">
+                <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+            </div>
+        <% end %>
         </div>
     <%end%>
 <%end%>

@@ -30,16 +30,19 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
     authorize(Lesson)
-    respond_to do |format|
-      if @lesson.save
-        @lesson.save!
-        format.html { redirect_to request.headers[“HTTP_REFERER”], notice: 'Lesson was successfully created.' }
-        format.json { render :show, status: :created, location: @lesson }
-      else
-        format.html { render :new }
-        format.json { render json: @lesson.errors, status: :unprocessable_entity }
-      end
+    @profile = @lesson.user.profile
+  
+    if @lesson.save
+      redirect_to profile_path @profile
+    else
+      render 'new'
     end
+
+    # find the languageskill associated with the newly created lesson
+    language_skill = Languageskill.where("id = ?", params[:lesson][:languageskill_id])[0]
+    # set the languageskill teaches field to true
+    language_skill.teaches = true
+    language_skill.save!
   end
 
   # PATCH/PUT /lessons/1
@@ -78,4 +81,5 @@ class LessonsController < ApplicationController
     def lesson_params
       params.require(:lesson).permit(:user_id, :languageskill_id, :price, :duration, :description, :maxbooking)
     end
+
 end

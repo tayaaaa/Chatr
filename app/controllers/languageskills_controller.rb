@@ -27,9 +27,10 @@ class LanguageskillsController < ApplicationController
   # POST /languageskills.json
   def create
     @languageskill = Languageskill.new(languageskill_params)
-
     respond_to do |format|
-      format.html { render :success }
+      if @languageskill.save
+        format.html { render :success }
+      end
     end
   end
 

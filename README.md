@@ -24,6 +24,8 @@
 
 ## 6. Identify the database to be used in your App and provide a justification for your choice.
 
+Chatr utilises a postgresql database. This is a well documented open source SQL based system that supports a very large number of concurrent connections. It is widely reported that Postgresql is the most robust database with outstanding reliability even compared to many expensive proprietary options. We also wanted a relational database to ensure data could be easily and efficiently accessed and manipulated.. Additionally, Postgresql works very well with Rails and Heroku.
+
 ## 7. Identify and describe the production database setup (i.e. postgres instance).
 
 ## 8. Describe the architecture of your App.
