@@ -13,6 +13,11 @@
       <div class ="cardwrapper">
         <div class= "rowofcards">
           <h1 class = "heading"> Browse Lessons:</h2>
+          <%= form_with(url: '/browse/lessons', method: 'post', local:true) do |form|%>
+            <%= form.label "Search" %>
+            <%= form.text_field :search_lang%>
+            <%= form.submit "Go" %>
+          <%end%>
           <%= render 'lessoncard' %>
         </div>
       </div>
