@@ -589,11 +589,13 @@ th {
   margin: 10px;
   min-width: 350px;
   padding: 20px 10px;
+  text-decoration: none;
   width: 100%;
 }
 
 .lesson-card:hover {
   box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
 }
 
 .lesson-card-row {
@@ -698,11 +700,80 @@ th {
   width: 100%;
 }
 
+.lesson-card-bottom-button,
+.lesson-card-full {
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.lesson-card-teacher-image {
+  border: solid 1px #ccc;
+  border-radius: 100%;
+  height: 40px;
+  margin-right: 5px;
+  width: 40px;
+}
+
+.lesson-card-teacher-image img {
+  border-radius: 100px;
+  height: 100%;
+  width: 100%;
+}
+
+.lesson-card-teacher-name {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
 #see-more-card {
   margin: 10px;
   align-items: center;
   justify-content: center;
   min-width: 350px;
+}
+
+.lesson-card-title h1 {
+  color: #666;
+  font-weight: 500;
+  font-size: 1.4em;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+
+#lesson-card:hover > a .lesson-card-top .lesson-card-row.lesson-card-title h1 {
+  color: #4267B2;
+}
+
+.lesson-card-details {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.lesson-card-description {
+  color: #666;
+  font-weight: 300;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-transform: none;
+  width: 80%;
+}
+
+.lesson-card-teacher-name h4 {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  text-transform: capitalize;
 }
 
 /**  BROWSE INDEX - BROWSE TEACHERS - BROWSE LESSONS | END  **/
