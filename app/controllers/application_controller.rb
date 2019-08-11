@@ -4,12 +4,11 @@ class ApplicationController < ActionController::Base
     include Pundit
     protect_from_forgery
 
-    # rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+    rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
     private
     def user_not_authorized
-        flash[:alert] = "You are not authorized to perform this action."
-        # redirect_to('HTTP_REFERER')
+        render 'layouts/pundit_error'
     end
 
     protected

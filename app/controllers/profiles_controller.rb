@@ -2,32 +2,35 @@ class ProfilesController < ApplicationController
   before_action :set_profile, only: [:show, :edit, :update, :destroy, :delist_lesson]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
-
   # GET /profiles
   # GET /profiles.json
   def index
+    authorize(Profile)
     @profiles = Profile.all
   end
 
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    authorize(Profile)
     @user_reviews = user_reviews(@user)
   end
 
   # GET /profiles/new
   def new
+    authorize(Profile)
     @profile = Profile.new
   end
 
   # GET /profiles/1/edit
   def edit
+    authorize(Profile)
   end
 
   # POST /profiles
   # POST /profiles.json
   def create
+    authorize(Profile)
     @profile = Profile.new(profile_params)
     if @profile.uploaded_image.attached? == false
       set_default_profile_image(@profile)
@@ -45,6 +48,7 @@ class ProfilesController < ApplicationController
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
+    authorize(Profile)
     respond_to do |format|
       if @profile.update(profile_params)
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
@@ -59,6 +63,7 @@ class ProfilesController < ApplicationController
   # DELETE /profiles/1
   # DELETE /profiles/1.json
   def destroy
+    authorize(Profile)
     @profile.destroy
     respond_to do |format|
       format.html { redirect_to profiles_url, notice: 'Profile was successfully destroyed.' }

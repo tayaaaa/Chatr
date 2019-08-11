@@ -1,36 +1,41 @@
-class ReplyPolicy < ApplicationPolicy
-    attr_reader :user, :reply
+class ProfilePolicy < ApplicationPolicy
+    attr_reader :user, :profile
   
-    def initialize(user, reply)
+    def initialize(user, profile)
       @user = user
-      @reply = reply
+      @profile = profile
     end
   
     def index?
-      false
+        false
     end
   
     def show?
-      false
+        true
     end
   
     def create?
+        new?
     end
   
     def new?
-      create?
+      @user.profile == nil
     end
   
     def update?
-      @user and @user.role == Role.where(privilege: 'teacher')[0]
+        new?
     end
   
     def edit?
-      false
+        true
     end
   
     def destroy?
-      false
+        false
+    end
+
+    def finances?
+        @user
     end
   
     # class Scope

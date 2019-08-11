@@ -1,49 +1,53 @@
 <div class="rowofcards">
-<div class="cardslider">
-    <% @lesson_card_array.each do |lesson| %>
-        <a href=<%="/profiles/#{lesson[:teacher_id]}"%> >
-            <div class="profile-card" id="lesson-card">            
-                <div class = "profile-card-row profile-card-title" id="lessoncardtitle">
-                    <h2> <%= lesson[:language].capitalize  %> With <%= lesson[:teacher_name].capitalize  %></h2>
-                </div>
-
-                <div class = "profile-card-row profile-card-lesson-stats" > 
-                <%= lesson[:duration]  %> minutes | $<%= lesson[:price]  %> | <%= lesson[:maxbooking] %> available  
-                </div>
-
-                <div class="profile-card-row profile-card-description-title">
-                    <h3> lesson description </h3>
-                </div>
-
-                <div class="profile-card-row profile-card-lesson-description">
-                    <span> <%= lesson[:description]  %> </span>
-                </div>
-
-                    <div class="align-button">
-                        <div class="profile-card-row profile-card-teacher">
-                            <div class="profile-card-teacher-image"> 
+    <div class="cardslider">
+        <% @lesson_card_array.each do |lesson| %>
+            <div id="lesson-card" class="lesson-card">
+                <a href = <%="/profiles/#{lesson[:teacher_id]}"%>>
+                    <div class="lesson-card-top">
+                        <div class = "lesson-card-row lesson-card-title">
+                            <h1> <%= lesson[:language]  %> <span style="text-transform: lowercase; font-style: italic; font-weight: 300;">with</span> <%= lesson[:teacher_name] %> </h1>
+                        </div>
+                        <div class = "lesson-card-row lesson-card-details" > 
+                            <%= lesson[:duration]  %> minutes | $<%= lesson[:price]  %> | <%= lesson[:maxbooking] %> available  
+                        </div>
+                        <div class="lesson-card-row lesson-card-title">
+                            <h3> lesson description </h3>
+                        </div>
+                        <div class="lesson-card-row lesson-card-description">
+                            <span> <%= lesson[:description]  %> </span>
+                        </div>
+                    </div>
+                </a>
+                <div class="lesson-card-bottom">
+                    <div class="lesson-card-row">                              
+                        <div class="lesson-card-teacher-image"> 
                             <% if lesson[:profilepic].attached? %>
                                 <%= image_tag lesson[:profilepic] %>
                             <% else %>
-                                <p> N/A </p>
+                                <i id="browse-pages" class="fas fa-user"></i>
                             <% end %>
                             </div>
-                            <div class="profile-card-teacher-name"> 
+                            <div class="lesson-card-teacher-name"> 
                                <h4> <%= link_to lesson[:teacher_name], "/profiles/#{lesson[:teacher_id]}" %> </h4>
                             </div>
                         </div>
-                        <div class="profile-card-row profile-card-book-btn">
-                            <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                        <div class="lesson-card-row">
+                            <% if current_user.role_id == nil   %>
+                                <%= link_to 'sign up to book', '/', class: "book-btn" %>
+                            <% elsif current_user.role_id == 3 %>
+                                <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                            <% end %>
                         </div>
                     </div>
+              </div>   
+                     
+        <% end %>
+
+        <% if !request.path_info.include?("lessons") %>
+            <div class="profile-card" id="see-more-card">
+                <p> <%= link_to "See more!", "/browse/lessons", class: "book-btn"%> </p>
             </div>
-        </a>
-    <% end %>
-    <% if !request.path_info.include?("lessons") %>
-    <div class="profile-card" id="see-more-card">
-            <p> <%= link_to "See more!", "/browse/lessons", class: "book-btn"%> </p>
+        <%end%>
+        
     </div>
-    <%end%>
-    
-</div>
 </div>

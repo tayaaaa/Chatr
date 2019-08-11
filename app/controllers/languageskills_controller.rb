@@ -6,7 +6,7 @@ class LanguageskillsController < ApplicationController
   # GET /languageskills
   # GET /languageskills.json
   def index
-    # authorize(Languageskill)
+    authorize(Languageskill)
     @languageskills = Languageskill.all
   end
 
@@ -51,6 +51,7 @@ class LanguageskillsController < ApplicationController
   # DELETE /languageskills/1
   # DELETE /languageskills/1.json
   def destroy
+    authorize(Languageskill)
     @languageskill.destroy
     respond_to do |format|
       format.html { redirect_to languageskills_url, notice: 'Languageskill was successfully destroyed.' }
