@@ -1,13 +1,13 @@
 class PagesController < ApplicationController
-    before_action :set_teachers
     before_action :set_lessons
-    before_action :set_teachers_card_array
+    before_action :set_teachers
     
     def landing
     end
 
     def index
         set_lesson_card_array(@lessons)
+        set_teachers_card_array(@teachers)
     end
 
     def browse_lessons 
@@ -16,6 +16,8 @@ class PagesController < ApplicationController
     end
 
     def browse_teachers
+        @teachers = User.teachers_by_firstname(params[:search_teach_firstname]) if params[:search_teach_firstname].present?
+        set_teachers_card_array(@teachers)
     end
 
     private
@@ -45,9 +47,9 @@ class PagesController < ApplicationController
         @teachers = User.where(role: Role.second)
     end
 
-    def set_teachers_card_array
+    def set_teachers_card_array(teachers)
         @teachers_card_array = []
-        @teachers.each do |teacher|
+        teachers.each do |teacher|
             languageskills_arr = teacher.profile.languageskills
             languages = []
             languageskills_arr.each do |languageskill|
