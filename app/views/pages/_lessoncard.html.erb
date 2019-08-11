@@ -7,21 +7,17 @@
                         <div class = "lesson-card-row lesson-card-title">
                             <h1> <%= lesson[:language]  %> <span style="text-transform: lowercase; font-style: italic; font-weight: 300;">with</span> <%= lesson[:teacher_name] %> </h1>
                         </div>
-
                         <div class = "lesson-card-row lesson-card-details" > 
                             <%= lesson[:duration]  %> minutes | $<%= lesson[:price]  %> | <%= lesson[:maxbooking] %> available  
                         </div>
-
                         <div class="lesson-card-row lesson-card-title">
                             <h3> lesson description </h3>
                         </div>
-
                         <div class="lesson-card-row lesson-card-description">
                             <span> <%= lesson[:description]  %> </span>
                         </div>
                     </div>
                 </a>
-
                 <div class="lesson-card-bottom">
                     <div class="lesson-card-row">                              
                         <div class="lesson-card-teacher-image"> 
@@ -38,8 +34,7 @@
                     <div class="lesson-card-row">
                         <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
                     </div>
-                </div>
-                    
+                </div>   
             </div>
         <% end %>
 

@@ -777,3 +777,79 @@ th {
 }
 
 /**  BROWSE INDEX - BROWSE TEACHERS - BROWSE LESSONS | END  **/
+
+.browse-inner-column {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.browse-all-title {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.browse-all-title h1 {
+  color: #666;
+  font-size: 1.6em;
+  line-height: 1.6em;
+  text-transform: capitalize;
+}
+
+.browse-all-filter {
+  margin-bottom: 20px;
+}
+
+#filter-form {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+#filter-form .search-field {
+  background-color: #fcfcfc;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  color: #333;
+  padding: 10px 5px;
+  width: 350px;
+}
+
+#filter-form .submit {
+  background-color: #4267B2;
+  border-color: #4267B2;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+#filter-form .submit:hover {
+  background-color: #2e487c;
+  color: #fff;
+}
+
+.browse-all-teachers {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.browse-all-teachers #lesson-card {
+  min-height: 400px;
+  width: calc(33.33333333% - 20px);
+}
+
