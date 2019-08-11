@@ -30,13 +30,16 @@
 
             
             <script>
-                var stripe = document.querySelector(".stripe-button-el")
-                var submit = document.querySelector("#submit-button")
+                var stripe = document.querySelector(".custom-stripe-button")
+                var submitbutton = document.querySelector("#submit-button")
+
                 if (stripe) {
                     stripe.addEventListener("click", function (){
-                        submit.disabled = false
+                        submitbutton.disable = false
                     })
                 }
+
+                this.disabled=true;
             </script>
            
         </div>

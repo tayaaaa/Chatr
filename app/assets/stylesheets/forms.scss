@@ -53,11 +53,15 @@
     border-radius: 5px;
 }
 
-.field {
-    // justify-content: center;
-    // align-items: space-between;
-    // margin: 10px;
+.custom-stripe-button:after {
+    background-color:grey;
+    color: grey;
 }
+
+.stripe-button-el { 
+    display: none !important;
+}
+
 
 .field * {
     align-items: space-between;
