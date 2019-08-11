@@ -28,17 +28,17 @@
                 <%= render partial: "layouts/shared/stripe_form" %>
             </div>
 
-            <%if false%>
-                <script>
-                    var stripe = document.querySelector(".stripe-button-el")
-                    var submit = document.querySelector("#submit-button")
-                    if (stripe) {
-                        stripe.addEventListener("click", function (){
-                            submit.disabled = false
-                        })
-                    }
-                </script>
-            <%end%>
+            
+            <script>
+                var stripe = document.querySelector(".stripe-button-el")
+                var submit = document.querySelector("#submit-button")
+                if (stripe) {
+                    stripe.addEventListener("click", function (){
+                        submit.disabled = false
+                    })
+                }
+            </script>
+           
         </div>
     </div>
       
