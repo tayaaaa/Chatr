@@ -198,6 +198,8 @@
   margin-top: 20px;
 }
 
+.go-back-btn,
+.new-convo-btn,
 .edit-profile-btn,
 .add-language-btn,
 .add-lesson-btn,
@@ -208,12 +210,15 @@
   color: #fff;
   font-size: 1em;
   font-weight: 300;
+  margin: 0.2em;
   padding: 10px 10px;
   text-decoration: none;
   text-transform: capitalize;
 }
 
+.go-back-btn:hover,
 .edit-profile-btn:hover,
+.new-convo-btn:hover,
 .add-language-btn:hover,
 .add-lesson-btn:hover,
 .message-teacher-btn:hover {

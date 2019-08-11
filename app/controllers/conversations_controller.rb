@@ -99,7 +99,7 @@ class ConversationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def conversation_params
-      params.require(:conversation).permit(:user2_id, :user1_id)
+      params.permit(:user2_id, :user1_id)
     end
 
     def get_userbooking_users(user)
