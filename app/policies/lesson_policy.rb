@@ -15,7 +15,7 @@ class LessonPolicy < ApplicationPolicy
     end
   
     def create?
-        @user and @user.role_id == 2
+        @user and @user.role == Role.where(privilege: 'teacher')[0]
     end
   
     def new?

@@ -31,6 +31,7 @@ class PagesController < ApplicationController
                 maxbooking: lesson.maxbooking, 
                 description: lesson.description,
                 teacher_name:lesson.user.profile.firstname,
+                teacher_profile:lesson.user.profile,
                 teacher_id:lesson.user_id,
                 price:lesson.price,
                 id: lesson.id,    

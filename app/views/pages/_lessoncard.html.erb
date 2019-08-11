@@ -1,4 +1,3 @@
-<div class="rowofcards">
 <div class="cardslider">
     <% @lesson_card_array.each do |lesson| %>
         <a href=<%="/lessons/#{lesson[:id]}"%> >
@@ -33,7 +32,11 @@
                             </div>
                         </div>
                         <div class="profile-card-row profile-card-book-btn">
-                            <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                            <% if current_user.role_id == nil   %>
+                                <%= link_to 'sign up to book', '/', class: "book-btn" %>
+                            <% elsif current_user.role_id == 3 %>
+                                <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                            <% end %>
                         </div>
                     </div>
             </div>
@@ -41,9 +44,8 @@
     <% end %>
     <% if !request.path_info.include?("lessons") %>
     <div class="profile-card" id="see-more-card">
-            <p> <%= link_to "See more!", "/browse/lessons", class: "book-btn"%> </p>
+        <p> <%= link_to "See more!", "/browse/lessons", class: "book-btn"%> </p>
     </div>
     <%end%>
     
-</div>
 </div>

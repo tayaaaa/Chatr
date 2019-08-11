@@ -1,41 +1,41 @@
-class UserbookingPolicy < ApplicationPolicy
-    attr_reader :user, :userbooking
+class ProfilePolicy < ApplicationPolicy
+    attr_reader :user, :profile
   
-    def initialize(user, userbooking)
+    def initialize(user, profile)
       @user = user
-      @userbooking = userbooking
+      @profile = profile
     end
   
     def index?
-        @user
-    end
-  
-    def show?
-      false
-    end
-  
-    def create?
-        @user and @user.role == Role.where(privilege: 'student')[0]
-    end
-  
-    def new?
-      create?
-    end
-
-    def completelesson?
-        @user and @user.id == Userbooking.find(params[:id]).user_id and Userbooking.completedstu == false
-    end
-  
-    def update?
         false
     end
   
+    def show?
+        true
+    end
+  
+    def create?
+        new?
+    end
+  
+    def new?
+      @user.profile == nil
+    end
+  
+    def update?
+        new?
+    end
+  
     def edit?
-      false
+        true
     end
   
     def destroy?
-      false
+        false
+    end
+
+    def finances?
+        @user
     end
   
     # class Scope

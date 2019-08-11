@@ -7,7 +7,7 @@ class LanguageskillPolicy < ApplicationPolicy
     end
   
     def index?
-        false
+      false
     end
   
     def show?
@@ -27,7 +27,6 @@ class LanguageskillPolicy < ApplicationPolicy
     end
   
     def edit?
-    # @user and languageskill.profile.user_id == @user.id
     end
   
     def destroy?

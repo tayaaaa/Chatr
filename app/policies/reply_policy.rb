@@ -22,7 +22,7 @@ class ReplyPolicy < ApplicationPolicy
     end
   
     def update?
-      @user and @user.role == Role.second
+      @user and @user.role == Role.where(privilege: 'teacher')[0]
     end
   
     def edit?

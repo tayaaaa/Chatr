@@ -8,10 +8,9 @@ class User < ApplicationRecord
   has_many :userbookings
   has_many :messages
   has_many :lessons
+
+  # validates :email, uniqueness: true
   
   devise :database_authenticatable, :registerable,
-  :recoverable, :rememberable, :validatable
-
-  #validating that the email is unique.
-  
+  :recoverable, :rememberable, :validatable  
 end
