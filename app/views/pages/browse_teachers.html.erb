@@ -6,15 +6,73 @@
     <%= render 'header_nav_public' %>
   <% end %>
 
-  <div id="body" class="outer-wrapper">
-    <div class="inner-wrapper">
-      
-      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-      <div class ="cardwrapper">
-        <div class= "rowofcards">
-          <h1 class = "heading"> Browse Teachers: </h2>
-          <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+  <div id="body" class="browse outer-wrapper">
+    <div class="browse inner-wrapper">
+      <div class="browse-inner-column">
+        <div class="browse-all-title">
+          <h1> browse all teachers: </h1>
         </div>
+        <div class="browse-all-filter">
+          <%= form_with(url: '/browse/teachers', method: 'post', id:"filter-form", local:true) do |form|%>
+            <%= form.text_field :search_teach_firstname, placeholder:"Search All Teachers", class:"search-field" %>
+            <%= form.submit "Search", class:"submit" %>
+          <%end%>
+        </div>
+        <div class="browse-all-teachers"> 
+          <% @teachers_card_array.each do |teachers_card_info| %>
+              <div id="lesson-card" class="lesson-card">  
+                  <div class="lesson-card-top">
+                      <div class="lesson-card-row profile-card-teacher" >
+                          <div class="profile-card-teacher-image">
+                              <% if teachers_card_info[:image].attached? %>
+                                  <%= image_tag teachers_card_info[:image].service_url %>
+                              <% else %>
+                                  <p> N/A </p>
+                              <% end %>          
+                          </div>
+                          <div class = "lesson-card-row profile-card-title browse-page">
+                              <h3> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </h3>
+                          </div>
+                      </div>
+                      <div class = "lesson-card-row lesson-card-star-rating" > 
+                      <% if teachers_card_info[:stars]%>
+                          <% teachers_card_info[:stars].to_i.times do  %>
+                          <span class="glyphicon glyphicon-star"></span>
+                          <% end %>
+                      <% end %>
+                      <% if teachers_card_info[:stars].to_i != 5 || teachers_card_info[:stars].to_i != nil %>
+                          <% (5 - teachers_card_info[:stars].to_i).times do %>
+                          <span class="glyphicon glyphicon-star-empty"></span>
+                          <% end %>
+                      <% end %>
+                      </div>
+                      <div class="lesson-card-row lesson-card-title">
+                          <h3> Languages Spoken </h3>
+                      </div>
+                      <div class="lesson-card-languages">
+                          <% teachers_card_info[:teach_languages].each do |language| %>
+                              <div class="lesson-card-text-row languages"> 
+                              <div class="lesson-card-language-icon"> <i class="far fa-check-circle"></i> </div>
+                              <div class="lesson-card-language-name"> <%= language %> </div>
+                              </div>
+                          <% end %>
+                      </div>
+                      <div class="lesson-card-row lesson-card-title">
+                          <h3> <%= teachers_card_info[:name] %>'s Biography </h3>
+                      </div>
+                      <div class="lesson-card-row lesson-card-bio">
+                          <p> <%= teachers_card_info[:bio]%> </p>
+                      </div>
+                  </div>
+                  <div class="lesson-card-bottom">
+                      <div class="lesson-card-row lesson-card-btn">
+                          <%= link_to "View Profile", "/profiles/#{teachers_card_info[:profile_id]}", class: "book-btn"%>
+                      </div>
+                  </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 

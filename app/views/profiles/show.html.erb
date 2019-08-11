@@ -1,5 +1,5 @@
 <head>
-  <title>Home | Chatr</title>
+  <title>Profile | Chatr</title>
   <link rel="icon" type="image/png" href="">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -7,22 +7,23 @@
 </head>
 
 <body>
-  
+  <!-- MAIN NAVIGATION | START -->
   <% if current_user %>
     <%= render '/pages/header_nav_authenticated' %>
   <% else %>
     <%= render '/pages/header_nav_public' %>
-  <% end %>
+  <% end %> <!-- MAIN NAVIGATION | END -->
 
+  <!-- USER PROFILE OUTER WRAPPER | START -->
   <div id="body" class="user-profile outer-wrapper">
+    <!-- PROFILE COVER IMAGE START -->
     <div class="profile-cover-image">
-    <% if @profile.background_image.attached? %>
-      <%= image_tag @profile.background_image.service_url %>
-    <% end %>
-    </div>
-
-    <div class="profile-inner-wrapper">
-
+      <% if @profile.background_image.attached? %>
+        <%= image_tag @profile.background_image.service_url %>
+      <% end %>
+    </div> <!-- PROFILE COVER IMAGE END -->
+    <div class="profile-inner-wrapper"> <!-- INNER WRAPPER | START -->
+      <!-- PROFILE COLUMN 1 (LEFT) START -->
       <div class="profile-col-1">
         <div class="profile-picture">
           <%= image_tag @profile.uploaded_image.service_url %>
@@ -63,58 +64,52 @@
             </div>
           <%end%>
         </div>
-        <div class="profile-row profile-title">
-          <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
-        </div>
-        <div class="profile-row profile-info">
-          <span>
-            <% if @user.role.privilege == "teacher" %>
-              <% @user.profile.languageskills.each do |languageskill| %>
-                <div class="profile-info-languages-spoken">
-                  <% if languageskill.teaches%>
-                    <span style="font-weight: 500;"> Language:&nbsp;</span>
-                    <span style="font-style: italic;"> <%= languageskill.language_name %> </span>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          </span>
-        </div>
+        <% if @user.role.privilege == "teacher" %>
+          <div class="profile-row profile-title">
+            <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
+          </div>
+          <div class="profile-row profile-info">
+            <span>
+                <% @user.profile.languageskills.each do |languageskill| %>
+                  <div class="profile-info-languages-spoken">
+                    <% if languageskill.teaches%>
+                      <span style="font-weight: 500;"> Language:&nbsp;</span>
+                      <span style="font-style: italic;"> <%= languageskill.language_name %> </span>
+                    <% end %>
+                  </div>
+                <% end %>
+            </span>
+          </div>
+         <% end %>
         <div class="profile-row profile-buttons">
           <% if @user.profile.id == current_user.profile.id %>
             <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
           <% end %>
           <% if @user.profile.id == current_user.profile.id && @user.role.privilege == "teacher" %>
-            <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add new language'.html_safe, new_languageskill_path, class:"go-back-btn" %>
-            <%= link_to '<i class="fas fa-edit"></i> add new lesson'.html_safe, new_lesson_path, class:"edit-profile-btn" %>
+            <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add language'.html_safe, new_languageskill_path, class:"add-language-btn" %>
+            <%= link_to '<i class="fas fa-edit"></i> add lesson'.html_safe, new_lesson_path, class:"add-lesson-btn" %>
+          <% elsif @user.profile.id != current_user.profile.id %>
+            <%= button_to('send message', "/conversations", params: {:user1_id => current_user.id, :user2_id => @user}, :method => :post)%>
           <% end %>
         </div>
-      </div>
-
-      
+      </div> <!-- PROFILE COLUMN 1 (LEFT) END -->
+      <!-- PROFILE COLUMN 2 (RIGHT) START -->
       <div class="profile-col-2">
         <div class="profile-col-2-container">
-
-        <!-- Here is the conditional logic to have the profiles and the views render in partials so that you can have two tabs without having to copy all of th ecode from the profile show page. When you click on the 'review' or 'lessons' button it will load a new page in that one section of the site. -->
           <%if @user.role.privilege == "teacher"%>
             <% if params[:reviews] == "1" %>
-            <!-- Put all of your code for the reviews cards in the reviews partial called _reviews_profile.html.erb -->
-              <%= render partial: 'reviews_profile'%>
+              <%= render partial: 'reviews_profile', locals: {user: @user, user_reviews: @user_reviews, profile: @profile}%>
             <% else %>
-            <!-- Put all of your code for the lesson cards in the reviews partial called _lessons_profile.html.erb -->
-                <%= render partial: 'lessons_profile'%>
+              <%= render partial: 'lessons_profile'%>
             <% end %>
           <%end%>
           <%if @user.role.privilege == "student"%>
-             <%= render partial: 'reviews_profile', locals:{user: @user}%>
-
+            <%= render partial: 'student_about_me', locals: {user: @user, profile: @profile}%>
           <%end%>
-
         </div>
-      </div>
-
-    </div>
-  </div>
-
-  <%= render '/pages/footer_public' %>
+      </div> <!-- PROFILE COLUMN 2 (RIGHT) END -->
+    </div> <!-- INNER WRAPPER | END -->
+  </div> <!-- USER PROFILE OUTER WRAPPER | END -->
+  <!-- FOOTER NAVIGATION | START -->
+  <%= render '/pages/footer_public' %><!-- FOOTER NAVIGATION | END -->
 </body>

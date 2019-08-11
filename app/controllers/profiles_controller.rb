@@ -1,5 +1,5 @@
 class ProfilesController < ApplicationController
-  before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  before_action :set_profile, only: [:show, :edit, :update, :destroy, :delist_lesson]
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /profiles
@@ -39,6 +39,7 @@ class ProfilesController < ApplicationController
     if @profile.background_image.attached? == false
       set_default_background_image(@profile)
     end
+   
     if @profile
     redirect_to new_languageskill_path(:profile_id => @profile.id)
     end
@@ -85,6 +86,13 @@ class ProfilesController < ApplicationController
         @user_transactions << booking
       end
     end
+  end
+
+  def delist_lesson
+    @lesson = Lesson.find(params[:lesson_id])
+    @lesson.delist = true
+    @lesson.save
+    redirect_to @profile
   end
 
   private

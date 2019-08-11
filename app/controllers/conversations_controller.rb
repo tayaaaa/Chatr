@@ -26,15 +26,12 @@ class ConversationsController < ApplicationController
     @users.each do |user|
       if current_user.role.privilege == "student" && user.role.privilege == "teacher"
         @can_message << user
-      elsif current_user.role.privilege == "admin"
-        @can_message << user
+      elsif current_user.role.privilege == "teacher"
+        @can_message = get_userbooking_users(current_user)
       end
     end
-    if current_user.role.privilege == "teacher"
-        @can_message = get_userbooking_users(current_user)
-    end
-  
   end
+ 
 
   # GET /conversations/1/edit
   def edit
@@ -44,7 +41,6 @@ class ConversationsController < ApplicationController
   # POST /conversations.json
   def create
     @conversation = Conversation.new(conversation_params)
-
     conversations = Conversation.all
     conversations.each do |convo|
       if((@conversation.user1 == convo.user1 and @conversation.user2 == convo.user2) or (@conversation.user1 == convo.user2 and @conversation.user2 == convo.user1))

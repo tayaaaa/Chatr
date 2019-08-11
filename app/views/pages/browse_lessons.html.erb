@@ -6,12 +6,57 @@
     <%= render 'header_nav_public' %>
   <% end %>
 
-  <div id="body" class="outer-wrapper">
-    <div class="inner-wrapper">
-      <div class= "cardwrapper">
-        <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-          <h1 id > Browse Lessons: </h1>
-          <%= render 'lessoncard' %>
+  <div id="body" class="browse outer-wrapper">
+    <div class="browse inner-wrapper">
+      <div class="browse-inner-column">
+        <div class="browse-all-title">
+          <h1> browse all lessons: </h1>
+        </div>
+        <div class="browse-all-filter">
+          <%= form_with(url: '/browse/lessons', method: 'post', id:"filter-form", local:true) do |form|%>
+            <%= form.text_field :search_lang, placeholder:"Search All Lessons", class:"search-field" %>
+            <%= form.submit "Search", class:"submit" %>
+          <%end%>
+        </div>
+        <div class="browse-all-teachers"> 
+          <% @lesson_card_array.each do |lesson| %>
+            <div id="lesson-card" class="lesson-card">
+              <a href = <%="/lessons/#{lesson[:id]}"%>>
+                <div class="lesson-card-top">
+                  <div class = "lesson-card-row lesson-card-title">
+                    <h1> <%= lesson[:language]  %> <span style="text-transform: lowercase; font-style: italic; font-weight: 300;">with</span> <%= lesson[:teacher_name] %> </h1>
+                  </div>
+                  <div class = "lesson-card-row lesson-card-details" > 
+                    <%= lesson[:duration]  %> minutes | $<%= lesson[:price]  %> | <%= lesson[:maxbooking] %> available  
+                  </div>
+                  <div class="lesson-card-row lesson-card-title">
+                    <h3> lesson description </h3>
+                  </div>
+                  <div class="lesson-card-row lesson-card-description">
+                    <span> <%= lesson[:description]  %> </span>
+                  </div>
+                </div>
+              </a>
+              <div class="lesson-card-bottom">
+                <div class="lesson-card-row">                              
+                  <div class="lesson-card-teacher-image"> 
+                    <% if lesson[:profilepic].attached? %>
+                      <%= image_tag lesson[:profilepic] %>
+                    <% else %>
+                      <p> N/A </p>
+                    <% end %>
+                  </div>
+                    <div class="lesson-card-teacher-name">
+                    <h4> <%= lesson[:teacher_name] %> </h4>
+                  </div>
+                </div>
+                <div class="lesson-card-row">
+                  <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                </div>
+              </div>   
+            </div>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

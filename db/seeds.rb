@@ -61,7 +61,6 @@ puts "Finished assigning roles to Users"
 
 #CREATE PROFILES FOR USERS:
 puts "Creating and Assigning profiles for users"
-user1.profile = Profile.create! :firstname => 'admin1', :lastname => 'admin1', :bio => 'I can access everything!', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
 user2.profile = Profile.create! :firstname => 'Tim', :lastname => 'teacher', :skypename => "@greenfrog33", :bio => 'I have a relaxed teaching style and love to go on morning runs.', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
 user3.profile = Profile.create! :firstname => 'Tory', :lastname => 'teacher', :skypename => "@y3llowcar", :bio => 'Passionate lifelong teacher who loves to help', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
 user4.profile = Profile.create! :firstname => 'Tamara', :lastname => 'teacher', :skypename => "@astronautbill", :bio => 'Contact me for help with grammar', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')

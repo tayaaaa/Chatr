@@ -1,10 +1,46 @@
 <div id="profile-sub-menu">
     <%if @user.role.privilege == "teacher"%>
-    <%= link_to 'lessons', profile_path, :class => "sub-menu-btn" %>
-    <%= link_to 'reviews', profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
-    <%else%>
-     <%= link_to 'reviews', profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
+    <%= link_to '<i class="fas fa-user-graduate"></i> &nbsp; lessons'.html_safe, profile_path, :class => "sub-menu-btn" %>
+    <%= link_to '<i class="fas fa-check-circle"></i> &nbsp; reviews'.html_safe, profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
     <%end%>
 </div>
 
-<h1> This is written in the _reviews_profile.html.erb partial! You can put review cards code in here! </h1>
+<% @user_reviews.each do |review| %>
+    <div class="profile-review-card">
+        <div class="profile-card-row">
+        <div class="profile-card-column-title">
+            <div class="profile-card-row profile-card-review-title">
+            <h2> <%= review.userbooking.lesson.languageskill.language_name %> <span style="text-transform: lowercase;"> with </span> <%= @user.profile.firstname %> | <%= review.userbooking.lesson.duration %> minutes</h2>
+            </div>
+        </div>
+        </div>
+        <div class="profile-card-row-review">
+        <div class="profile-card-teacher-image">
+            <%= image_tag review.userbooking.user.profile.uploaded_image.service_url %>
+        </div>
+        <div class="profile-card-review-column-title">
+            <div class="profile-card-row profile-card-reviews-title">
+            <span style="font-style: italic;"> Lesson Review </span> <span style="text-transform: lowercase; font-style: italic;">&nbsp;by&nbsp;</span> <span> <%= review.userbooking.user.profile.firstname %> </span>
+            </div>
+            <div class="profile-card-row profile-card-reviews-body">
+            <span> <%= review.content %> </span>
+            </div>
+        </div>
+        </div>
+        <% if review.reply %>
+            <div class="profile-card-row-review">
+            <div class="profile-card-teacher-image">
+                <%= image_tag @user.profile.uploaded_image.service_url %>
+            </div>
+            <div class="profile-card-review-column-title">
+                <div class="profile-card-row profile-card-reviews-title">
+                <span style="font-style: italic;"> reply</span> <span style="text-transform: lowercase; font-style: italic;">&nbsp;by&nbsp;</span> <span> <%= profile.firstname%> </span>
+                </div>
+                <div class="profile-card-row profile-card-reviews-body">
+                <span> <%= review.reply.content  %></span>
+                </div>
+            </div>
+            </div>
+        <% end %>
+    </div>
+<% end %>
