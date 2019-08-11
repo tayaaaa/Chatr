@@ -437,41 +437,6 @@ div.column-teacher {
 
 /*  LANDING PAGE STYLES (END)  */
 
-
-.cardwrapper {
-  width: 100%;
-}
-
-.cardslider {
-  width: 100%;
-  display: flex;
-  flex-direction:row;
-  overflow-x: auto;
-}
-
-#lesson-card {
-  margin: 10px;
-  align-items: flex-start;
-  justify-content: flex-start;
-  min-width: 350px;
-}
-
-#see-more-card {
-  margin: 10px;
-  align-items: center;
-  justify-content: center;
-  min-width: 350px;
-}
-
-.align-button{
-  display:flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  justify-content: flex-end;
-
-}
-
 .slider{
   appearance:none;
   width: 100%;
@@ -491,17 +456,9 @@ div.column-teacher {
   flex-direction: column;
 }
 
-#lessoncardtitle{
-  width: 100%;
-}
-​
 .seemorebutton {
   display:flex;
   justify-content: center;
-}
-
-#teachcard{
-  text-align: center;
 }
 
 .grid-container {
@@ -570,3 +527,182 @@ th {
 #finances {
   width: 90vw;
 }
+
+
+
+
+
+/**  BROWSE INDEX - BROWSE TEACHERS - BROWSE LESSONS | START  **/
+
+#body.browse.outer-wrapper {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#body .browse.inner-wrapper {
+  min-height: 500px;
+  padding: 0px 10px;
+  margin-bottom: 0px;
+}
+
+.cardwrapper {
+  width: 100%;
+}
+
+.cardslider {
+  scrollbar-width: none;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.profile-card-title.browse-page {
+  border-bottom: 0;
+  padding: 0;
+  margin: 0;
+  width: auto;
+}
+
+.profile-card-title.browse-page h3 {
+  margin: 0;
+}
+
+#lesson-card h3,
+#lesson-card a {
+  margin: 0;
+  text-decoration: none;
+}
+
+.lesson-card {
+  align-items: center;
+  background-color: #fbfbfb;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 10px;
+  min-width: 350px;
+  padding: 20px 10px;
+  width: 100%;
+}
+
+.lesson-card:hover {
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+}
+
+.lesson-card-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.lesson-card-text-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.lesson-card-star-rating {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.4em;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.lesson-card-title h3 {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.lesson-card-languages {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.lesson-card-text-row.languages {
+  margin-bottom: 5px;
+}
+
+.lesson-card-language-icon {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding-right: 5px;
+  width: 40%;
+}
+
+.lesson-card-language-name {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding-left: 5px;
+  width: 60%;
+}
+
+.lesson-card-bio {
+  color: #666;
+  font-weight: 300;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-transform: none;
+  width: 90%;
+}
+
+.lesson-card-bio p {
+  margin: 0;
+}
+
+.lesson-card-btn {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.lesson-card-top,
+.lesson-card-bottom {
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+#see-more-card {
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+}
+
+/**  BROWSE INDEX - BROWSE TEACHERS - BROWSE LESSONS | END  **/
