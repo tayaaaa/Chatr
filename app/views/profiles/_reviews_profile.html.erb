@@ -27,18 +27,20 @@
             </div>
         </div>
         </div>
-        <div class="profile-card-row-review">
-        <div class="profile-card-teacher-image">
-            <%= image_tag @user.profile.uploaded_image.service_url %>
-        </div>
-        <div class="profile-card-review-column-title">
-            <div class="profile-card-row profile-card-reviews-title">
-            <span style="font-style: italic;"> reply</span> <span style="text-transform: lowercase; font-style: italic;">&nbsp;by&nbsp;</span> <span> <%= profile.firstname%> </span>
+        <% if review.reply %>
+            <div class="profile-card-row-review">
+            <div class="profile-card-teacher-image">
+                <%= image_tag @user.profile.uploaded_image.service_url %>
             </div>
-            <div class="profile-card-row profile-card-reviews-body">
-            <span> <%= review.reply.content  %></span>
+            <div class="profile-card-review-column-title">
+                <div class="profile-card-row profile-card-reviews-title">
+                <span style="font-style: italic;"> reply</span> <span style="text-transform: lowercase; font-style: italic;">&nbsp;by&nbsp;</span> <span> <%= profile.firstname%> </span>
+                </div>
+                <div class="profile-card-row profile-card-reviews-body">
+                <span> <%= review.reply.content  %></span>
+                </div>
             </div>
-        </div>
-        </div>
+            </div>
+        <% end %>
     </div>
 <% end %>

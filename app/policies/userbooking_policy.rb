@@ -15,7 +15,7 @@ class UserbookingPolicy < ApplicationPolicy
     end
   
     def create?
-        @user and @user.role_id == 3
+        @user and @user.role.privilege == "student"
     end
   
     def new?
@@ -23,7 +23,8 @@ class UserbookingPolicy < ApplicationPolicy
     end
 
     def completelesson?
-        @user and @user.id == Userbooking.find(params[:id]).user_id and Userbooking.completedstu == false
+        # @user and @user.id == Userbooking.find(params[:id]).user_id and Userbooking.completedstu == false
+        @user
     end
   
     def update?
