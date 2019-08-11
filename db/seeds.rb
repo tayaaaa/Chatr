@@ -73,6 +73,37 @@ user10.profile = Profile.create! :firstname => 'Sally', :lastname => 'student', 
 user11.profile = Profile.create! :firstname => 'Sonny', :lastname => 'student', :skypename => "@car_enthusiast_98", :bio => 'Looking for casual conversation partners', :uploaded_image => open('https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/default-user-img.png')
 puts "Finished creating and Assigning profiles for users"
 
+#ATTACH PROFILE PICS TO USERS:
+puts "Attaching profile pictures to users"
+file_path = Rails.root + 'app/assets/images/profilepics'
+user2.profile.uploaded_image.attach(io: File.open(file_path + 'pp1.jpg'), filename: 'pp1.jpg')
+user3.profile.uploaded_image.attach(io: File.open(file_path + 'pp2.jpg'), filename: 'pp2.jpg')
+user4.profile.uploaded_image.attach(io: File.open(file_path + 'pp3.jpg'), filename: 'pp3.jpg')
+user5.profile.uploaded_image.attach(io: File.open(file_path + 'pp4.jpg'), filename: 'pp4.jpg')
+user6.profile.uploaded_image.attach(io: File.open(file_path + 'pp5.jpg'), filename: 'pp5.jpg')
+user7.profile.uploaded_image.attach(io: File.open(file_path + 'pp6.jpg'), filename: 'pp6.jpg')
+user8.profile.uploaded_image.attach(io: File.open(file_path + 'pp7.jpg'), filename: 'pp7.jpg')
+user9.profile.uploaded_image.attach(io: File.open(file_path + 'pp8.jpg'), filename: 'pp8.jpg')
+user10.profile.uploaded_image.attach(io: File.open(file_path + 'pp9.jpg'), filename: 'pp9.jpg')
+user11.profile.uploaded_image.attach(io: File.open(file_path + 'pp10.jpg'), filename: 'pp10.jpg')
+puts "Finished attaching profile pics to users"
+
+#ATTACH COVER PICS TO PROFILES:
+puts "Attaching cover pictures to users profiles"
+file_path = Rails.root + 'app/assets/images/coverpics'
+user2.profile.background_image.attach(io: File.open(file_path + 'cp1.jpg'), filename: 'cp1.jpg')
+user3.profile.background_image.attach(io: File.open(file_path + 'cp2.jpg'), filename: 'cp2.jpg')
+user4.profile.background_image.attach(io: File.open(file_path + 'cp3.jpg'), filename: 'cp3.jpg')
+user5.profile.background_image.attach(io: File.open(file_path + 'cp4.jpg'), filename: 'cp4.jpg')
+user6.profile.background_image.attach(io: File.open(file_path + 'cp5.jpg'), filename: 'cp5.jpg')
+user7.profile.background_image.attach(io: File.open(file_path + 'cp6.jpg'), filename: 'cp6.jpg')
+user8.profile.background_image.attach(io: File.open(file_path + 'cp7.jpg'), filename: 'cp7.jpg')
+user9.profile.background_image.attach(io: File.open(file_path + 'cp8.jpg'), filename: 'cp8.jpg')
+user10.profile.background_image.attach(io: File.open(file_path + 'cp9.jpg'), filename: 'cp9.jpg')
+user11.profile.background_image.attach(io: File.open(file_path + 'cp10.jpg'), filename: 'cp10.jpg')
+puts "Finished attaching cover pictures to users profiles"
+
+
 #CREATE LANGUAGE SKILLS FOR USERS:
 puts "Creating and assigning language skills for users"
 lsu2_1 = Languageskill.new :language_name => 'Spanish', :proficiency => 5, :teaches => true
