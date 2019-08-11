@@ -1,30 +1,31 @@
 class PagesController < ApplicationController
     before_action :set_teachers
     before_action :set_lessons
-    before_action :set_lesson_card_array
     before_action :set_teachers_card_array
     
     def landing
     end
 
     def index
+        set_lesson_card_array(@lessons)
     end
 
-    def browse_lessons
+    def browse_lessons 
+        @lessons = Lesson.lessons_by_language(params[:search_lang]) if params[:search_lang].present?
+        set_lesson_card_array(@lessons)
     end
 
     def browse_teachers
     end
-    
 
     private
     def set_lessons
         @lessons = Lesson.all
     end
 
-    def set_lesson_card_array
+    def set_lesson_card_array(lessons)
         @lesson_card_array = []
-        @lessons.each do |lesson|
+        lessons.each do |lesson|
             lesson_card_info = {
                 language: lesson.languageskill.language_name, 
                 duration: lesson.duration, 
