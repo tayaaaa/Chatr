@@ -27,7 +27,7 @@
 
   <div class="field">
     <%= form.label "Language", :class => "labels"%>
-    <%= form.select(:languageskill_id, current_user.profile.languageskills.all.collect {|lang|[lang.language_name, lang.id]}), :required => true %>
+    <%= form.select(:languageskill_id, current_user.profile.languageskills.all.collect {|lang|[lang.language_name, lang.id]}, :required => true) %>
   </div>
 
   <div class="field">

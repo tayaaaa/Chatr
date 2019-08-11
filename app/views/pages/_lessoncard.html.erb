@@ -2,7 +2,7 @@
     <div class="cardslider">
         <% @lesson_card_array.each do |lesson| %>
             <div id="lesson-card" class="lesson-card">
-                <a href = <%="/lessons/#{lesson[:id]}"%>>
+                <a href = <%="/profiles/#{lesson[:teacher_id]}"%>>
                     <div class="lesson-card-top">
                         <div class = "lesson-card-row lesson-card-title">
                             <h1> <%= lesson[:language]  %> <span style="text-transform: lowercase; font-style: italic; font-weight: 300;">with</span> <%= lesson[:teacher_name] %> </h1>

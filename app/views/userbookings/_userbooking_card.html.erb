@@ -37,7 +37,9 @@
                         <% if cardinfo[:complete] == false %>
                             <%= link_to "MARK AS COMPLETE", "/userbookings/completelesson/#{cardinfo[:userbooking].id}", method: :put%>
                         <% else %>
+                            <% if !cardinfo[:userbooking].review %>
                             <%= link_to "REVIEW", "/userbookings/#{cardinfo[:userbooking].id}/review" %>
+                            <%end%>
                         <% end %>
                     </div>
                 </div>
