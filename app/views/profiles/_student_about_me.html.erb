@@ -1,7 +1,10 @@
 <div id="profile-sub-menu">
-    <div class="sub-menu-btn">about me</div>
+    <a id="" class="sub-menu-btn student-about-me active"> 
+        <span> <i class="fas fa-info-circle"></i> About <%= @profile.firstname %> </span> 
+    </a>
 </div>
-
-<div class="student-about-me">
-    <div> <%= @profile.bio %> </div>
+<div class="profile-section-student"> 
+    <div class="student-about-me">
+        <div> <%= @profile.bio %> </div>
+    </div>    
 </div>

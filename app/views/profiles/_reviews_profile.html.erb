@@ -1,7 +1,7 @@
 <div id="profile-sub-menu">
     <%if @user.role.privilege == "teacher"%>
-    <%= link_to 'lessons', profile_path, :class => "sub-menu-btn" %>
-    <%= link_to 'reviews', profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
+    <%= link_to '<i class="fas fa-user-graduate"></i> &nbsp; lessons'.html_safe, profile_path, :class => "sub-menu-btn" %>
+    <%= link_to '<i class="fas fa-check-circle"></i> &nbsp; reviews'.html_safe, profile_path(:reviews => 1), :class => "sub-menu-btn active" %>
     <%end%>
 </div>
 
@@ -42,4 +42,3 @@
         </div>
     </div>
 <% end %>
-

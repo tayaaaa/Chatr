@@ -89,7 +89,7 @@
             <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add language'.html_safe, new_languageskill_path, class:"add-language-btn" %>
             <%= link_to '<i class="fas fa-edit"></i> add lesson'.html_safe, new_lesson_path, class:"add-lesson-btn" %>
           <% else %>
-            <%= button_to('message teacher'.html_safe, "/conversations", params: {:user1_id => current_user.id, :user2_id => @user}, html_option: {:class => "message-teacher-btn"}, :method => :post)%>
+            <%= button_to('<i class="fas fa-comment-dots"></i> send message'.html_safe, "/conversations", params: {:user1_id => current_user.id, :user2_id => @user}, html_option: {:class => "message-teacher-btn"}, :method => :post)%>
           <% end %>
         </div>
       </div> <!-- PROFILE COLUMN 1 (LEFT) END -->

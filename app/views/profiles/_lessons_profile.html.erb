@@ -1,6 +1,6 @@
 <div id="profile-sub-menu">
-    <%= link_to 'lessons', profile_path, :class => "sub-menu-btn active" %>
-    <%= link_to 'reviews', profile_path(:reviews => 1), :class => "sub-menu-btn" %>
+    <%= link_to '<i class="fas fa-user-graduate"></i> &nbsp; lessons'.html_safe, profile_path, :class => "sub-menu-btn active" %>
+    <%= link_to '<i class="fas fa-check-circle"></i> &nbsp; reviews'.html_safe, profile_path(:reviews => 1), :class => "sub-menu-btn" %>
 </div>
 
 <% if @user.role.privilege == "teacher" %>
@@ -28,7 +28,7 @@
                     <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
                 </div>
             <%elsif current_user%>
-                <div class="profile-card-row profile-card-book-btn">
+                <div class="profile-card-row profile-card-delist-btn">
                     <%= button_to 'delist lesson', "/profile/#{@profile.id}/delist-lesson", params: {:lesson_id => lesson.id}, data: {confirm: "Are you sure you want to remove this lesson?"}, :method => :post%>
                 </div>
             <% end %>
