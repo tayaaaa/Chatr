@@ -200,7 +200,8 @@
 
 .edit-profile-btn,
 .add-language-btn,
-.add-lesson-btn {
+.add-lesson-btn,
+.message-teacher-btn {
   background-color: #4267B2;
   border: solid 1px #4267B2;
   border-radius: 3px;
@@ -209,11 +210,13 @@
   font-weight: 300;
   padding: 10px 10px;
   text-decoration: none;
+  text-transform: capitalize;
 }
 
 .edit-profile-btn:hover,
 .add-language-btn:hover,
-.add-lesson-btn:hover {
+.add-lesson-btn:hover,
+.message-teacher-btn:hover {
   background-color: #2e487c;
   border: solid 1px #2e487c;
   color: #fff;
@@ -303,6 +306,10 @@
   left: auto;
 }
 
+#profile-sub-menu .sub-menu-btn.student-about-me.active {
+  width: 100%;
+}
+
 #profile-sub-menu .sub-menu-btn:hover {
   background-color: #d7d7d7;
 }
@@ -313,6 +320,22 @@
 
 .profile-card,
 .profile-review-card {
+  align-items: center;
+  background-color: #fbfbfb;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  margin: 10px;
+  padding: 10px;
+  width: calc(100% - 20px);
+}
+
+.profile-section-student {
   align-items: center;
   background-color: #fbfbfb;
   border-color: #d6d6d6;
@@ -450,6 +473,11 @@
 }
 
 .profile-card-book-btn {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.profile-card-delist-btn {
   margin-bottom: 10px;
   margin-top: 10px;
 }

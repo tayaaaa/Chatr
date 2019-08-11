@@ -64,23 +64,23 @@
             </div>
           <%end%>
         </div>
-        <div class="profile-row profile-title">
-          <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
-        </div>
-        <div class="profile-row profile-info">
-          <span>
-            <% if @user.role.privilege == "teacher" %>
-              <% @user.profile.languageskills.each do |languageskill| %>
-                <div class="profile-info-languages-spoken">
-                  <% if languageskill.teaches%>
-                    <span style="font-weight: 500;"> Language:&nbsp;</span>
-                    <span style="font-style: italic;"> <%= languageskill.language_name %> </span>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
-          </span>
-        </div>
+        <% if @user.role.privilege == "teacher" %>
+          <div class="profile-row profile-title">
+            <span> <i class="fas fa-graduation-cap"></i> Languages Taught </span>
+          </div>
+          <div class="profile-row profile-info">
+            <span>
+                <% @user.profile.languageskills.each do |languageskill| %>
+                  <div class="profile-info-languages-spoken">
+                    <% if languageskill.teaches%>
+                      <span style="font-weight: 500;"> Language:&nbsp;</span>
+                      <span style="font-style: italic;"> <%= languageskill.language_name %> </span>
+                    <% end %>
+                  </div>
+                <% end %>
+            </span>
+          </div>
+         <% end %>
         <div class="profile-row profile-buttons">
           <% if @user.profile.id == current_user.profile.id %>
             <%= link_to '<i class="fas fa-edit"></i> edit profile'.html_safe, edit_profile_path(@profile), class:"edit-profile-btn" %>
@@ -88,6 +88,8 @@
           <% if @user.profile.id == current_user.profile.id && @user.role.privilege == "teacher" %>
             <%= link_to '<i class="fas fa-arrow-alt-circle-left"></i> add language'.html_safe, new_languageskill_path, class:"add-language-btn" %>
             <%= link_to '<i class="fas fa-edit"></i> add lesson'.html_safe, new_lesson_path, class:"add-lesson-btn" %>
+          <% else %>
+            <%= button_to('<i class="fas fa-comment-dots"></i> send message'.html_safe, "/conversations", params: {:user1_id => current_user.id, :user2_id => @user}, html_option: {:class => "message-teacher-btn"}, :method => :post)%>
           <% end %>
         </div>
       </div> <!-- PROFILE COLUMN 1 (LEFT) END -->
@@ -96,13 +98,13 @@
         <div class="profile-col-2-container">
           <%if @user.role.privilege == "teacher"%>
             <% if params[:reviews] == "1" %>
-              <%= render partial: 'reviews_profile'%>
+              <%= render partial: 'reviews_profile', locals: {user: @user, user_reviews: @user_reviews, profile: @profile}%>
             <% else %>
               <%= render partial: 'lessons_profile'%>
             <% end %>
           <%end%>
           <%if @user.role.privilege == "student"%>
-            <%= render partial: 'reviews_profile', locals:{user: @user}%>
+            <%= render partial: 'student_about_me', locals: {user: @user, profile: @profile}%>
           <%end%>
         </div>
       </div> <!-- PROFILE COLUMN 2 (RIGHT) END -->
