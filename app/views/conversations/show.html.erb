@@ -1,5 +1,3 @@
-
-
 <body>
 
   <% if current_user %>
@@ -8,56 +6,32 @@
     <%= render 'pages/header_nav_public' %>
   <% end %>
 
+        
   <div id="body" class="outer-wrapper">
-    <div class="inner-wrapper">
-      
-      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-
-
-      <div class="container-messages">
-        <h2><strong>Your messages with <%= @conversation_partner.profile.firstname%></strong></h2>
-
-        <div>
-          <% @conversation.messages.each do |message| %>
-            <% if message.author == current_user%>
-              <div class="container-message">
-                <%= image_tag current_user.profile.uploaded_image %>
-                <p> <%= message.content %> </p> 
-                <div class="time-right"> <%= message.created_at %> </div>
-              </div>
-            <% else %>
-              <div class="container-message darker">
-                <p class="right"><%= image_tag message.author.profile.uploaded_image %></p>
-                <p class="right"> <%= message.content %> </p>
-                <span class="time-left"> <%= message.created_at %> </span>
-              </div>
+    <div class="inner-wrapper">  
+            
+        <div class="container-messages-wrapper">
+          <h2> Your messages with <%= @conversation_partner.profile.firstname%> </h2>
+            <% @conversation.messages.each do |message| %>
+              <% if message.author == current_user%>
+                <div class="container-message">
+                  <%= image_tag current_user.profile.uploaded_image %>
+                  <p> <%= message.content %> </p> 
+                  <div class="time-right"> <%= message.created_at %> </div>
+                </div>
+              <% else %>
+                <div class="container-message darker">
+                  <p class="right"><%= image_tag message.author.profile.uploaded_image %></p>
+                  <p class="right"> <%= message.content %> </p>
+                  <span class="time-left"> <%= message.created_at %> </span>
+                </div>
+              <% end %>
             <% end %>
-          <% end %>
-          </div>
           <%= render partial: 'messages/form', locals: {message: Message.new(), conversation: @conversation}%>
-         </div> 
-          
+        </div>
+      </div>
     </div>
- 
 
-  <div>
-
-
-
-  
-    
-  <div>
-    <%= link_to 'Back', conversations_path %>
-  </div>
-
-
-<%= render 'pages/footer_public' %>
-
-
+  <!-- <%= link_to 'Back', conversations_path %> -->
+  <%= render 'pages/footer_public' %>
 </body>
-
-
-
-
-
-
