@@ -37,7 +37,7 @@
 
     <div class="field dateselect">
       <%= form.label :date_booked, :class => "labels" %>
-      <%= form.datetime_select :date_booked, :required => true %>
+      <%= form.date_select :date_booked, :minDate=> Time.now, :required => true %>
     </div>
 
     <div class="submit-actions">
