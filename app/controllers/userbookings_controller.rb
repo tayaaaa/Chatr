@@ -83,13 +83,14 @@ class UserbookingsController < ApplicationController
   # POST /userbookings.json
   def create
     @userbooking = Userbooking.new(userbooking_params)
+    raise
     authorize(Userbooking)
     @lesson = @userbooking.lesson
     if(@lesson.maxbooking != 0)
       
       respond_to do |format|
         if @userbooking.save
-          format.html { redirect_to userbookings_path, notice: 'Userbooking was successfully created.' }
+          format.html { redirect_to userbookings_path, notice: 'Your lesson was was successfully booked!' }
           format.json { render :show, status: :created, location: @userbooking }
         else
           format.html { render :new }
