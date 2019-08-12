@@ -332,9 +332,49 @@ span.logout {
   width: 100%;
 }
 
+.bgr-image-howitworks {
+  background-image: url("landing-img-02.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.bgr-image-about {
+  background-image: url("landing-img-03.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+}
+
 .bgr-image-cover {
   align-items: center;
   background: rgba(80, 80, 80, 0.4);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: flex-start;
+  width: 100%;  
+}
+
+.bgr-image-cover-grey {
+  align-items: center;
+  background: rgba(80, 80, 80, 0.9);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: flex-start;
+  width: 100%;  
+}
+
+.bgr-image-cover-blue {
+  align-items: center;
+  background: rgba(46, 72, 124, 0.9);
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -435,7 +475,135 @@ div.column-teacher {
   border: solid 1px #fff;
 }
 
-/*  LANDING PAGE STYLES (END)  */
+div.column-howitworks,
+div.column-aboutus {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: center;
+  padding: 0 10px;
+  width: 33.333333333333333333333%;
+}
+
+#body .howitworks {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  justify-content: center;
+  margin-top: 0px;
+  width: auto;
+}
+
+#body .howitworks.col-1 {
+  margin-top: -200px;
+}
+
+#body .howitworks.col-3 {
+  margin-top: 200px;
+}
+
+.howitworks-icon {
+  align-items: center;
+  border: solid 5px #fff;
+  border-radius: 100px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-size: 5em;
+  height: 150px;
+  justify-content: center;
+  line-height: 1em;
+  width: 150px;
+}
+
+.howitworks-title {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-size: 3em;
+  justify-content: center;
+  line-height: 1em;
+  margin-top: 20px;
+  text-transform: capitalize;
+}
+
+#body .aboutus {
+  align-items: center;
+  background-color: rgba(43, 67, 96, 0.8);
+  border: solid 1px #fff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: auto;
+  justify-content: flex-start;
+  height: 385px;
+  padding: 10px;
+  width: 100%;
+}
+
+.aboutus-image {
+  align-items: center;
+  border: solid 1px #fff;
+  border-radius: 100px;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-size: 5em;
+  height: 150px;
+  justify-content: center;
+  margin-top: -75px;
+  line-height: 1em;
+  overflow: hidden;
+  width: 150px;
+}
+
+.aboutus-image img {
+  width: 100%;
+  height: 100%;
+}
+
+.aboutus-bio {
+  align-items: center;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  font-size: 1.2em;
+  justify-content: center;
+  line-height: 1.2em;
+  margin-top: 10px;
+  text-align: justify;
+}
+
+.aboutus-bio-icons {
+  align-items: flex-end;
+  color: #fff;
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  font-size: 3em;
+  justify-content: space-around;
+  line-height: 1em;
+  width: 100px;
+}
+
+.aboutus-bio-icons a {
+  color: #fff;
+}
+
+.aboutus-bio-icons a:active,
+.aboutus-bio-icons a:focus,
+.aboutus-bio-icons a:hover {
+  color: rgb(233, 233, 233);
+}
+
+/**  LANDING PAGE STYLES (END)  **/
+
 
 .slider{
   appearance:none;
