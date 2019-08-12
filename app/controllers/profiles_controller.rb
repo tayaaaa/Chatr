@@ -89,9 +89,12 @@ class ProfilesController < ApplicationController
   end
 
   def delist_lesson
+    authorize(Profile)
     @lesson = Lesson.find(params[:lesson_id])
-    @lesson.delist = true
-    @lesson.save
+    if @lesson.user_id == current_user.id
+      @lesson.delist = true
+      @lesson.save
+    end
     redirect_to @profile
   end
 

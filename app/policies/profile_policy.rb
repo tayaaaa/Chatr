@@ -37,6 +37,10 @@ class ProfilePolicy < ApplicationPolicy
     def finances?
         @user
     end
+    
+    def delist_lesson?
+        @user
+    end
   
     # class Scope
     #   attr_reader :user, :scope
