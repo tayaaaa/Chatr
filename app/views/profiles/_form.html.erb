@@ -12,36 +12,40 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= form.text_field :user_id %>
+    <%= form.hidden_field :user_id, value: "#{current_user.id}" %>
   </div>
 
   <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname %>
+    <%= form.label "First name", :class => "labels" %>
+    <%= form.text_field :firstname, :class => "textbox", :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
+    <%= form.label "Last name", :class => "labels" %>
+    <%= form.text_field :lastname, :class => "textbox", :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :bio %>
-    <%= form.text_area :bio %>
+    <%= form.label :bio, :class => "labels"%>
+    <%= form.text_area :bio, :class => "resizable-textboxes", :placeholder => "Write a short bio here", :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :skypename %>
-    <%= form.text_field :skypename %>
+    <%= form.label :skypename, :class => "labels" %>
+    <%= form.text_field :skypename, :class => "textbox", :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :uploaded_image %>
+    <%= form.label "Profile picture", :class => "labels" %>
     <%= form.file_field :uploaded_image %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+   <div class="field">
+    <%= form.label "Profile background", :class => "labels" %>
+    <%= form.file_field :background_image %>
+  </div>
+
+  <div class="submit-actions">
+    <%= form.submit 'submit profile', :id => "submit-button" %>
   </div>
 <% end %>

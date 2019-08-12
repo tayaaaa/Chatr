@@ -1,34 +1,61 @@
-<div class="rowofcards">
-<div class="cardslider">
-<% @teachers_card_array.each do |teachers_card_info| %>
-    <div class="card">
-    <% if false %>
-        <%= image_tag teachers_card_info[:image].service_url %>
-    <% end %>
-    <p> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </p>
-    <% if teachers_card_info[:stars]%>
-        <% teachers_card_info[:stars].to_i.times do  %>
-        <span class="glyphicon glyphicon-star"></span>
+<div class="rowofcards rowofcards-outer">
+    <div class="cardslider icon scroll-arrow-teachers">
+        <% @teachers_card_array.each do |teachers_card_info| %>
+            <div id="lesson-card" class="lesson-card">  
+                <div class="lesson-card-top">
+                    <div class="lesson-card-row profile-card-teacher" >
+                        <div class="teacher-card-teacher-image">
+                            <% if teachers_card_info[:image].attached? %>
+                                <%= image_tag teachers_card_info[:image].service_url %>
+                            <% else %>
+                                <i id="browse-pages" class="fas fa-user"></i>
+                            <% end %>          
+                        </div>
+                        <div class = "lesson-card-row profile-card-title browse-page">
+                            <h3> <%= link_to "#{teachers_card_info[:name]}", "/profiles/#{teachers_card_info[:profile_id]}" %> </h3>
+                        </div>
+                    </div>
+                    <div class = "lesson-card-row lesson-card-star-rating" > 
+                    <% if teachers_card_info[:stars]%>
+                        <% teachers_card_info[:stars].to_i.times do  %>
+                        <span class="glyphicon glyphicon-star"></span>
+                        <% end %>
+                    <% end %>
+                    <% if teachers_card_info[:stars].to_i != 5 || teachers_card_info[:stars].to_i != nil %>
+                        <% (5 - teachers_card_info[:stars].to_i).times do %>
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                        <% end %>
+                    <% end %>
+                    </div>
+                    <div class="lesson-card-row lesson-card-title">
+                        <h3> Languages Spoken </h3>
+                    </div>
+                    <div class="lesson-card-languages">
+                        <% teachers_card_info[:teach_languages].each do |language| %>
+                            <div class="lesson-card-text-row languages"> 
+                            <div class="lesson-card-language-icon"> <i class="far fa-check-circle"></i> </div>
+                            <div class="lesson-card-language-name"> <%= language %> </div>
+                            </div>
+                        <% end %>
+                    </div>
+                    <div class="lesson-card-row lesson-card-title">
+                        <h3> <%= teachers_card_info[:name] %>'s Biography </h3>
+                    </div>
+                    <div class="lesson-card-row lesson-card-bio">
+                        <p> <%= teachers_card_info[:bio]%> </p>
+                    </div>
+                </div>
+                <div class="lesson-card-bottom">
+                    <div class="lesson-card-row lesson-card-btn">
+                        <%= link_to "View Profile", "/profiles/#{teachers_card_info[:profile_id]}", class: "book-btn"%>
+                    </div>
+                </div>
+            </div>
         <% end %>
-    <% end %>
-    <% if teachers_card_info[:stars].to_i != 5 %>
-        <% (5 - teachers_card_info[:stars].to_i).times do %>
-        <span class="glyphicon glyphicon-star-empty"></span>
+        <% if !request.path_info.include?("teachers") %>
+            <div class="lesson-card" id="see-more-card">
+                <%= link_to "See more!", "/browse/teachers", class: "book-btn" %> 
+            </div>
         <% end %>
-    <% end %>
-
-    <% teachers_card_info[:teach_languages].each do |language| %>
-        <p> <%= language %> </p>
-    <% end %>
-    <p> <%= teachers_card_info[:bio]%> </p>
-
-    <div> <p><%= link_to "View Profile", "/profiles/#{teachers_card_info[:profile_id]}" %></p> </div>
     </div>
-<% end %>
-    <div class= "card">
-        <div class = "seemorebutton">
-            <p> <%= link_to "See more!" %> </p>
-        </div>
-    </div>
-</div>
 </div>

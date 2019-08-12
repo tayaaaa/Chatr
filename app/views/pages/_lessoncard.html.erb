@@ -1,28 +1,53 @@
-<div class="rowofcards">
-<div class="cardslider">
-    <% @lesson_card_array.each do |lesson| %>
-        <a href=<%="/lessons/#{lesson[:id]}"%> >
-            <div class="card">            
-                <div class = "cardtitle">
-                    <h2 id = "language"> <%= lesson[:language].capitalize  %> </h2>
-                </div>
+<div class="rowofcards rowofcards-outer">
+    <div class="cardslider icon scroll-arrow-teachers">
+        <% @lesson_card_array.each do |lesson| %>
+            <div id="lesson-card" class="lesson-card">
+                <a href = <%="/profiles/#{lesson[:teacher_id]}"%>>
+                    <div class="lesson-card-top">
+                        <div class = "lesson-card-row lesson-card-title">
+                            <h1> <%= lesson[:language]  %> <span style="text-transform: lowercase; font-style: italic; font-weight: 300;">with</span> <%= lesson[:teacher_name] %> </h1>
+                        </div>
+                        <div class = "lesson-card-row lesson-card-details" > 
+                            <%= lesson[:duration]  %> minutes | $<%= lesson[:price]  %> | <%= lesson[:maxbooking] %> available  
+                        </div>
+                        <div class="lesson-card-row lesson-card-title">
+                            <h3> lesson description </h3>
+                        </div>
+                        <div class="lesson-card-row lesson-card-description">
+                            <span> <%= lesson[:description]  %> </span>
+                        </div>
+                    </div>
+                </a>
+                <div class="lesson-card-bottom">
+                    <div class="lesson-card-row">                              
+                        <div class="lesson-card-teacher-image"> 
+                            <% if lesson[:profilepic].attached? %>
+                                <%= image_tag lesson[:profilepic] %>
+                            <% else %>
+                                <i id="browse-pages" class="fas fa-user"></i>
+                            <% end %>
+                            </div>
+                            <div class="lesson-card-teacher-name"> 
+                               <h4> <%= link_to lesson[:teacher_name], "/profiles/#{lesson[:teacher_id]}" %> </h4>
+                            </div>
+                        </div>
+                        <div class="lesson-card-row">
+                            <% if current_user == nil   %>
+                                <%= link_to 'sign up to book', '/', class: "book-btn" %>
+                            <% elsif current_user.role_id == 3 %>
+                                <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
+                            <% end %>
+                        </div>
+                    </div>
+              </div>   
+                     
+        <% end %>
 
-                <div class = "lessonstats" > <%= lesson[:duration]  %> minutes | $<%= lesson[:price]  %> | <%= lesson[:maxbooking] %> available  </div>
-
-                <div id= "description"> <%= lesson[:description]  %> </div>
-
-                <div id= "teacher"> <%= link_to lesson[:teacher_name], "/profiles/#{lesson[:teacher_id]}" %> </div>
-
-                <div id = "bookbuttondiv">
-                    <%= link_to 'BOOK', new_userbooking_path(:lesson_id => lesson[:id] ), class: "bookbutton"%>
-                </div>
+        <% if !request.path_info.include?("lessons") %>
+            <div class="profile-card" id="see-more-card">
+                <p> <%= link_to "See more!", "/browse/lessons", class: "book-btn"%> </p>
             </div>
-        </a>
-    <% end %>
-    <div class= "card">
-        <div class = "seemorebutton">
-            <p> <%= link_to "See more!" %> </p>
-        </div>
+        <%end%>
+        
     </div>
-</div>
 </div>

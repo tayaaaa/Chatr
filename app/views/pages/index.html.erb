@@ -1,5 +1,5 @@
 <head>
-  <title>Home | Chatr</title>
+  <title>Browse | Chatr</title>
   <link rel="icon" type="image/png" href="">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -14,25 +14,30 @@
     <%= render 'header_nav_public' %>
   <% end %>
 
-  <div id="body" class="outer-wrapper">
-    <div class="inner-wrapper">
+  <div id="body" class="browse outer-wrapper">
+    <div class="browse inner-wrapper">
       
-      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
-       
-      <div class= "rowofcards">
-        <h1 class = "heading"> Top Rated Teachers: </h2>
-        <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+      <div class ="cardwrapper">
+
+        <div class= "rowofcards">
+          <div class="browse-title">
+            <h1> Top Rated Teachers ... </h1>
+          </div>
+          <%= render partial: 'pages/teacher_card', locals: {teachers_card_array: @teachers_card_array}%>  
+        </div>
+        
+        <div class= "rowofcards">
+          <div class="browse-title">
+            <h1> Browse Available Lessons ... </h1>
+          </div>
+          <%= render 'lessoncard' %>
+        </div>
+
       </div>
-      
-      <div class= "rowofcards">
-        <h1 class = "heading"> Browse Available Lessons...</h2>
-        <%= render 'lessoncard' %>
-      </div>
-      
       
     </div>
   </div>
 
   <%= render 'footer_public' %>
-
+  
 </body>

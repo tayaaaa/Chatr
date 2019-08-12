@@ -1,35 +1,53 @@
 <%= form_with(model: userbooking, local: true) do |form| %>
-  <% if userbooking.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(userbooking.errors.count, "error") %> prohibited this userbooking from being saved:</h2>
-
-      <ul>
-      <% userbooking.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="formstats">
+      <% @lesson = Lesson.find(params[:lesson_id]) %>
+      <p> <%= @lesson.languageskill.language_name %> with <%= @lesson.user.profile.firstname %> |</p> 
+      <p>$<%= @lesson.price %> | </p> 
+      
+      <p> <%= @lesson.duration %> minutes </p>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.hidden_field :user_id, value: "#{current_user.id}"%>
-  </div>
+    <% if userbooking.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(userbooking.errors.count, "error") %> prohibited this userbooking from being saved:</h2>
 
-  <div class="field">
-    <%= form.hidden_field :lesson_id, value: params[:lesson_id]%>
-  </div>
+        <ul>
+        <% userbooking.errors.full_messages.each do |message| %> 
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="field">
+      <%= form.hidden_field :user_id, value: "#{current_user.id}"%>
+    </div>
 
-  <div class="field">
-    <%= form.label :note %>
-    <%= form.text_area :note %>
-  </div>
+    <div class="field">
+      <%= form.hidden_field :lesson_id, value: params[:lesson_id]%>
+    </div>
 
-  <div class="field">
-    <%= form.label :date_booked %>
-    <%= form.datetime_select :date_booked %>
-  </div>
+    <div class="field">
+      <%= form.hidden_field :amountpaid, value: @lesson.price%>
+    </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <div class="field">
+      <%= form.label :note, :class => "labels" %>
+      <%= form.text_area :note, :class => "resizable-textboxes", :required => true%>
+    </div>
+
+    <div class="field dateselect">
+      <%= form.label :date_booked, :class => "labels" %>
+      <%= form.date_field :date_booked, selected: Date.today, min: Date.new(Time.new.year, Time.new.month, Time.new.day), max: 1.year.from_now, :required => true %>
+    </div>
+
+    <div class="submit-actions">
+      <%= form.submit 'Confirm Booking', :name => 'Confirm Booking', :id => "submit-button"%>
+    </div>
 <% end %>
+
+<script>
+  var dates = document.querySelector('.dateselect')
+  var nodes = dates.childNodes
+  nodes[8].remove()
+  nodes[9].remove()
+</script>

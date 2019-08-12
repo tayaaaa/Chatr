@@ -1,3 +1,185 @@
 // Place all the styles related to the Conversations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+body {
+    margin: 0 auto;
+  }
+
+  .message-form-label {
+    color: #666;
+    margin-bottom: 5px;
+    text-transform: none;
+  }
+
+  .message-form-field {
+    border: 1px solid #dedede;
+    background-color: #fbfbfb;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px 0;
+    position: relative;
+    max-width: 500px;
+    min-width: 300px;
+    width: 500px;
+  }
+
+  .message-form-textboxes {
+    border: 1px solid #dedede;
+    background-color: #fff;
+    border-radius: 3px;
+    padding: 5px;
+    resize: none;
+    height: 100px;
+    width: 100%;
+  }
+  
+  .message-form-submit,
+  .container-messages-wrapper,
+  .container-messages-wrapper h2 {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    width: 500px;
+  }
+
+  .container-messages-wrapper h2 {
+    color: #666;
+    font-weight: 500;
+    font-size: 1.3em;
+    padding: 0 0 5px;
+    align-items: flex-start;
+    text-transform: capitalize;
+  }
+
+  .message-form-submit {
+    align-items: flex-end !important;
+  }
+
+  #message-form-submit-btn {
+    background-color: #4267B2;
+    color: #fff;
+    text-transform: capitalize;
+    font-weight: 400;
+    border: 1px solid #4267B2;
+    padding: 8px 10px;
+    border-radius: 3px;
+  }
+
+  #message-form-submit-btn:active,
+  #message-form-submit-btn:focus,
+  #message-form-submit-btn:hover {
+    background-color: #2e487c;
+  }
+
+  .container-message {
+    border: 1px solid #dedede;
+    background-color: #fbfbfb;
+    border-radius: 3px;
+    padding: 10px;
+    margin: 10px 0;
+    position: relative;
+    max-width: 500px;
+    min-width: 300px;
+    width: 500px;
+  }
+  
+  .darker {
+    border: 1px solid #dedede;
+    background-color: #f7f7f7;
+  }
+  
+  .container-message::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  .container-message img {
+    border: solid 1px #dedede;
+    float: left;
+    width: 60px;
+    height: 60px;
+    margin-right: 20px;
+    border-radius: 100px;
+  }
+  
+  .container-message.darker .right img {
+    float: right;
+    margin-left: 20px;
+    margin-right:0;
+  }
+  
+  .time-right {
+    color: #aaa;
+    position: absolute;
+    bottom: 0;
+    right: 3px;
+  }
+  
+  .time-left {
+    color: #aaa;
+    position: absolute;
+    bottom: 0;
+    left: 3px;
+  }
+
+  #author-name {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end
+  }
+
+
+  .conversation-image img {
+    float: left;
+    max-width: 60px;
+    width: 100%;
+    margin-right: 20px;
+    border-radius: 50%;
+  }
+
+  .conversation {
+    border: 1px solid #dedede;
+    background-color: #fbfbfb;
+    border-radius: 3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 500px;
+    padding: 5px;
+    margin: 10px;
+  }
+
+  .new-conversation {
+    padding: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .all-conversations,
+  .new-conversation {
+    width: 500px;
+  }
+
+  .active-dot {
+    height: 15px;
+    width: 15px;
+    background-color: rgb(9, 174, 9);
+    border-radius: 50%;
+    display: inline-block;
+    margin: 1em;
+  }
+
+  #conversations-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    font-weight: 500;
+    font-size: 36px;
+  }

@@ -1,0 +1,72 @@
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+  <% if current_user %>
+    <%= render '/pages/header_nav_authenticated' %>
+  <% else %>
+    <%= render '/pages/header_nav_public' %>
+  <% end %>
+
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+            <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+        <% total_money = 0 %>
+        <% @user_transactions.each do |transaction| %>
+                <% total_money += transaction.amountpaid  %>
+        <% end %>
+
+        <div class="financeswrapper">
+        <div class = "earningsheader">
+            <% if current_user.role.privilege == "teacher" %>
+                <h1> You have earnt $<%= total_money %> </h1>
+            <% else %>
+                <h1> You have spent $<%= total_money %> </h1>
+            <% end %>
+        </div>
+
+
+        <table id="finances">
+            <h3>Your Transaction History: </h3>
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Language</th>
+                    <th>Duration</th>
+                    <% if current_user.role.privilege == "teacher" %>
+                        <th>From</th>
+                    <% else %>
+                        <th>To</th>
+                    <% end %>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% @user_transactions.each do |transact| %>
+                        <tr>
+                            <td><%= transact.date_booked.strftime("%F") %></td>
+                            <td><%= transact.lesson.languageskill.language_name %></td>
+                            <td><%= transact.lesson.duration %></td>
+                            <% if current_user.role.privilege == "teacher" %>
+                                <td><%= "#{transact.user.profile.firstname} #{transact.user.profile.lastname}" %></td>
+                            <% else %>
+                                <td><%= "#{transact.lesson.user.profile.firstname} #{transact.lesson.user.profile.lastname}" %></td>
+                            <% end %>
+                            <td><%= transact.amountpaid %></td>
+                        </tr>
+                <% end %>
+            </tbody>
+        </table>
+        </div>
+    </div>
+  </div>
+
+  <%= render "pages/footer_public" %>
+</body>

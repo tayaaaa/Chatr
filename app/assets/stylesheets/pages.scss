@@ -25,6 +25,7 @@ body {
   box-shadow: 0px 0px 5px 5px rgba(0, 0, 0, 0.1);
   position: fixed;
   top: 0;
+  z-index: 10;
 }
 
 #body.outer-wrapper {
@@ -129,6 +130,7 @@ nav.header-nav {
   flex-wrap: nowrap;
   justify-content: flex-end;
   width: 70%;
+  overflow: auto;
 }
 
 nav.footer-nav {
@@ -174,7 +176,7 @@ nav.footer-nav {
   font-size: 1.2em;
   font-weight: 400;
   margin-left: 20px;
-  padding: 4px 10px;
+  padding: 8px 10px;
   text-transform: capitalize;
 }
 
@@ -226,6 +228,15 @@ a.header-nav-btn.login-btn:hover {
   text-decoration: underline;
 }
 
+#header-nav-btn-profile {
+  align-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 38px;
+  width: auto;
+}
+
 .profile-nav-btn {
   align-items: center;
   display: flex;
@@ -233,14 +244,17 @@ a.header-nav-btn.login-btn:hover {
 }
 
 .profile-nav-image {
-  margin-left: -6px;
+  height: 28px;
+  margin-left: -8px;
   margin-right: 5px;
-  width: 20px;
+  overflow: hidden;
+  width: 28px;
 }
 
 .profile-nav-image img {
   border-radius: 3px;
-  width: 20px;
+  height: 100%;
+  width: 100%;
 }
 
 #header-nav .header-nav-notifications {
@@ -267,6 +281,7 @@ a.header-nav-btn.login-btn:hover {
   color: #fff;
   padding: 4px 0px;
   cursor: default;
+  text-decoration: none;
 }
 
 #header-nav .header-nav-logout:hover > .fas.fa-lock,
@@ -285,7 +300,6 @@ span.logout {
 #header-nav .fas:hover {
   color: #e2e2e2;
 }
-
 
 /**  LANDING PAGE STYLES (BEGIN)  **/
 
@@ -310,7 +324,7 @@ span.logout {
 }
 
 .bgr-image-signup {
-  background-image: url("landing-img-01.jpg");
+  background-image: url("https://chatr-app.s3-ap-southeast-2.amazonaws.com/rails-app/landing-img-01.jpg");
   background-repeat: no-repeat;
   background-position: bottom;
   background-size: cover;
@@ -443,7 +457,7 @@ div.column-teacher {
   text-transform: none;
 }
 
-#body .signup a.btn-signup {
+#body .signup .btn-signup {
   background-color: #4267B2;
   border: solid 1px #fff;
   border-radius: 5px;
@@ -456,7 +470,7 @@ div.column-teacher {
   text-transform: uppercase;
 }
 
-#body .signup a.btn-signup:hover {
+#body .signup .btn-signup:hover {
   background-color: rgb(46, 72, 124);
   border: solid 1px #fff;
 }
@@ -591,67 +605,495 @@ div.column-aboutus {
 /**  LANDING PAGE STYLES (END)  **/
 
 
-.lessoncards {
+.slider{
+  appearance:none;
   width: 100%;
-
-  .cardslider{
-    width: 100%;
-
-    .cardslider{
-      width: 100%;
-      display:flex;
-      flex-direction:row;
-      overflow-x: auto;
-
-      .card {
-        box-shadow: 0 0 2px 0 rgba(46,62,72,.12), 0 2px 4px 0 rgba(46,62,72,.12);
-        border: 1px solid grey;
-        border-radius: 2px;
-        margin: 10px;
-        padding: 10px;
-        align-items: center;
-        min-width: calc(25% - 42px);
-
-        .seemorebutton{
-          display:flex;
-          justify-content: center;
-        }
-    
-        .cardtitle {
-          #language {
-            text-align: center;
-          }
-        }
-    
-        .lessonstats{
-          display:flex;
-          flex-direction: row;
-          justify-content:center;
-        }
-        
-        .bookbuttondiv {
-          display:flex;
-          align-items:center;
-          .bookbutton {
-            background-color: #4267B2;
-            text-align: center;
-            color: white;
-            width: 80%;
-            justify-content: center;
-          }
-    
-          .bookbutton:visited{
-            color: white;
-          }
-        }
-      }
-      
-      .card:hover{
-        bottom: 1px;
-        right: 1px;
-        cursor: pointer;
-        box-shadow: 3px 3px 2px 2px rgba(24, 43, 56, 0.637);
-      }
-    }
-  }
 }
+
+#slider-wrapper{
+  appearance:none;
+}
+
+.bottomalign{
+  justify-content:flex-end;
+  align-items: center;
+}
+
+.bottomcontainer{
+  display:flex;
+  flex-direction: column;
+}
+
+.seemorebutton {
+  display:flex;
+  justify-content: center;
+}
+
+.grid-container {
+  display: grid;
+  // grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-auto-rows: auto;
+  grid-gap: 50px;
+}
+
+.inline-1 {
+  display: inline;
+}
+
+.lessonstats{
+  display:flex;
+  flex-direction: row;
+  justify-content:center;
+}
+
+.bookbuttondiv {
+  display:flex;
+  align-items:center;
+}
+    
+.bookbutton {
+  background-color: #4267B2;
+  text-align: center;
+  color: white;
+  width: 80%;
+  justify-content: center;
+}       
+
+.bookbutton:visited{
+  color: white;
+}
+          
+.card:hover{
+  bottom: 1px;
+  right: 1px;
+  cursor: pointer;
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+}
+
+th {
+  text-align: left;
+}
+
+#financeswrapper {
+  display:flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+#finances tr:nth-child(even){background-color: #f2f2f2;}
+
+#finances td, #finances th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#finances th {
+  background-color: #4267B2;
+  color: white;
+}
+
+#finances {
+  width: 90vw;
+}
+
+/**  BROWSE INDEX - BROWSE TEACHERS - BROWSE LESSONS | START  **/
+
+#body.browse.outer-wrapper {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+#body .browse.inner-wrapper {
+  min-height: 500px;
+  padding: 0px 10px;
+  margin-bottom: 0px;
+}
+
+.cardwrapper {
+  width: 100%;
+}
+
+.cardslider {
+  scrollbar-width: none;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+}
+
+.profile-card-title.browse-page {
+  border-bottom: 0;
+  padding: 0;
+  margin: 0;
+  width: auto;
+}
+
+.profile-card-title.browse-page h3 {
+  margin: 0;
+}
+
+#lesson-card h3,
+#lesson-card a {
+  margin: 0;
+  text-decoration: none;
+}
+
+.lesson-card {
+  align-items: center;
+  background-color: #fbfbfb;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 10px;
+  min-width: 350px;
+  padding: 20px 10px;
+  text-decoration: none;
+  width: 100%;
+}
+
+.lesson-card:hover {
+  box-shadow: 0px 0px 6px 1px rgba(0, 0, 0, 0.1);
+  text-decoration: none;
+}
+
+.lesson-card-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.lesson-card-text-row {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: 100%;
+}
+
+.lesson-card-star-rating {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.4em;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 20px;
+}
+
+.lesson-card-title h3 {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  font-style: italic;
+  text-transform: capitalize;
+  margin-bottom: 0;
+}
+
+.lesson-card-languages {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.lesson-card-text-row.languages {
+  margin-bottom: 5px;
+}
+
+.lesson-card-language-icon {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding-right: 5px;
+  width: 40%;
+}
+
+.lesson-card-language-name {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  padding-left: 5px;
+  width: 60%;
+}
+
+.lesson-card-bio {
+  color: #666;
+  font-weight: 300;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-transform: none;
+  width: 90%;
+}
+
+.lesson-card-bio p {
+  margin: 0;
+}
+
+.lesson-card-btn {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.lesson-card-top,
+.lesson-card-bottom {
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.lesson-card-bottom-button,
+.lesson-card-full {
+  align-items: center;
+  display:flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.teacher-card-teacher-image {
+  align-items: center;
+  border: solid 1px #ccc;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  margin-right: 5px;
+  width: 80px;
+}
+
+.lesson-card-teacher-image {
+  align-items: center;
+  border: solid 1px #ccc;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  height: 80px;
+  margin-right: 5px;
+  width: 80px;
+}
+
+.teacher-card-teacher-image img,
+.lesson-card-teacher-image img {
+  border-radius: 100px;
+  height: 100%;
+  width: 100%;
+}
+
+#browse-pages.fas.fa-user {
+  color: #a8a8a8;
+  font-size: 3em;
+}
+
+.lesson-card-teacher-name {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+}
+
+.teacher-card-title {
+  align-items: flex-start;
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: 0;
+  width: auto;
+}
+
+.teacher-card-title h1 a {
+  border-bottom: 0;
+  color: #666;
+  font-size: 1.4em;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  text-transform: capitalize;
+  width: auto;
+}
+
+#see-more-card {
+  margin: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: 350px;
+}
+
+.lesson-card-title h1 {
+  color: #666;
+  font-weight: 500;
+  font-size: 1.4em;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+#lesson-card:hover > .lesson-card-top .lesson-card-row.profile-card-teacher .teacher-card-title h1 a,
+#lesson-card:hover > a .lesson-card-top .lesson-card-row.lesson-card-title h1 {
+  color: #4267B2;
+}
+
+.lesson-card-details {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.2em;
+  text-transform: capitalize;
+}
+
+.lesson-card-description {
+  color: #666;
+  font-weight: 300;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+  text-align: justify;
+  text-transform: none;
+  width: 80%;
+}
+
+.lesson-card-teacher-name h4 {
+  color: #666;
+  font-weight: 400;
+  font-size: 1.3em;
+  text-transform: capitalize;
+}
+
+/**  BROWSE INDEX - BROWSE TEACHERS - BROWSE LESSONS | END  **/
+
+.browse-inner-column {
+  align-content: center;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.browse-title,
+.browse-all-title {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px 0;
+  width: 100%;
+}
+
+.browse-title h1,
+.browse-all-title h1 {
+  color: #666;
+  font-size: 1.6em;
+  line-height: 1.6em;
+  margin-bottom: 0;
+  margin-top: 0;
+  text-transform: capitalize;
+}
+
+.browse-all-filter {
+  margin-bottom: 20px;
+}
+
+#filter-form {
+  font-size: 1.1em;
+  line-height: 1.1em;
+}
+
+#filter-form .search-field {
+  background-color: #fcfcfc;
+  border-color: #d6d6d6;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  color: #333;
+  padding: 10px 5px;
+  width: 350px;
+}
+
+#filter-form .submit {
+  background-color: #4267B2;
+  border-color: #4267B2;
+  border-style: solid;
+  border-radius: 3px;
+  border-width: 1px;
+  color: #fff;
+  padding: 10px 20px;
+}
+
+#filter-form .submit:hover {
+  background-color: #2e487c;
+  color: #fff;
+}
+
+.browse-all-teachers {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.browse-all-teachers #lesson-card {
+  min-height: 400px;
+  width: calc(33.33333333% - 20px);
+}
+
+.rowofcards.rowofcards-outer {
+  display: block;
+  position: relative;
+}
+
+.icon::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scroll-arrow-teachers::after {
+  background-color: #fff;
+  border-color: #a6a6a6;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 100px;
+  color: #a6a6a6;
+  content: "\f0da";
+  font-family: "Font Awesome 5 Free";
+  font-size: 5em;
+  font-weight: 900;
+  height: 80px;
+  padding: 30px;
+  position: absolute;
+  right: -40px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+}
+
+

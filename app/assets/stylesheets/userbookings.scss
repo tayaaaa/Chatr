@@ -1,3 +1,79 @@
 // Place all the styles related to the Userbookings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.titlesection {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.card#bookingcard {
+    width: calc(33.333333% - 20px);
+}
+
+.profilepic-image {
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+} 
+
+#langwithteach {
+    font-weight: bold;
+    color:#4267B2;
+}
+
+.bottombar {
+    align-items: center;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.bottombar #complete,
+.bottombar .button {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+#subtitle {
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.righthandside{
+    display:flex;
+    flex-direction: column;
+}
+
+.cardbody{
+    padding: 15px;
+}
+
+.card {
+    border: 1px solid grey;
+    border-radius: 2px;
+    margin: 10px;
+    padding: 10px;
+    align-items: center;
+    min-width: calc(25% - 42px);
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: none;
+}
+
+#review-content{
+    margin-bottom: 10px;
+    width: 100%;
+    text-transform: none;
+}

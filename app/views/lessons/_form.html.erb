@@ -16,31 +16,31 @@
   </div>
 
   <div class="field">
-    <%= form.label :price %>
-    <%= form.number_field :price %>
+    <%= form.label "Price $", :class => "labels" %>
+    <%= form.number_field :price, :class => "textbox", :min => 0, :required => true%>
   </div>
 
   <div class="field">
-    <%= form.label :duration %>
-    <%= form.number_field :duration %>
+    <%= form.label "Duration in minutes", :class => "labels" %>
+    <%= form.number_field :duration, :class => "textbox", :min => 0, :max => 180, :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :languageskill_id %>
-    <%= form.number_field :languageskill_id %>
+    <%= form.label "Language", :class => "labels"%>
+    <%= form.select(:languageskill_id, current_user.profile.languageskills.all.collect {|lang|[lang.language_name, lang.id]}, :required => true) %>
   </div>
 
   <div class="field">
-    <%= form.label :description %>
-    <%= form.text_area :description %>
+    <%= form.label "Description", :class => "labels"%>
+    <%= form.text_area :description, :class => "resizable-textboxes", :placeholder => "Write a short description of your lesson here. Include a short blurb of your teaching style and what level of learner this lesson is best suited to.", :required => true %>
   </div>
 
   <div class="field">
-    <%= form.label :maxbooking %>
-    <%= form.number_field :maxbooking %>
+    <%= form.label "How many of this lesson would you like to make available for purchase?", :class => "labels" %>
+    <%= form.number_field :maxbooking, :class => "textbox" %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="submit-actions">
+    <%= form.submit 'publish lesson', :id => "submit-button"%>
   </div>
 <% end %>

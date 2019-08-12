@@ -1,5 +1,30 @@
-<h1>New Profile</h1>
+<head>
+  <title>Home | Chatr</title>
+  <link rel="icon" type="image/png" href="">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+</head>
 
-<%= render 'form', profile: @profile %>
+<body>
+  <%= render '/pages/header_nav_public' %>
 
-<%= link_to 'Back', profiles_path %>
+  <div id="body" class="outer-wrapper">
+    <div class="inner-wrapper">
+      
+      <%# PUT YOUR CONTENT HERE - THIS CONTAINER IS 1200px WIDE WITH 10px of PADDING LEFT AND RIGHT %>
+        <div class= "formbox">
+            <div class= "formcontent">
+                <h1 id="formtitle">New Profile</h1>
+                  <p id="notice"><%= notice %></p>
+                <div class="formfields">
+                    <%= render 'form', profile: @profile %>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+  </div>
+
+  <%= render "pages/footer_public" %>
+</body>

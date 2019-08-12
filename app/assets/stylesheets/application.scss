@@ -1,10 +1,14 @@
 @import url("https://use.fontawesome.com/releases/v5.7.2/css/all.css");
-@import url("./languageskills.scss");
-@import url("./lessons.scss");
-@import url("./notifications.scss");
-@import url("./pages.scss");
-@import url("./profiles.scss");
-@import url("./scaffolds.scss");
+@import 'languageskills';
+@import 'lessons';
+@import 'notifications';
+@import 'pages';
+@import 'profiles';
+@import 'scaffolds';
+@import 'userbookings';
+@import 'devise';
+@import 'forms';
+@import 'conversations';
 
 * {
   box-sizing: border-box;

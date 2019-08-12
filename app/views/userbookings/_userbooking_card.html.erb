@@ -1,0 +1,50 @@
+<% @all_userbooking_cards %>
+
+<div class="rowofcards rowofcards-outer">
+    <div class="cardslider icon scroll-arrow-teachers">
+        <% @all_userbooking_cards[locals[:completed]].each do |cardinfo|%>
+            <div class="card" id="bookingcard">
+
+                <div class="titlesection">
+                    <% if cardinfo[:picture].uploaded_image.attached? %>
+                        <%= image_tag cardinfo[:picture].uploaded_image, class: 'profilepic-image' %>
+                    <% else %>
+                        <i id="browse-pages" class="fas fa-user"></i>
+                    <% end %>
+                    
+                    <div class="righthandside">
+                        <h2 id = "langwithteach"> <%= "#{cardinfo[:language]} with #{cardinfo[:teacher]}" %> </h2>
+                        <div class = "subtitlesection">
+                            <span class="glyphicon glyphicon-hourglass"></span>
+                            <%= "#{cardinfo[:duration]} minutes | #{cardinfo[:date].strftime("%e %B, %Y")}"%>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class = "cardbody">
+                    <div id = "subtitle"> <strong> Your note to <%= "#{cardinfo[:teacher]}:" %> </strong> <%= "#{cardinfo[:note]}" %> </div> 
+
+                    <div id = "subtitle"> <strong> Lesson description: </strong> <%= "#{cardinfo[:description]}" %> </div> 
+                </div>
+                
+                <div class = "bottombar">
+                    <div class = "button" >
+                        <%= link_to "CONTACT #{cardinfo[:teacher].upcase}",new_conversation_path %>
+                    </div>
+
+                    <div class = "complete?">
+                        <% if cardinfo[:complete] == false %>
+                            <%= link_to "MARK AS COMPLETE", "/userbookings/completelesson/#{cardinfo[:userbooking].id}", method: :put%>
+                        <% else %>
+                            <% if !cardinfo[:userbooking].review %>
+                            <%= link_to "REVIEW", "/userbookings/#{cardinfo[:userbooking].id}/review" %>
+                            <%end%>
+                        <% end %>
+                    </div>
+                </div>
+                
+            </div>
+        <% end %>
+    </div>
+</div>

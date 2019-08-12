@@ -1,0 +1,33 @@
+.labels{
+    font-size: 1.4em;
+    color: #434343;
+}
+#notif{
+    font-size: 1em;
+}
+.textbox{
+    width: 100%;
+    line-height: 1.4em;
+}
+
+#submit.btn-signup{
+    width: 100%;
+}
+
+.sign-up-box{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    height: 100%;
+    justify-content: center;
+    width: 50%;
+}
+
+#less-transperant.signup {
+    background-color: rgba(255, 255, 255, 0.5);
+    overflow-x: hidden;
+    height: auto;
+    width: auto;
+    padding: 20px;
+}

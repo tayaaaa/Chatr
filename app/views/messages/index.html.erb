@@ -5,10 +5,10 @@
 <table>
   <thead>
     <tr>
-      <th>References</th>
+      <th>Author</th>
       <th>Content</th>
       <th>Date sent</th>
-      <th>References</th>
+      <th>Conversation</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +16,9 @@
   <tbody>
     <% @messages.each do |message| %>
       <tr>
-        <td><%= message.references %></td>
+        <td><%= message.author.email %></td>
         <td><%= message.content %></td>
-        <td><%= message.date_sent %></td>
-        <td><%= message.references %></td>
+        <td><%= message.conversation.id %></td>
         <td><%= link_to 'Show', message %></td>
         <td><%= link_to 'Edit', edit_message_path(message) %></td>
         <td><%= link_to 'Destroy', message, method: :delete, data: { confirm: 'Are you sure?' } %></td>
