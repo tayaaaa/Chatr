@@ -20,13 +20,13 @@
     <%= form.hidden_field :author_id, value: "#{current_user.id}" %>
   </div>
 
-  <div class="field">
-    <%= form.label :content, :class => "labels" %>
-    <%= form.text_area :content, :class => "resizable-textboxes", :required => true%>
+  <div class="message-form-field">
+    <div class="message-form-label"> Write a new message ... </div>
+    <%= form.text_area :content, :class => "message-form-textboxes", :required => true%>
   </div>
 
-  <div class="submit-actions">
-    <%= form.submit "New Message", :id => "submit-button" %>
+  <div class="message-form-submit">
+    <%= form.submit "send message", :id => "message-form-submit-btn" %>
   </div>
 
 <% end %>
