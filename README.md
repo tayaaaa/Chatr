@@ -165,6 +165,7 @@ https://www.conversationexchange.com
 
 Conversation exchange allows you to publicly post your personal profile and see the profiles of other learners. It is up to you to find a conversation partner and determine how you will chat. There is no structure for storing, sending or receiving messages - an email communication system is used. There is no model for making or receiving payments. Revenue is derived through donations to the site. There are therefore no roles for teachers or students. There is no option to review or rate another person, so no data structure to store this information. They have a ‘resources’ section on their site, where they externally reference youtube videos with tips/tutorials/common phrases. Though they have some posts on their site, these are just new views with content about what questions to ask somebody. Users do not have the ability to make posts, only the site administrators. They do not store relationships or interactions between users.
 
+#### Italki
 https://www.italki.com/ is a very similar application to Chatr and provides some advanced functionality for its users. You can sign up as a general user then upgrade to a teacher or you can decide to sign up as a teacher from the outset. It is an app deployed at scale. They would therefore be using a database that can support many concurrent connections. This database would be either self hosted across a number of servers to handle large loads/server downtime or in a cloud environment through AWS for example. They would likley have a significant database model to handle all the different relationships between entities and enure that the data model is normalised to reduce data redundancy and dependancy.
 
 ## 12. Discuss the database relations to be implemented.
@@ -240,6 +241,9 @@ We used Trello and Slack as our two main tools for tracking tasks and communicat
 
 Given the limited time for the project we built out a timeline and worked out which tasks needed to be prioritized to achieve our MVP. Team members worked on different tasks so as to avoid overlap and conflicts. We also used Slack to coordinate pull requests, code reviews and to discuss what our hurdles were to make sure we made consistent progress.
 
+![trello](./app/assets/images/Trello.png "trello")
+
+![trello-2](./app/assets/images/Trello-2.png "trello-2")
 
 ## 18. Discuss how Agile methodology is being implemented in your project.
 #### Frequent inspection:
