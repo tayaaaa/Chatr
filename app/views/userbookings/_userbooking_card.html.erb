@@ -45,7 +45,7 @@
                                 <% if cardinfo[:userbooking].review.reply == nil %>
                                     <div id = "subtitle"> <strong> Reply not yet available </strong> </div> 
                                 <% else %>
-                                    <div id = "review-content"> <strong> Teacher Reply: </strong> <%= "#{cardinfo[:userbooking].review.reply}" %> </div>
+                                    <div id = "review-content"> <strong> Teacher Reply: </strong> <%= "#{cardinfo[:userbooking].review.reply.content}" %> </div>
                                 <% end %> 
 
                             <%end%>
