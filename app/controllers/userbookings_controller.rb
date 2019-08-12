@@ -83,6 +83,7 @@ class UserbookingsController < ApplicationController
   # POST /userbookings.json
   def create
     @userbooking = Userbooking.new(userbooking_params)
+    raise
     authorize(Userbooking)
     @lesson = @userbooking.lesson
     if(@lesson.maxbooking != 0)

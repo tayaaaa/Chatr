@@ -26,7 +26,7 @@ class Profile < ApplicationRecord
       end
     end
     if(userbookings_with_review != 0)
-      self.average_rating = (total_stars / (userbookings_with_review * 5.0)) * 5
+      self.average_rating = ((total_stars / (userbookings_with_review * 5.0)) * 5).round
       self.save!
     end
   end
