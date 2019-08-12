@@ -2,57 +2,64 @@
 
 ## 1. What is the need (i.e. challenge) that you will be addressing in your project?
 
-Finding a face-to-face tutor or conversation partner presents many hurdles to the average language learner:
+Our application provides a platform which enables native language speakers to monetize their skills by creating lessons and offering them to students who come to the platform to learn a new language skill. Our marketplace attempts to reduce the frictions involved in this process and facilitate a smooth exchange of value between particpants. 
+
+## 2. Identify the problem you're trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
+
+Finding a face-to-face tutor or conversation partner presents many hurdles to the average language learner, including:
 - You may struggle to find somebody in your local area who knows your target language.
 
 - Distance can be a problem, and finding a location to meet is an extra hurdle.
 
 - Face-to-face tutoring can be very formal, it is essential to develop conversational skills outside of a traditional classroom environment.
 
-- The partner you find might not be a native speaker, you miss out on learning the subtleties of the language that only come with chatting to a native speaker.
+- The partner you find might not be a native speaker and you may miss out on learning the subtleties of the language that only come with chatting to a native speaker.
 
 - Scheduling can be a challenge - especially for people who are learning a language while working full time, or have children, and need to book time slots with a tutor at short notice or outside business hours.
 
-- Write and read reviews
+- Transparency in terms of the quality of service provided by a teacher. This can be addressed with reviews and a rating system.
 
-- Compare prices
+- Transparency in terms of offerings and pricing
 
-- Existing language exchange websites are unreliable, informal, and focus on ‘exchanging’, both teaching one another your native language, which can lead to an imbalance when the pair have varying proficiency levels. It is also usually left up to the exchange partners to schedule time to chat. This can be hard to communicate, especially if you are a beginner. It is essential that language learners are able to organise and schedule lessons in their native language so that it is easy and more likely that you will successfully connect with your partner. 
-
-## 2. Identify the problem you're trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
-
-Please see responses to questions 1 and 3
+- Existing language exchange websites are unreliable, informal, and focus on ‘exchanging’, both teaching one another your native language, which can lead to an imbalance when the pair have varying proficiency levels. It is also usually left up to the exchange partners to schedule time to chat. This can create issues in terms of communication, especially if you are a beginner. It is essential that language learners are able to organise and schedule lessons in their native language so that it is easy and more likely that you will successfully connect with your partner.
 
 ## 3. Describe the project will you be conducting and how. your App will address the needs.
 
 Chatr connects language learners with native speakers and teachers. Unlike traditional language exchange platforms, Chatr makes scheduling and organising with a native speaker easy as it can occur in the language you are most comfortable with. This is approachable for beginners and streamlines the process of trying to find a suitable time and partner.
 
+Students will be able to browse the site for lessons and teachers that interest them. They can use a search function to find lessons for a particuklar language or search for a particular teacher. They can view teacher profiles and check an offering including reviews and ratings for that teacher. 
+
+Teachers will be able to customize their profile as required and create new lessons and set what price they wish to sell their services for. 
+
+Users of the appp can also message each other in order to communicate about upcomming lessons or sort out any questiosn problems they may have
+
 ## 4. Describe the network infrastructure the App may be based on. 
 
-Chatr utilises Heroku for deployment to the network. Heroku is a cloud based platform that allows you to run your app in a virtual container called a dyno which executes on a reliable runtime environment. If we wished to scale the app we could set up more dynos on Heroku to handle the increase in resource demand. Heroku applications are assigned a unique domain name which ensures that HTTP requests from a client route to the correct dyno. It also applies to the runtime environment the app’s config vars and other environment specifications such as credentials.
+Chatr utilises Heroku for deployment to the network. Heroku is a cloud based platform that allows you to run your app in a virtual container called a dyno which executes on a reliable runtime environment. If we wished to scale the app we could set up more dynos on Heroku to handle the increase in resource demand. Heroku applications are assigned a unique domain name which ensures that HTTP requests from a client route to the correct dyno. It also applies the app’s config vars and other environment specifications such as credentials to the runtime environment.
 
 ## 5. Identify and describe the software to be used in your App.
 
-Front-end:
-CSS: CSS was the main language used to style our app.
-Sass: Sass expanded the capabilities of CSS by allowing us to use variables and nest elements together which made our code a lot cleaner and easier to understand, edit and navigate.
-HTML: HTML was used to construct the overall structure of our web pages.
-Back-end:
-We used Ruby on Rails to develop the marketplace locally first. Rails is perfect for developing marketplaces because there are so many existing solutions to problems related to marketplaces, which increased our productivity and speed in developing the app. Rails is built on Ruby, which is object oriented and flexible which was perfect for us to write our logic.
-Task Management:
+####Front-end:
+- CSS: CSS was the main language used to style our app.
+- Sass: Sass expanded the capabilities of CSS by allowing us to use variables and nest elements together which made our code a lot cleaner and easier to understand, edit and navigate.
+- HTML: HTML was used to construct the overall structure of our web pages.
+
+####Back-end:
+- We used Ruby on Rails to develop the marketplace locally first. Rails is perfect for developing marketplaces because there are so many existing solutions to problems related to marketplaces, which increased our productivity and speed in developing the app. Rails is built on Ruby, which is object oriented and flexible which was perfect for us to write our logic.
+- Task Management:
 Trello was used to plan out all the tasks needed to complete the app and assign them to team members, who could then mark them off, where green indicates the task was done, orange indicates the task was finished but needed review from another team member, and red indicated that there were problems or difficulties with finishing the task.
-Database:
-Chatr has a postgresql database. This database is open source, supports a huge amount of data types and is relational, making it very easy for us to access data between tables. ActiveRecord allowed us to write SQL code, make queries, and create our database using Ruby, making it seamless for us to use postgresql in our rails application.
-Version control:
+- Database:
+Chatr has a postgresql database. This database is open source, supports a huge amount of data types and is relational, making it very easy for us to access data between tables. ActiveRecord allowed us to write SQL code, make queries, and create our database using Ruby,making it seamless for us to use postgresql in our rails application.
+- Version control:
 Collaborating on git and github enabled us to work together on the same rails project remotely, and store a few different copies of our app.
 
-Deployment
+#### Deployment
 Our app is deployed using Heroku, which allows us to push our code from github to the internet using their servers and network infrastructure, which is perfect for a small-scale project like this one.
 
 
 ## 6. Identify the database to be used in your App and provide a justification for your choice.
 
-Chatr utilises a postgresql database. This is a well documented open source SQL based system that supports a very large number of concurrent connections. It is widely reported that Postgresql is the most robust database with outstanding reliability even compared to many expensive proprietary options. We also wanted a relational database to ensure data could be easily and efficiently accessed and manipulated.. Additionally, Postgresql works very well with Rails and Heroku.
+Chatr utilises a postgresql database. This is a well documented open source SQL based system that supports a very large number of concurrent connections. It is widely reported that Postgresql is one of the most robust databases, with outstanding reliability even compared to many expensive proprietary options. We also wanted a relational database to ensure data could be easily and efficiently accessed and manipulated. Additionally, Postgresql works very well with Rails and Heroku.
 
 ## 7. Identify and describe the production database setup (i.e. postgres instance).
 
@@ -75,16 +82,17 @@ The user can send and receive HTTP requests by interacting with the app through 
 * POST (send new information to the database)
 * UPDATE or PATCH (change or edit information already in the database.)
 
-In our example, the user would press ‘submit’ on a form with the details of what they wanted to edit on their profile. This would send an update or patch request.
+In our example, the user would press ‘submit’ a form with the details of what they wanted to edit on their profile. This would send an put or patch request.
+
 #### Router
 
-The routes direct the user’s HTTP requests to the correct controllers, and then the correct actions within that controller. In our example, the users ‘update’ request would be routed to the ‘profile’ controller, and the ‘edit’ action.
+The routes direct the user’s HTTP requests to the correct controllers, and then the correct actions within that controller. In our example, when the user submits the form, it would be wrapped as 'put' request with the details for the update contained in the message body. When this request hits the router it will map to the 'update' action within the 'profiles' controller.
 
 #### Action Controller
 
 The action controller is responsible for defining and organising all of the different actions that can be executed on a table in the database. This contains the logic of the application. 
 
-At stage 2 on the diagram, the action controller is responsible for executing the logic contained in the method. The methods usually do this by requesting information from the database or grabbing information from outside of the app (such as through an API). In our example, the new bio of the user would be passed into the ‘edit’ action within the ‘profile’ controller. The edit action then requests that the ‘bio’ field in the ‘profile’ table on the database be altered to the new bio.
+At stage 2 on the diagram, the action controller is responsible for executing the logic contained in the method. The methods usually do this by requesting information from the database via the model or grabbing information from outside of the app (such as through an API). In our example, the new bio of the user would be passed into the ‘update’ action within the ‘profile’ controller. The update action then requests that the ‘bio’ field in the ‘profile’ table on the database be altered to the new bio.
 
 At stage 7, once the action has been completed, the action controller will reference the right view file that should be rendered in the user’s browser.
 
@@ -101,27 +109,32 @@ Views are what the user sees rendered in their browser as a result of the part o
 
 ## 9. Explain the different high-level components (abstractions) in your App.
 
-Our app follows the Model View Controller (MVC) format and users Active record which is an additional layer sitting between our model and the database. Following the MVC pattern enables separation of concerns by organizing the core functions of our into discrete sections.
+Our app follows the Model View Controller (MVC) format and users Active record which is an additional layer sitting between our model and the database. Following the MVC pattern enables separation of concerns by organizing the core functions of our application into discrete sections.
 
-The Model represents the underlying logical structure of data within the program. It is the thing that is used to access and manipulate data within the database. It includes logic (functions), attributes of entities, relationships between entities and dependencies/validations
-The View  is a collection of classes representing the elements in the user interface (all of the things the user can see and respond to on the screen, such as buttons, display boxes, and so forth). 
-The Controller represents the classes connecting the model and the view, and is used to communicate between classes in the model and view. For example, it might use the model to get some data it wants, do something to it, then serve it to the user in the view. The controller is like mission control, it is the brains of the app
-Active record acts as a go between the model and the database. It saves us from having to write sql and allows us to treat the data in the model as ruby objects
+![mvc diagram](./app/assets/images/mvc-model.jpeg "mvc diagram")
+
+
+- The **Model** represents the underlying logical structure of data within the program. It is the thing that is used to access and manipulate data within the database. It includes logic (functions), attributes of entities, relationships between entities and dependencies/validations.
+- The **View**  is a collection of classes representing the elements in the user interface (all of the things the user can see and respond to on the screen, such as buttons, display boxes, and so forth). 
+- The **Controller** represents the classes connecting the model and the view, and is used to communicate between classes in the model and view. For example, it might use the model to get some data it wants, do something to it, then serve it to the user in the view. The controller is like mission control, it is the brains of the app.
+- **Active record** acts as a go between the model and the database. It saves us from having to write sql and allows us to treat the data in the model as ruby objects
 
 ## 10. Detail any third party services that your App will use.
 
-Content Delivery Network:
+####Content Delivery Network:
 We used Amazon’s S3 service to host and deliver the images on our site. S3 is high speed, web-based cloud storage service, and is ideal for storing images because it can store large file sizes. On the other hand, our database is best at handling a large number of small records that are likely to need to be searched. The profile picture image files on our site are more likely to be large items that do not need to be indexed or searched.
-Payments:
-We used stripe to process payments. Stripe allows card payments.
-Security:
-We used devise for authentication and to store sensitive user details such as their emails and passwords securely. This also managed their sign-in and everything regarding the creation/editing/or deleting of their account including password recovery.
 
-Pundit was used for authorization - to restrict the things that users could see and do based on their role as defined within the app.
+####Payments:
+We used stripe to process payments. Stripe allows card payments.
+
+####Security:
+- We used devise for authentication and to store sensitive user details such as their emails and passwords securely. This also managed their sign-in and everything regarding the creation/editing/or deleting of their account including password recovery.
+
+- Pundit was used for authorization - to restrict the things that users could see and do based on their role as defined within the app.
 
 ## 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
-
+https://www.italki.com/ is a very similar application to Chatr and provides some advanced functionality for its users. You can sign up as a general user then upgrade to a teacher or you can decide to sign up as a teacher from the outset. It is an app deployed at scale. They would therefore be using a database that can support many concurrent connections. This database would be either self hosted across a number of servers to handle large loads/server downtime or in a cloud environment through AWS for example. They would likley have a significant database model to handle all the different relationships between entities and enure that the data model is normalised to reduce data redundancy and dependancy.
 
 ## 12. Discuss the database relations to be implemented.
 
@@ -129,55 +142,66 @@ In the first few days of our project after requirements gathering and user stori
 
 ## 13. Describe your project’s models in terms of the relationships (active record associations) they have with each other. 
 
-The relationships between our models are included below. 
-Messages
-	belong_to :thread
-Thread
-	belongs_to :teacher, :class_name => “User’
-	belongs_to :student, :class_name => “User”
-	has_many :messages
- 
-User
-	has_many :threads
-	has_one :role
+The relationships between our models are included below.
+
+class User
+  has_many :conversations
+	belongs_to :role, optional: true
 	has_many :notifications
-	has_one :profile
-	has_many :userbookings
-	has_many :lessons
-The user forms the centre of our app, with most other models stemming from here.
-Role
-	has_many :users
-Profile
-	belongs_to :user
-	has_many :languageskills
-	has_one_attached :uploaded_image
-LanguageSkill
-	belongs_to :profile
-Notifications
-	belongs_to :user
-UserBooking
-	belongs_to :lesson
-	belongs_to :student, :class_name => “User”
- 
+  has_one :profile
+  has_many :userbookings
+  has_many :messages
+  has_many :lessons
+
+Conversation
+    belongs_to :user1, :class_name => "User"
+	belongs_to :user2, :class_name => "User"
+	has_many :messages, dependent: :destroy
+
+Languageskill
+    belongs_to :profile, optional: true
+    has_many :lessons
+
 Lesson
-	has_many :userbookings
-	has_many :reviews
-	belongs_to :teacher, :class_name => “User”
- 
-Review
-	belongs_to :lesson
-	has_one :reply
- 
+  belongs_to :languageskill
+  has_many :userbookings
+  belongs_to :user
+
+Message
+    belongs_to :conversation
+    belongs_to :author, :class_name => "User"
+
+Profile
+  belongs_to :user, optional: true
+  has_one_attached :uploaded_image
+  has_one_attached :background_image
+  has_many :languageskills, dependent: :destroy
+
 Reply
-	belongs_to :review
+  belongs_to :review
+
+Review
+  belongs_to :userbooking
+  has_one :reply, dependent: :destroy
+
+Role
+  has_many :users
+
+Userbooking
+  belongs_to :user
+  belongs_to :lesson
+  has_one :review, dependent: :destroy
 
 ## 14. Provide your database schema design.
 
+![user schema](./app/assets/images/Tom-ERD.png "Schema")
+
 ## 15. Provide User stories for your App.
 
-![user stories](./app/assets/images/security-goals.jpg "Security Goals")
+![user stories](./app/assets/images/user-stories.jpg "User Stories")
 
 ## 16. Provide Wireframes for your App.
+
 
 ## 17. Describe the way tasks are allocated and tracked in your project.
 
@@ -216,19 +240,20 @@ We used devise for authentication and pundit for authorization. We manually test
 
 ## 21. Discuss and analyse requirements related to information system security.
 Information security measures attempt to address one of the following three broad goals:  
-* Protect the confidentiality of data
-* Preserve the integrity of data
-* Promote the availability of data for authorized use
+- Protect the confidentiality of data
+- Preserve the integrity of data
+- Promote the availability of data for authorized use
 
 This is represented in the figure below.
 
-![user stories](./app/assets/images/user-stories.jpg "User Stories")
+CHANGE THIS IMAGE
+![security goals](./app/assets/images/security-goals.jpg "Security Goals")
 
-The aim of integrity models is to ensure data is kept untampered and trustworthy by protecting system data from accidental or intentional changes by unauthorised parties or hackers.
+The aim of **Integrity models** is to ensure data is kept untampered and trustworthy by protecting system data from accidental or intentional changes by unauthorised parties or hackers.
 
-Availability models aim to make certain that data and resources are always available for authorized users. For example the model needs to take into consideration unexpected and irregular events such as emergencies, disasters, DDOS attacks and equipment failures. An example of this would be making data redundant across a number of different physical locations and having backup servers.
+**Availability models** aim to make certain that data and resources are always available for authorized users. For example the model needs to take into consideration unexpected and irregular events such as emergencies, disasters, DDOS attacks and equipment failures. An example of this would be making data redundant across a number of different physical locations and having backup servers.
 
-Confidentiality models act to safeguard information from people that are unauthorized to view or access it. The confidentiality principle prescribes that information should only be viewed by users with the correct privileges
+**Confidentiality** models act to safeguard information from people that are unauthorized to view or access it. The confidentiality principle prescribes that information should only be viewed by users with the correct privileges
 
 ## 22. Discuss methods you will use to protect information and data.
 Sensitive data used by chatr includes card and payment information, user schedules and contact information, and passwords. 
