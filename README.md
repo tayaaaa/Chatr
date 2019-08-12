@@ -1,5 +1,13 @@
 # README
 
+Deployed app: https://salty-beyond-73472.herokuapp.com/
+
+Contributors:
+- Taya Lacey: https://github.com/tayaaaa
+- Paul Meier: https://github.com/fiterr-paul
+- Thomas Smith: https://github.com/tomsmi321
+
+
 ## Mood board for Chatr
 ![moodboard](./app/assets/images/moodboard.png "Moodboard")
 
@@ -234,6 +242,11 @@ Userbooking
 
 ## 16. Provide Wireframes for your App.
 
+![wireframes1](./app/assets/images/wireframe1.png "wireframes1")
+![wireframes2](./app/assets/images/wireframe1.png "wireframes2")
+![wireframes3](./app/assets/images/wireframe1.png "wireframes3")
+![wireframes4](./app/assets/images/wireframe1.png "wireframes4")
+![wireframes5](./app/assets/images/wireframe1.png "wireframes5")
 
 ## 17. Describe the way tasks are allocated and tracked in your project.
 
