@@ -1,5 +1,8 @@
 # README
 
+## Mood board for Chatr
+![moodboard](./app/assets/images/moodboard.png "Moodboard")
+
 ## 1. What is the need (i.e. challenge) that you will be addressing in your project?
 
 Our application provides a platform which enables native language speakers to monetize their skills by creating lessons and offering them to students who come to the platform to learn a new language skill. Our marketplace attempts to reduce the frictions involved in this process and facilitate a smooth exchange of value between particpants. 
@@ -39,12 +42,12 @@ Chatr utilises Heroku for deployment to the network. Heroku is a cloud based pla
 
 ## 5. Identify and describe the software to be used in your App.
 
-####Front-end:
+#### Front-end:
 - CSS: CSS was the main language used to style our app.
 - Sass: Sass expanded the capabilities of CSS by allowing us to use variables and nest elements together which made our code a lot cleaner and easier to understand, edit and navigate.
 - HTML: HTML was used to construct the overall structure of our web pages.
 
-####Back-end:
+#### Back-end:
 - We used Ruby on Rails to develop the marketplace locally first. Rails is perfect for developing marketplaces because there are so many existing solutions to problems related to marketplaces, which increased our productivity and speed in developing the app. Rails is built on Ruby, which is object oriented and flexible which was perfect for us to write our logic.
 - Task Management:
 Trello was used to plan out all the tasks needed to complete the app and assign them to team members, who could then mark them off, where green indicates the task was done, orange indicates the task was finished but needed review from another team member, and red indicated that there were problems or difficulties with finishing the task.
@@ -107,6 +110,13 @@ We used a postgresql database - its purpose is to store all the information gath
 
 Views are what the user sees rendered in their browser as a result of the part of the app that they interacted with. In our example, after they have pressed the ‘edit’ button they would be re-directed back to the last page they visited and a ‘success!’ message displayed.
 
+#### User journey through the app
+
+![user flow](./app/assets/images/Student-user-flow.png "student user flow diagram")
+
+![user flow](./app/assets/images/Teacher-user-flow.png "teacher user flow diagram")
+
+
 ## 9. Explain the different high-level components (abstractions) in your App.
 
 Our app follows the Model View Controller (MVC) format and users Active record which is an additional layer sitting between our model and the database. Following the MVC pattern enables separation of concerns by organizing the core functions of our application into discrete sections.
@@ -121,13 +131,13 @@ Our app follows the Model View Controller (MVC) format and users Active record w
 
 ## 10. Detail any third party services that your App will use.
 
-####Content Delivery Network:
+#### Content Delivery Network:
 We used Amazon’s S3 service to host and deliver the images on our site. S3 is high speed, web-based cloud storage service, and is ideal for storing images because it can store large file sizes. On the other hand, our database is best at handling a large number of small records that are likely to need to be searched. The profile picture image files on our site are more likely to be large items that do not need to be indexed or searched.
 
-####Payments:
+#### Payments:
 We used stripe to process payments. Stripe allows card payments.
 
-####Security:
+#### Security:
 - We used devise for authentication and to store sensitive user details such as their emails and passwords securely. This also managed their sign-in and everything regarding the creation/editing/or deleting of their account including password recovery.
 
 - Pundit was used for authorization - to restrict the things that users could see and do based on their role as defined within the app.
@@ -267,7 +277,6 @@ Information security measures attempt to address one of the following three broa
 
 This is represented in the figure below.
 
-CHANGE THIS IMAGE
 ![security goals](./app/assets/images/security-goals.jpg "Security Goals")
 
 The aim of **Integrity models** is to ensure data is kept untampered and trustworthy by protecting system data from accidental or intentional changes by unauthorised parties or hackers.
