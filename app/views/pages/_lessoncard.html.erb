@@ -32,7 +32,7 @@
                             </div>
                         </div>
                         <div class="lesson-card-row">
-                            <% if current_user.role_id == nil   %>
+                            <% if current_user == nil   %>
                                 <%= link_to 'sign up to book', '/', class: "book-btn" %>
                             <% elsif current_user.role_id == 3 %>
                                 <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
