@@ -44,7 +44,7 @@ class ProfilesController < ApplicationController
     redirect_to new_languageskill_path(:profile_id => @profile.id)
     end
   end
-
+ 
   # PATCH/PUT /profiles/1
   # PATCH/PUT /profiles/1.json
   def update
