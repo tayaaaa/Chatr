@@ -1,7 +1,7 @@
 <% @all_userbooking_cards %>
 
-<div class="rowofcards" >
-    <div class="cardslider">
+<div class="rowofcards rowofcards-outer">
+    <div class="cardslider icon scroll-arrow-teachers">
         <% @all_userbooking_cards[locals[:completed]].each do |cardinfo|%>
             <div class="card" id="bookingcard">
 
@@ -9,7 +9,7 @@
                     <% if cardinfo[:picture].uploaded_image.attached? %>
                         <%= image_tag cardinfo[:picture].uploaded_image, class: 'profilepic-image' %>
                     <% else %>
-                            <p> N/A </p>
+                        <i id="browse-pages" class="fas fa-user"></i>
                     <% end %>
                     
                     <div class="righthandside">
@@ -23,9 +23,9 @@
                 </div>
 
                 <div class = "cardbody">
-                    <p id = "subtitle"> <strong> Your note to <%= "#{cardinfo[:teacher]}:" %> </strong> <%= "#{cardinfo[:note]}" %> </p> 
+                    <div id = "subtitle"> <strong> Your note to <%= "#{cardinfo[:teacher]}:" %> </strong> <%= "#{cardinfo[:note]}" %> </div> 
 
-                    <p id = "subtitle"> <strong> Lesson description: </strong> <%= "#{cardinfo[:description]}" %> </p> 
+                    <div id = "subtitle"> <strong> Lesson description: </strong> <%= "#{cardinfo[:description]}" %> </div> 
                 </div>
                 
                 <div class = "bottombar">
