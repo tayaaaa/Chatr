@@ -37,7 +37,7 @@
 
     <div class="field dateselect">
       <%= form.label :date_booked, :class => "labels" %>
-      <%= form.date_select :date_booked, :min => Time.now.to_s, :required => true %>
+      <%= form.date_field :date_booked, selected: Date.today, min: Date.new(Time.new.year, Time.new.month, Time.new.day), max: 1.year.from_now, :required => true %>
     </div>
 
     <div class="submit-actions">
