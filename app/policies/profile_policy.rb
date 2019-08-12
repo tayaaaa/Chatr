@@ -23,7 +23,7 @@ class ProfilePolicy < ApplicationPolicy
     end
   
     def update?
-        new?
+        edit?
     end
   
     def edit?

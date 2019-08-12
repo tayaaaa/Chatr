@@ -15,12 +15,11 @@
 
   <div id="body" class="outer-wrapper">
     <div class="inner-wrapper">
-
       <div class = "cardwrapper">
-      
         <% if current_user.role.privilege == "teacher" %>
           <div class="rowofcards">
             <h1> Your upcoming bookings: </h1>
+            <p id="notice"><%= notice %></p>
             <%= render 'teacherbooking_card', locals: {completed: 0}  %>
           </div>
 
@@ -31,6 +30,7 @@
         <% else %>
           <div class="rowofcards">
             <h1> Your upcoming bookings: </h1>
+            <p id="notice"><%= notice %></p>
             <%= render 'userbooking_card', locals: {completed: 0}  %>
           </div>
 

@@ -3,14 +3,21 @@
 ## 1. What is the need (i.e. challenge) that you will be addressing in your project?
 
 Finding a face-to-face tutor or conversation partner presents many hurdles to the average language learner:
-You may struggle to find somebody in your local area who knows your target language.
-Distance can be a problem, and finding a location to meet is an extra hurdle.
-Face-to-face tutoring can be very formal, it is essential to develop conversational skills outside of a traditional classroom environment.
-The partner you find might not be a native speaker, you miss out on learning the subtleties of the language that only come with chatting to a native speaker.
-Scheduling can be a challenge - especially for people who are learning a language while working full time, or have children, and need to book time slots with a tutor at short notice or outside business hours.
-Write and read reviews
-Compare prices
-Existing language exchange websites are unreliable, informal, and focus on ‘exchanging’, both teaching one another your native language, which can lead to an imbalance when the pair have varying proficiency levels. It is also usually left up to the exchange partners to schedule time to chat. This can be hard to communicate, especially if you are a beginner. It is essential that language learners are able to organise and schedule lessons in their native language so that it is easy and more likely that you will successfully connect with your partner. 
+- You may struggle to find somebody in your local area who knows your target language.
+
+- Distance can be a problem, and finding a location to meet is an extra hurdle.
+
+- Face-to-face tutoring can be very formal, it is essential to develop conversational skills outside of a traditional classroom environment.
+
+- The partner you find might not be a native speaker, you miss out on learning the subtleties of the language that only come with chatting to a native speaker.
+
+- Scheduling can be a challenge - especially for people who are learning a language while working full time, or have children, and need to book time slots with a tutor at short notice or outside business hours.
+
+- Write and read reviews
+
+- Compare prices
+
+- Existing language exchange websites are unreliable, informal, and focus on ‘exchanging’, both teaching one another your native language, which can lead to an imbalance when the pair have varying proficiency levels. It is also usually left up to the exchange partners to schedule time to chat. This can be hard to communicate, especially if you are a beginner. It is essential that language learners are able to organise and schedule lessons in their native language so that it is easy and more likely that you will successfully connect with your partner. 
 
 ## 2. Identify the problem you're trying to solve by building this particular marketplace App? Why is it a problem that needs solving?
 
@@ -113,6 +120,8 @@ We used devise for authentication and to store sensitive user details such as th
 Pundit was used for authorization - to restrict the things that users could see and do based on their role as defined within the app.
 
 ## 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
+
+
 
 ## 12. Discuss the database relations to be implemented.
 
