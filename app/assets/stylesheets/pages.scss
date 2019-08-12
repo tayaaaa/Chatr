@@ -893,3 +893,39 @@ th {
   min-height: 400px;
   width: calc(33.33333333% - 20px);
 }
+
+.rowofcards.rowofcards-outer {
+  display: block;
+  position: relative;
+}
+
+.icon::after {
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+
+.scroll-arrow-teachers::after {
+  background-color: #fff;
+  border-color: #666;
+  border-style: solid;
+  border-width: 2px;
+  border-radius: 100px;
+  color: #666;
+  content: "\f0da";
+  font-family: "Font Awesome 5 Free";
+  font-size: 5em;
+  font-weight: 900;
+  height: 80px;
+  padding: 30px;
+  position: absolute;
+  right: -40px;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 80px;
+}
+
+
