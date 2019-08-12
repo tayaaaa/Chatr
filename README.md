@@ -242,11 +242,15 @@ Userbooking
 
 ## 16. Provide Wireframes for your App.
 
-![wireframes1](./app/assets/images/wireframe1.png "wireframes1")
-![wireframes2](./app/assets/images/wireframe1.png "wireframes2")
-![wireframes3](./app/assets/images/wireframe1.png "wireframes3")
-![wireframes4](./app/assets/images/wireframe1.png "wireframes4")
-![wireframes5](./app/assets/images/wireframe1.png "wireframes5")
+![wireframe1](./app/assets/images/wireframe1.png "wireframe1")
+
+![wireframe2](./app/assets/images/wireframe2.png "wireframe2")
+
+![wireframe3](./app/assets/images/wireframe3.png "wireframe3")
+
+![wireframe4](./app/assets/images/wireframe4.png "wireframe4")
+
+![wireframe5](./app/assets/images/wireframe5.png "wireframe5")
 
 ## 17. Describe the way tasks are allocated and tracked in your project.
 
