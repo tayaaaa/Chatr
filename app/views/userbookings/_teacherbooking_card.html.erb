@@ -7,7 +7,9 @@
 
                 <div class="titlesection">
                     <% if cardinfo[:picture].uploaded_image.attached? %>
-                        <%= image_tag cardinfo[:picture].uploaded_image, class: 'profilepic-image' %>
+                        <%= link_to "/profiles/#{cardinfo[:student_profile].id}" do %>
+                            <%= image_tag (cardinfo[:picture].uploaded_image), class: 'profilepic-image' %>
+                        <% end %>
                     <% else %>
                         <i id="browse-pages" class="fas fa-user"></i>
                     <% end %>

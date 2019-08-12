@@ -105,7 +105,9 @@ class ConversationsController < ApplicationController
       lessons.each do |lesson|
         if lesson.userbookings
           lesson.userbookings.each do |userbooking|
-            users << userbooking.user
+            if !(users.include?(userbooking.user))
+              users << userbooking.user
+            end
           end
         end
       end

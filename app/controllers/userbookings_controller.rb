@@ -41,7 +41,8 @@ class UserbookingsController < ApplicationController
             duration: booking.lesson.duration,
             complete: booking.completedstu,
             review: booking.review,
-            student: booking.user.profile.firstname
+            student: booking.user.profile.firstname,
+            student_profile: booking.user.profile
           }
           if card_information[:complete] == true
             @all_userbooking_cards[1] << card_information
