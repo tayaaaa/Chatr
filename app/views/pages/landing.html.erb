@@ -22,7 +22,7 @@
                 <div class="title"> <h3>student</h3> </div>
               </div>
             </div>
-            <%= link_to "signup", new_user_registration_path(:role => Role.where(privilege: 'student').first), :class => "btn-signup" %>
+            <%= link_to "signup", new_user_registration_path(:user => {:role => Role.where(privilege: 'student').first}), :class => "btn-signup" %>
           </div>
         </div>
         <div class="column-teacher">

@@ -53,7 +53,7 @@ class ConversationsController < ApplicationController
   
       respond_to do |format|
         if @conversation.save
-          format.html { redirect_to @conversation, notice: 'conversation was successfully created.' }
+          format.html { redirect_to @conversation}
           format.json { render :show, status: :created, location: @conversation }
         else
           format.html { render :new }
@@ -68,7 +68,7 @@ class ConversationsController < ApplicationController
   def update
     respond_to do |format|
       if @conversation.update(conversation_params)
-        format.html { redirect_to @conversation, notice: 'Conversation was successfully updated.' }
+        format.html { redirect_to @conversation}
         format.json { render :show, status: :ok, location: @conversation }
       else
         format.html { render :edit }
@@ -82,7 +82,7 @@ class ConversationsController < ApplicationController
   def destroy
     @conversation.destroy
     respond_to do |format|
-      format.html { redirect_to conversations_url, notice: 'Conversation was successfully destroyed.' }
+      format.html { redirect_to conversations_url}
       format.json { head :no_content }
     end
   end

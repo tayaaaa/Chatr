@@ -39,7 +39,7 @@ class LanguageskillsController < ApplicationController
   def update
     respond_to do |format|
       if @languageskill.update(languageskill_params)
-        format.html { redirect_to userbookings_path, notice: 'Languageskill was successfully updated.' }
+        format.html { redirect_to userbookings_path}
         format.json { render :show, status: :ok, location: @languageskill }
       else
         format.html { render :edit }
@@ -54,7 +54,7 @@ class LanguageskillsController < ApplicationController
     authorize(Languageskill)
     @languageskill.destroy
     respond_to do |format|
-      format.html { redirect_to languageskills_url, notice: 'Languageskill was successfully destroyed.' }
+      format.html { redirect_to languageskills_url}
       format.json { head :no_content }
     end
   end
