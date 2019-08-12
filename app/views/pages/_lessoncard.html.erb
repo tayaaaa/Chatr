@@ -1,5 +1,5 @@
-<div class="rowofcards">
-    <div class="cardslider">
+<div class="rowofcards rowofcards-outer">
+    <div class="cardslider icon scroll-arrow-teachers">
         <% @lesson_card_array.each do |lesson| %>
             <div id="lesson-card" class="lesson-card">
                 <a href = <%="/profiles/#{lesson[:teacher_id]}"%>>

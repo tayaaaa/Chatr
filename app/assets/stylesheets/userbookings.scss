@@ -9,8 +9,8 @@
     justify-content: space-around;
 }
 
-.card#bookingcard{
-    width: calc(50% - 42px);
+.card#bookingcard {
+    width: calc(33.333333% - 20px);
 }
 
 .profilepic-image {
@@ -24,11 +24,29 @@
     color:#4267B2;
 }
 
-.bottombar{
+.bottombar {
+    align-items: center;
     display:flex;
     flex-direction: row;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-around;
+}
+
+.bottombar #complete,
+.bottombar .button {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+    text-transform: capitalize;
+    width: 100%;
+}
+
+#subtitle {
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .righthandside{
@@ -41,11 +59,15 @@
 }
 
 .card {
-    box-shadow: 0 0 2px 0 rgba(46,62,72,.12), 0 2px 4px 0 rgba(46,62,72,.12);
     border: 1px solid grey;
     border-radius: 2px;
     margin: 10px;
     padding: 10px;
     align-items: center;
     min-width: calc(25% - 42px);
+    text-decoration: none;
+}
+
+.card a:hover {
+    text-decoration: none;
 }
