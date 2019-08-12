@@ -35,7 +35,7 @@
 
                     <div id = "complete" class = "complete?">
                         <% if cardinfo[:review] != nil %>
-                            <div id = "subtitle"> <strong> Review available: </strong> <%= "#{cardinfo[:review].content}" %> </div> 
+                            <div id = "review-content"> <strong> Review available: </strong> <%= "#{cardinfo[:review].content}" %> </div> 
                             <% if cardinfo[:userbooking].review.reply == nil %>
                                 <%= link_to "reply", new_reply_path(:id => cardinfo[:userbooking].id) %>
                             <% else %>

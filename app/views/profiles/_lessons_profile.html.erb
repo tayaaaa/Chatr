@@ -26,10 +26,10 @@
             <% if current_user.role.privilege != "teacher" %>
                 <div class="profile-card-row profile-card-book-btn">
                     <%= link_to 'book now', new_userbooking_path(:lesson_id => lesson[:id]), class: "book-btn" %>
-                </div>
-            <%elsif current_user%>
+                </div> 
+            <%elsif current_user.profile.id == @profile.id%>
                 <div class="profile-card-row profile-card-delist-btn">
-                    <%= button_to 'delist lesson', "/profile/#{@profile.id}/delist-lesson", params: {:lesson_id => lesson.id}, data: {confirm: "Are you sure you want to remove this lesson?"}, :method => :post%>
+                    <%= link_to 'delist lesson', "/profile/#{@profile.id}/delist-lesson?lesson_id=#{lesson.id}", data: {confirm: "Are you sure you want to remove this lesson?"}, :method => :post, :class => "book-btn", :id => 'delist-btn'%>
                 </div>
             <% end %>
             </div>
