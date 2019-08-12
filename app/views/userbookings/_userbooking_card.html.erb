@@ -10,7 +10,7 @@
                         <%= image_tag cardinfo[:picture].uploaded_image, class: 'profilepic-image' %>
                     <% else %>
                         <i id="browse-pages" class="fas fa-user"></i>
-                    <% end %>
+                    <% end %> 
                     
                     <div class="righthandside">
                         <h2 id = "langwithteach"> <%= "#{cardinfo[:language]} with #{cardinfo[:teacher]}" %> </h2>
@@ -37,9 +37,19 @@
                         <% if cardinfo[:complete] == false %>
                             <%= link_to "MARK AS COMPLETE", "/userbookings/completelesson/#{cardinfo[:userbooking].id}", method: :put%>
                         <% else %>
-                            <% if !cardinfo[:userbooking].review %>
-                            <%= link_to "REVIEW", "/userbookings/#{cardinfo[:userbooking].id}/review" %>
+                            <% if cardinfo[:userbooking].review == nil %>
+                                <%= link_to "REVIEW", "/userbookings/#{cardinfo[:userbooking].id}/review" %>
+                            <% else %>
+                                <div id = "review-content"> <strong> Review available: </strong> <%= "#{cardinfo[:userbooking].review.content}" %> </div>
+                                
+                                <% if cardinfo[:userbooking].review.reply == nil %>
+                                    <div id = "subtitle"> <strong> Reply not yet available </strong> </div> 
+                                <% else %>
+                                    <div id = "review-content"> <strong> Teacher Reply: </strong> <%= "#{cardinfo[:userbooking].review.reply}" %> </div>
+                                <% end %>
+
                             <%end%>
+
                         <% end %>
                     </div>
                 </div>

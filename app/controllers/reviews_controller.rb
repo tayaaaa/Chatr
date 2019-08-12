@@ -37,7 +37,7 @@ class ReviewsController < ApplicationController
       if @review.save
         @review.save!
         @teacher.profile.update_average_rating
-        format.html { redirect_to userbookings_path, notice: 'Review was successfully created.' }
+        format.html { redirect_to userbookings_path }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
     respond_to do |format|
       if @review.update(review_params)
         @teacher.profile.update_average_rating
-        format.html { redirect_to userbookings_path, notice: 'Review was successfully updated.' }
+        format.html { redirect_to userbookings_path }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit }
@@ -68,7 +68,7 @@ class ReviewsController < ApplicationController
     authorize(Review)
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to reviews_url}
       format.json { head :no_content }
     end
   end

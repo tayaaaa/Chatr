@@ -6,7 +6,6 @@ class Profile < ApplicationRecord
 
   validates :firstname, :lastname, :bio, :skypename, :presence => {:message => "Please fill out this field"}
 
-
   def update_average_rating
     set_average_rating
   end

@@ -35,7 +35,7 @@ class RepliesController < ApplicationController
     @reply = Reply.new(reply_params)
     respond_to do |format|
       if @reply.save
-        format.html { redirect_to userbookings_path, notice: 'Reply was successfully created.' }
+        format.html { redirect_to userbookings_path}
         format.json { render :show, status: :created, location: @reply }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class RepliesController < ApplicationController
     authorize(Reply)
     respond_to do |format|
       if @reply.update(reply_params)
-        format.html { redirect_to userbookings_path, notice: 'Reply was successfully updated.' }
+        format.html { redirect_to userbookings_path}
         format.json { render :show, status: :ok, location: @reply }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class RepliesController < ApplicationController
     authorize(Reply)
     @reply.destroy
     respond_to do |format|
-      format.html { redirect_to replies_url, notice: 'Reply was successfully destroyed.' }
+      format.html { redirect_to replies_url}
       format.json { head :no_content }
     end
   end

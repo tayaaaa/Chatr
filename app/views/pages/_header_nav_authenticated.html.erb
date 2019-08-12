@@ -21,7 +21,7 @@
           
           </a>
         <% else %>
-          <a href= href="/profiles/<%= current_user.profile.id %>">
+          <a href= <%= "/profiles/#{current_user.profile.id}" %> >
           <%= current_user.email %>
           </a>
         <% end %>

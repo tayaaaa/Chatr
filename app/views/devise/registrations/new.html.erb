@@ -8,6 +8,8 @@
 
 <body>
 
+
+
   <%= render 'pages/header_nav_public' %>
 
   <div id="body" class="outer-wrapper outer-wrapper-public outer-wrapper-public-first bgr-image-signup"> 
@@ -26,24 +28,24 @@
                 </div>
 
                 <div class="field">
+                  <%= f.hidden_field :role, value: "#{params[:user][:role]}" %>
+                </div>
+
+                <div class="field">
                   <%= f.label :password, :class => "labels" %>
                   <% if @minimum_password_length %>
                   <em class="labels", id = "notif">(<%= @minimum_password_length %> characters minimum)</em>
                   <% end %><br />
-                  <%= f.password_field :password, autocomplete: "new-password", :class => "textbox" %>
+                  <%= f.password_field :password, autocomplete: "new-password", :class => "textbox", :required => true %>
                 </div>
 
                 <div class="field">
                   <%= f.label :password_confirmation, :class => "labels" %><br />
-                  <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "textbox" %>
+                  <%= f.password_field :password_confirmation, autocomplete: "new-password", :class => "textbox", :required => true  %>
                 </div>
 
                 <div class="action">
                   <%= f.submit "Sign up as a #{Role.find(params[:user][:role]).privilege}", :class => "btn-signup", :id => 'submit'%>
-                </div>
-
-                <div class="field">
-                  <%= f.hidden_field :role, value: params[:role] %>
                 </div>
               
               <% end %>

@@ -18,6 +18,9 @@ class ApplicationController < ActionController::Base
     
     def after_sign_in_path_for(resource)
         if current_user.profile == nil
+            user = current_user
+            user.role = Role.find(params[:user][:role])
+            user.save
             new_profile_path
         else
             '/browse'
