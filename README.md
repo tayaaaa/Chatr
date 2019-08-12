@@ -134,6 +134,27 @@ We used stripe to process payments. Stripe allows card payments.
 
 ## 11. Describe (in general terms) the data structure of marketplace apps that are similar to your own (e.g. eBay, Airbnb).
 
+#### VerbalPlanet: 
+https://www.verbalplanet.com
+
+Verbal planet has a search feature, like us, but it is more nuanced and allows you to filter and sort tutors based on their average price per lesson. Like us, they have no in-platform video communication, instead relying on skype. They do have an in-platform messaging feature, like us.
+Verbal planet also stores your progress and presents a visual interface to view your learning analytics that is visible to both tutors and students. Storing your history and performance allows them to do things like grant percentage discounts on lessons depending on how many you have bought in the past.
+
+They have a more complex data structure to record your proficiency in a language that splits it up into your Speaking, Listening, Reading and writing skills with a more nuanced scale from beginner to advanced.
+They have separate roles for teachers and students, but users can also have a secondary role - for example they have a ‘business mode’ to help you learn business related language and industry specific jargon from professional teachers who indicate themselves as working in a particular field. This is stored in their database.
+
+There is an application process to become a teacher, and administrators will allow tutors based on demand and quality, instead of allowing tutors to sign up and create an account instantly. Tutors can post short videos of themselves speaking which VerbalPlanet stores.
+
+#### DuoLingo:
+https://www.duolingo.com/
+
+Duolingo provides gamified language learning courses rather than facilitating language exchange between two users. There are pre-determined lessons which you are meant to interact with daily, and lessons are recorded and narrated by native speakers. Users do not interact directly with natives, and they are given ratings based on their performance in the course content. There is no model for payment for individual lessons, instead you can purchase a monthly subscription to ‘DuoLingo Plus’ which allows you to access the content without ads.
+
+#### Conversation Exchange
+https://www.conversationexchange.com 
+
+Conversation exchange allows you to publicly post your personal profile and see the profiles of other learners. It is up to you to find a conversation partner and determine how you will chat. There is no structure for storing, sending or receiving messages - an email communication system is used. There is no model for making or receiving payments. Revenue is derived through donations to the site. There are therefore no roles for teachers or students. There is no option to review or rate another person, so no data structure to store this information. They have a ‘resources’ section on their site, where they externally reference youtube videos with tips/tutorials/common phrases. Though they have some posts on their site, these are just new views with content about what questions to ask somebody. Users do not have the ability to make posts, only the site administrators. They do not store relationships or interactions between users.
+
 https://www.italki.com/ is a very similar application to Chatr and provides some advanced functionality for its users. You can sign up as a general user then upgrade to a teacher or you can decide to sign up as a teacher from the outset. It is an app deployed at scale. They would therefore be using a database that can support many concurrent connections. This database would be either self hosted across a number of servers to handle large loads/server downtime or in a cloud environment through AWS for example. They would likley have a significant database model to handle all the different relationships between entities and enure that the data model is normalised to reduce data redundancy and dependancy.
 
 ## 12. Discuss the database relations to be implemented.
